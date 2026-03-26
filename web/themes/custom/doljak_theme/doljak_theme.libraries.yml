@@ -1,0 +1,8 @@
+global-styling:
+  version: VERSION
+  css:
+    layout:
+      css/layout/global.css: {}
+
+  dependencies:
+    - core/drupal

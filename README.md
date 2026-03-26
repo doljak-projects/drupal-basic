@@ -12,6 +12,16 @@ O objetivo não é construir um produto final, mas sim explorar e documentar na 
 - **Servidor**: nginx-fpm via DDEV
 - **URL local**: http://drupal-treino-b.ddev.site
 
+## Escopo de Negócio
+
+O projeto simula o site de um **petshop fictício**, usado como contexto prático para os exercícios. O escopo público de apresentação inclui:
+
+- **Home**: página estática com listagem de artigos do blog
+- **Aside**: lista de produtos à venda, separados por categoria, com links direcionando para um e-commerce fictício da loja
+- **Página de produto**: exibe a descrição detalhada de cada produto
+
+O escopo será expandido conforme os tópicos forem abordados nos exercícios.
+
 ## Escopo dos Exercícios
 
 ### Basico

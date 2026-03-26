@@ -11,3 +11,6 @@ regions:
   content: 'Conteúdo'
   sidebar: 'Sidebar'
   footer: 'Rodapéfit '
+
+libraries:                                                                                                                           
+  - doljak_theme/global-styling
