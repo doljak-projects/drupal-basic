@@ -1,0 +1,13 @@
+name: "Doljak theme"
+type: "theme"
+description: "primeiro tema customizado"
+core_version_requirement: ^10 || ^11
+base theme: false
+
+regions:
+  header: 'Cabecalho'
+  nav: 'Navegação'
+  hero: 'Hero'
+  content: 'Conteúdo'
+  sidebar: 'Sidebar'
+  footer: 'Rodapéfit '

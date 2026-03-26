@@ -1,0 +1,32 @@
+# Dependências gerenciadas pelo Composer
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Arquivos de configuração com dados sensíveis
+web/sites/*/settings*.php
+web/sites/*/services*.yml
+
+# Arquivos gerados pelo usuário
+web/sites/*/files/
+web/sites/*/private/
+
+# Testes
+web/sites/simpletest/
+
+# DDEV (gerado automaticamente, não versionar)
+.ddev/.gitignore
+.ddev/db_snapshots/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
