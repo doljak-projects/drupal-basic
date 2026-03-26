@@ -1,4 +1,4 @@
-# Drupal Treino B — POC de Aprendizado Prático
+# Drupal PoC — Aprendizado Prático
 
 Este repositório é uma **prova de conceito (POC)** de estudo do Drupal 11, com foco em exercícios progressivos que cobrem desde os conceitos mais básicos até os recursos avançados do framework.
 
