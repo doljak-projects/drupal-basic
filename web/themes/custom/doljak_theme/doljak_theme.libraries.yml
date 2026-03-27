@@ -3,6 +3,13 @@ global-styling:
   css:
     layout:
       css/layout/global.css: {}
+    base:
+      css/regions/hero-styling.css: {}  
+
+  js:
+    js/header.js: {}
+
 
   dependencies:
     - core/drupal
+    - core/once
