@@ -3,7 +3,12 @@
   Drupal.behaviors.headerSearch = {
     attach: function (context, settings) {
       once('headerSearch', '.search-toggle', context).forEach(function (button) {
-        const input = button.closest('.search-filter-animated').querySelector('.search-input');
+        const container = button.closest('.search-filter-animated');
+        const input = container ? container.querySelector('.search-input') : null;
+
+        if (!input) {
+          return;
+        }
 
         // Hide input initially
         input.style.width = '0';

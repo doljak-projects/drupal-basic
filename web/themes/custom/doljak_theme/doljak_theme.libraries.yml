@@ -4,11 +4,10 @@ global-styling:
     layout:
       css/layout/global.css: {}
     base:
-      css/regions/hero-styling.css: {}  
+      css/base/hero-styling.css: {}
 
   js:
     js/header.js: {}
-
 
   dependencies:
     - core/drupal
