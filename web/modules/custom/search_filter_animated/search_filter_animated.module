@@ -1,0 +1,13 @@
+  <?php                                                                                                                                                                                             
+                                                                                                                                                                                                    
+  /**                                                                                                                                                                                               
+   * Implements hook_theme().                                                                                                                                                                       
+   */                                                                                                                                                                                             
+  function search_filter_animated_theme() {
+    return [
+      'search_filter_animated' => [
+        'variables' => [],                    
+      ],                                  
+    ];
+  }   
+  

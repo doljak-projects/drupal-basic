@@ -1,0 +1,6 @@
+name: 'Search Filter Animated'
+type: module
+description: 'Custom module for animated search filters.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies: []

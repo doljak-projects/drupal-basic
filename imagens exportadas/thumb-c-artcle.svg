@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="302" height="260" viewBox="0 0 302 260" fill="none">
+  <rect width="302" height="260" fill="#D0E4CC"/>
+  <circle cx="151" cy="130" r="70" fill="#7BAF74" fill-opacity="0.2"/>
+  <g fill="#7BAF74">
+    <rect x="131" y="110" width="40" height="35" rx="6"/>
+    <rect x="123" y="120" width="12" height="6" rx="3"/>
+    <rect x="167" y="120" width="12" height="6" rx="3"/>
+  </g>
+  <circle cx="143" cy="125" r="4" fill="#FFFFFF"/>
+  <circle cx="159" cy="125" r="4" fill="#FFFFFF"/>
+  <rect x="139" y="137" width="24" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.7"/>
+  <rect x="18" y="18" width="63" height="28" rx="14" fill="#7BAF74"/>
+  <text x="49.5" y="37" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="16">BEST</text>
+</svg>
