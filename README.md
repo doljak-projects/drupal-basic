@@ -26,25 +26,25 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 
 ### Basico
 
-- [ ] Instalação e configuração do ambiente com DDEV
-- [ ] Estrutura de diretórios e arquivos essenciais do Drupal
-- [ ] Tipos de conteúdo (Content Types) e campos (Fields)
-- [ ] Taxonomias e vocabulários
-- [ ] Menus e links de navegação
-- [ ] Blocos: criação, posicionamento e visibilidade
+- [X] Instalação e configuração do ambiente com DDEV
+- [X] Estrutura de diretórios e arquivos essenciais do Drupal
+- [X] Tipos de conteúdo (Content Types) e campos (Fields)
+- [X] Taxonomias e vocabulários
+- [X] Menus e links de navegação
+- [X] Blocos: criação, posicionamento e visibilidade
 - [ ] Usuários, papéis (roles) e permissões
-- [ ] Tema administrador com Gin
+- [X] Tema administrador com Gin
 
 ### Intermediário
 
 - [ ] Views: criação de listagens, filtros e displays
-- [ ] Config API: exportar e importar configurações com `cex` / `cim`
+- [X] Config API: exportar e importar configurações com `cex` / `cim`
 - [ ] Criação de módulo customizado simples (hook_theme, routing, controller)
 - [ ] Formulários com Form API
 - [ ] Criação de tema customizado com Starterkit
-- [ ] Twig: templates, variáveis, filtros e funções
+- [X] Twig: templates, variáveis, filtros e funções
 - [ ] Preprocessors (`hook_preprocess_*`)
-- [ ] Bibliotecas de assets (libraries.yml, attachTo)
+- [X] Bibliotecas de assets (libraries.yml, attachTo)
 - [ ] Migrations básicas com Migrate API
 
 ### Avancado

@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function waggy_wishlist_theme() {
+  return [
+    'waggy_wishlist' => [
+      'variables' => [],
+    ],
+  ];
+}
