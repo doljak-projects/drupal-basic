@@ -1,0 +1,5 @@
+{
+  "/products/category/:slug": "/products?categorySlug=:slug",
+  "/products/featured":       "/products?badge=BEST",
+  "/products/new-arrivals":   "/products?badge=NEW"
+}
