@@ -1,0 +1,45 @@
+uuid: c447f2e7-c840-4f09-9d7a-13277e3f3f68
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contextual
+    - file
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+id: moderator
+label: Moderator
+weight: 4
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access toolbar'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create page content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete article revisions'
+  - 'delete own article content'
+  - 'delete own files'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own page content'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

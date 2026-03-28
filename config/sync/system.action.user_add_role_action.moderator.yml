@@ -1,0 +1,14 @@
+uuid: ad7b19b0-2853-4c32-832f-475a8c83ea65
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.moderator
+  module:
+    - user
+id: user_add_role_action.moderator
+label: 'Add the Moderator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: moderator

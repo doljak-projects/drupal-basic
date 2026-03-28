@@ -1,0 +1,23 @@
+uuid: 4e1d3600-da00-450b-bb6e-d79a31ca5881
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:42ea95cb-a6bc-4715-b315-dcd83c0ecd41'
+  module:
+    - block_content
+  theme:
+    - doljak_theme
+id: contact_link_header
+theme: doljak_theme
+region: header
+weight: 2
+provider: null
+plugin: 'block_content:42ea95cb-a6bc-4715-b315-dcd83c0ecd41'
+settings:
+  id: 'block_content:42ea95cb-a6bc-4715-b315-dcd83c0ecd41'
+  label: Contact
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

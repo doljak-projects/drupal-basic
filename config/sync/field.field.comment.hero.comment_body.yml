@@ -1,0 +1,22 @@
+uuid: 71d7e911-74e7-4747-bc6e-b9a35f074733
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.hero
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.hero.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: hero
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

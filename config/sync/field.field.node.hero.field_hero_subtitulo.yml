@@ -1,0 +1,19 @@
+uuid: 7edc8498-a982-4919-90a8-f2b04639ce52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_subtitulo
+    - node.type.hero
+id: node.hero.field_hero_subtitulo
+field_name: field_hero_subtitulo
+entity_type: node
+bundle: hero
+label: Subtítulo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

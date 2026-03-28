@@ -1,0 +1,19 @@
+uuid: 96f7f0e0-d503-4df0-a35c-9cf83e649d89
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_hero_descricao
+field_name: field_hero_descricao
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
