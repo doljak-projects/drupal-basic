@@ -1,10 +1,11 @@
 global-styling:
   version: VERSION
   css:
+    base:
+      https://fonts.googleapis.com/css2?family=Chilanka:wght@500&family=Montserrat:wght@500&family=Spinnaker:wght@500&display=swap: { type: external, minified: true }
+      css/base/hero-styling.css: {}
     layout:
       css/layout/global.css: {}
-    base:
-      css/base/hero-styling.css: {}
 
   js:
     js/header.js: {}

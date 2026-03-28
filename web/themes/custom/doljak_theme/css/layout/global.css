@@ -12,6 +12,7 @@
   /* Colors — Background */
   --color-bg-base:        #FAF3ED;
   --color-bg-hero:        #F5EDE0;
+  --color-bg-hero-2:      #ecc483;
   --color-bg-dark:        #414040;
   --color-bg-card-warm:   #F0E4D4;
   --color-bg-card-blue:   #E8EDF5;
@@ -27,6 +28,7 @@
   /* Colors — Border */
   --color-border:         #EDE4D8;
   --color-border-light:   #DDD4C8;
+  --color-hero-image:     #f2d0a8;
 
   /* Colors — Categories */
   --color-cat-dog:        #DE9C6F;
@@ -37,7 +39,7 @@
   --color-cat-small:      #C8A030;
 
   /* Typography — Families */
-  --font-display:         'Syne', sans-serif;
+  --font-display:         'Spinnaker', sans-serif;
   --font-body:            'Montserrat', sans-serif;
   --font-decorative:      'Chilanka', cursive;
 
@@ -129,7 +131,6 @@ body {
 img,
 svg {
   display: block;
-  max-width: 100%;
 }
 
 a {
@@ -173,7 +174,7 @@ header[role="banner"] > div {
 
 #block-doljak-theme-sitebranding img {
   height: 48px;
-  width: auto;
+  width: 80%;
 }
 
 /* Main navigation — center */
@@ -320,4 +321,8 @@ footer[role="contentinfo"] {
 
 .layout-content {
   padding: var(--space-20) var(--gutter);
+}
+a{
+  display: flex;
+    justify-content: center;
 }
