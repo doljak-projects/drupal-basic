@@ -40,6 +40,9 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 - [ ] Views: criação de listagens, filtros e displays
 - [X] Config API: exportar e importar configurações com `cex` / `cim`
 - [X] Criação de módulo customizado simples (hook_theme, routing, controller)
+  - [X] hook_theme — registro de templates customizados
+  - [X] routing — via plugin system (Block)
+  - [ ] controller — rota com página própria e render array
 - [ ] Formulários com Form API
 - [X] Criação de tema customizado com Starterkit
 - [X] Twig: templates, variáveis, filtros e funções
@@ -51,6 +54,9 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 
 - [ ] Serviços e injeção de dependência (Dependency Injection / Service Container)
 - [X] Plugins: criação de tipos de bloco, campo e formatador customizados
+  - [X] tipo de bloco — Block plugins com @Block annotation
+  - [ ] campo customizado — FieldType plugin
+  - [ ] formatador customizado — FieldFormatter plugin
 - [ ] Event Subscribers e hooks via classes
 - [ ] Queue API e processamento em background
 - [ ] Cache API: cache tags, contexts e invalidação
