@@ -7,7 +7,7 @@ O objetivo não é construir um produto final, mas sim explorar e documentar na 
 ## Ambiente
 
 - **Drupal**: 11.x
-- **PHP**: 8.4
+- **PHP**: 8.3
 - **Banco de dados**: MariaDB 11.8
 - **Servidor**: nginx-fpm via DDEV
 - **URL local**: http://drupal-treino-b.ddev.site
@@ -32,16 +32,16 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 - [X] Taxonomias e vocabulários
 - [X] Menus e links de navegação
 - [X] Blocos: criação, posicionamento e visibilidade
-- [ ] Usuários, papéis (roles) e permissões
+- [X] Usuários, papéis (roles) e permissões
 - [X] Tema administrador com Gin
 
 ### Intermediário
 
 - [ ] Views: criação de listagens, filtros e displays
 - [X] Config API: exportar e importar configurações com `cex` / `cim`
-- [ ] Criação de módulo customizado simples (hook_theme, routing, controller)
+- [X] Criação de módulo customizado simples (hook_theme, routing, controller)
 - [ ] Formulários com Form API
-- [ ] Criação de tema customizado com Starterkit
+- [X] Criação de tema customizado com Starterkit
 - [X] Twig: templates, variáveis, filtros e funções
 - [ ] Preprocessors (`hook_preprocess_*`)
 - [X] Bibliotecas de assets (libraries.yml, attachTo)
@@ -50,7 +50,7 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 ### Avancado
 
 - [ ] Serviços e injeção de dependência (Dependency Injection / Service Container)
-- [ ] Plugins: criação de tipos de bloco, campo e formatador customizados
+- [X] Plugins: criação de tipos de bloco, campo e formatador customizados
 - [ ] Event Subscribers e hooks via classes
 - [ ] Queue API e processamento em background
 - [ ] Cache API: cache tags, contexts e invalidação
