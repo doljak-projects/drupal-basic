@@ -48,6 +48,7 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 - [X] Twig: templates, variáveis, filtros e funções
 - [ ] Preprocessors (`hook_preprocess_*`)
 - [X] Bibliotecas de assets (libraries.yml, attachTo)
+- [ ] Responsividade: media queries em CSS do tema customizado, breakpoints mobile/tablet/desktop
 - [ ] Migrations básicas com Migrate API
 
 ### Avancado

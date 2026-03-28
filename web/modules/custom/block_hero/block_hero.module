@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function block_hero_theme() {
+  return [
+    'block_hero' => [
+      'variables' => [],
+    ],
+  ];
+}

@@ -6,11 +6,11 @@ base theme: false
 
 regions:
   header: 'Cabecalho'
-  nav: 'Navegação'
   hero: 'Hero'
+  nav: 'Navegação'
   content: 'Conteúdo'
   sidebar: 'Sidebar'
-  footer: 'Rodapéfit '
+  footer: 'Rodapé'
 
 libraries:                                                                                                                           
   - doljak_theme/global-styling
