@@ -8,6 +8,7 @@
 
 # Arquivos de configuração com dados sensíveis
 web/sites/*/settings*.php
+!web/sites/default/settings.php
 web/sites/*/services*.yml
 
 # Arquivos gerados pelo usuário
