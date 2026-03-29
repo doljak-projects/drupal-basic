@@ -1,0 +1,20 @@
+uuid: 1b162e2e-439e-4bdf-8e4a-ccc2fe8f7f14
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_hero
+  theme:
+    - doljak_theme
+id: doljak_theme_blockhero
+theme: doljak_theme
+region: hero
+weight: 0
+provider: null
+plugin: block_hero
+settings:
+  id: block_hero
+  label: 'Block hero'
+  label_display: '0'
+  provider: block_hero
+visibility: {  }

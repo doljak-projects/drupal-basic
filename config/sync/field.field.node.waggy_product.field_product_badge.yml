@@ -1,0 +1,21 @@
+uuid: 0b885b00-2425-41c8-adb3-e75b57f7af26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_badge
+    - node.type.waggy_product
+  module:
+    - options
+id: node.waggy_product.field_product_badge
+field_name: field_product_badge
+entity_type: node
+bundle: waggy_product
+label: 'Product Badge'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

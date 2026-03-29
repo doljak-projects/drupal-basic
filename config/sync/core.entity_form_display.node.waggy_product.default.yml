@@ -1,0 +1,79 @@
+uuid: a00a4de9-8829-40b8-8f81-7be40d5e9605
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.waggy_product.field_pet_type
+    - field.field.node.waggy_product.field_price
+    - field.field.node.waggy_product.field_product_badge
+    - field.field.node.waggy_product.field_product_image
+    - node.type.waggy_product
+  module:
+    - media_library
+    - path
+id: node.waggy_product.default
+targetEntityType: node
+bundle: waggy_product
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_price:
+    type: number
+    weight: 121
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_badge:
+    type: options_select
+    weight: 124
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_product_image:
+    type: media_library_widget
+    weight: 123
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_pet_type: true
+  promote: true
+  sticky: true

@@ -1,0 +1,9 @@
+uuid: 620b0003-595f-4ceb-b96d-29c33dea19c6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Pet type'
+vid: pet_type
+description: 'categorias de pets'
+weight: 0
+new_revision: false

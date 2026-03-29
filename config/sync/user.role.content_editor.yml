@@ -11,6 +11,8 @@ dependencies:
     - node.type.article
     - node.type.hero
     - node.type.page
+    - node.type.waggy_product
+    - taxonomy.vocabulary.pet_type
     - taxonomy.vocabulary.tags
   module:
     - comment
@@ -45,11 +47,25 @@ permissions:
   - 'create terms in tags'
   - 'create url aliases'
   - 'create video media'
+  - 'create waggy_product content'
+  - 'delete any audio media'
+  - 'delete any document media'
+  - 'delete any hero content'
+  - 'delete any image media'
+  - 'delete any remote_video media'
+  - 'delete any video media'
+  - 'delete any waggy_product content'
   - 'delete article revisions'
   - 'delete own article content'
+  - 'delete own audio media'
   - 'delete own files'
+  - 'delete own image media'
   - 'delete own page content'
+  - 'delete own remote_video media'
+  - 'delete own video media'
+  - 'delete own waggy_product content'
   - 'delete page revisions'
+  - 'delete waggy_product revisions'
   - 'edit any article content'
   - 'edit any audio media'
   - 'edit any document media'
@@ -58,6 +74,7 @@ permissions:
   - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit any video media'
+  - 'edit any waggy_product content'
   - 'edit own article content'
   - 'edit own audio media'
   - 'edit own comments'
@@ -66,6 +83,7 @@ permissions:
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'edit own video media'
+  - 'edit terms in pet_type'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'view all revisions'

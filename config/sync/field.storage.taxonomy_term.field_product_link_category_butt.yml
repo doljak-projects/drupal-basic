@@ -1,0 +1,20 @@
+uuid: 6841c5ec-763d-47eb-824e-8f57fbd33bfa
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - taxonomy
+id: taxonomy_term.field_product_link_category_butt
+field_name: field_product_link_category_butt
+entity_type: taxonomy_term
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

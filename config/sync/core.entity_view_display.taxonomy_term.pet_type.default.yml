@@ -1,0 +1,31 @@
+uuid: 9aad6ae8-5989-486b-aae1-5ac5adbd3155
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.pet_type.field_product_link_category_butt
+    - taxonomy.vocabulary.pet_type
+  module:
+    - text
+id: taxonomy_term.pet_type.default
+targetEntityType: taxonomy_term
+bundle: pet_type
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_product_link_category_butt:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

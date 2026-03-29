@@ -1,0 +1,29 @@
+uuid: 33c16111-198c-4d6d-b43f-5e559d829c55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_product_link_category_butt
+    - media.type.image
+    - taxonomy.vocabulary.pet_type
+id: taxonomy_term.pet_type.field_product_link_category_butt
+field_name: field_product_link_category_butt
+entity_type: taxonomy_term
+bundle: pet_type
+label: 'product link category button'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
