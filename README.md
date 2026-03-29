@@ -37,7 +37,7 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 
 ### Intermediário
 
-- [ ] Views: criação de listagens, filtros e displays
+- [ ] Views: criação de listagens, filtros e displays — aplicado na seção Blog (listagem de artigos)
 - [X] Config API: exportar e importar configurações com `cex` / `cim`
 - [X] Criação de módulo customizado simples (hook_theme, routing, controller)
   - [X] hook_theme — registro de templates customizados
@@ -62,6 +62,9 @@ O escopo será expandido conforme os tópicos forem abordados nos exercícios.
 - [ ] Queue API e processamento em background
 - [ ] Cache API: cache tags, contexts e invalidação
 - [ ] REST API e JSON:API
+  - [ ] JSON:API nativo — produtos cadastrados no Drupal, consumidos via `/jsonapi/node/product` no bloco Shop by Pet
+  - [ ] Guzzle (HTTP client server-side) — consumir API externa no backend; chave de API protegida, cliente não vê a URL
+  - [ ] JavaScript fetch (client-side) — filtrar produtos sem reload de página; URL exposta ao browser
 - [ ] Paragraphs e layouts com Layout Builder
 - [ ] Migrate API avançado: migrações com transformações complexas
 - [ ] Testes automatizados com PHPUnit e Nightwatch

@@ -6,7 +6,9 @@
 function shop_by_pet_block_theme() {
   return [
     'shop_by_pet_block' => [
-      'variables' => [],
+      'variables' => [
+        'categories' => [],
+      ],
       'template' => 'shop-by-pet-block',
       'path' => \Drupal::service('extension.list.module')->getPath('shop_by_pet_block') . '/templates',
     ],

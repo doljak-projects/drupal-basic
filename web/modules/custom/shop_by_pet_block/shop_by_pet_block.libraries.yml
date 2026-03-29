@@ -1,0 +1,4 @@
+shop-by-pet:
+  css:
+    component:
+      css/shop-by-pet-block.css: {}
