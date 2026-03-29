@@ -1,0 +1,21 @@
+uuid: 96121f1a-dd1e-4841-886e-01aba247c020
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_hero
+    - field.field.block_content.block_hero.field_hero_content_header
+id: block_content.block_hero.default
+targetEntityType: block_content
+bundle: block_hero
+mode: default
+content:
+  field_hero_content_header:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

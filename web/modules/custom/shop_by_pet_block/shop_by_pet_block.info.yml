@@ -1,0 +1,6 @@
+name: 'Shop by pet menu item'
+type: module
+description: 'Custom button for products'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies: []

@@ -1,0 +1,22 @@
+<section class="shop-by-pet">
+  <div class="shop-by-pet__header">
+    <span class="shop-by-pet__eyebrow">Browse By Category</span>
+    <h2 class="shop-by-pet__title">Shop By Pet</h2>
+  </div>
+
+  <ul class="shop-by-pet__grid">
+    {% for category in categories %}
+      <li class="shop-by-pet__card">
+        <a href="/shop?pet={{ category.label|lower|replace({' ': '-'}) }}">
+          {% if category.image %}
+            <div class="shop-by-pet__image"
+                 style="background-image: url('{{ category.image }}')"></div>
+          {% else %}
+            <div class="shop-by-pet__image shop-by-pet__image--empty"></div>
+          {% endif %}
+          <span class="shop-by-pet__label">{{ category.label }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

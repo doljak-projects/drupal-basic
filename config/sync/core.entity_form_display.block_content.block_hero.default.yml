@@ -1,0 +1,31 @@
+uuid: 74223549-e2da-4ae8-bab1-08650e3e006a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_hero
+    - field.field.block_content.block_hero.field_hero_content_header
+id: block_content.block_hero.default
+targetEntityType: block_content
+bundle: block_hero
+mode: default
+content:
+  field_hero_content_header:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,7 +1,5 @@
-{{ attach_library('doljak_theme/hero-styling') }}                                                                                                                                                 
-                                          
-  {% if content %}                                                                                                                                                                                  
-    <section{{ attributes.addClass('region-hero') }}>                                                                                                                                               
-      {{ content }}                                                                                                                                                                                 
-    </section>                                                                                                                                                                                      
-  {% endif %}  
+{% if content %}
+  <section{{ attributes.addClass('region-hero') }}>
+    {{ content }}
+  </section>
+{% endif %}

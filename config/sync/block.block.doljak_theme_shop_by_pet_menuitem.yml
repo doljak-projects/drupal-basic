@@ -1,0 +1,20 @@
+uuid: 5f19eeba-8b89-41a0-9272-def2850ebfbb
+langcode: en
+status: true
+dependencies:
+  module:
+    - shop_by_pet_block
+  theme:
+    - doljak_theme
+id: doljak_theme_shop_by_pet_menuitem
+theme: doljak_theme
+region: nav
+weight: -2
+provider: null
+plugin: shop_by_pet_block
+settings:
+  id: shop_by_pet_block
+  label: 'Shop by pet menu item'
+  label_display: '0'
+  provider: shop_by_pet_block
+visibility: {  }

@@ -8,6 +8,7 @@
 
 # Arquivos de configuração com dados sensíveis
 web/sites/*/settings*.php
+!web/sites/default/settings.php
 web/sites/*/services*.yml
 
 # Arquivos gerados pelo usuário
@@ -30,3 +31,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Assets locais (imagens exportadas do Paper/Figma)
+imagens exportadas/

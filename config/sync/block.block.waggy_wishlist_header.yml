@@ -1,0 +1,20 @@
+uuid: 73eb462a-9426-4899-b7eb-e0598ced4f7b
+langcode: en
+status: true
+dependencies:
+  module:
+    - waggy_wishlist
+  theme:
+    - doljak_theme
+id: waggy_wishlist_header
+theme: doljak_theme
+region: header
+weight: 1
+provider: null
+plugin: waggy_wishlist
+settings:
+  id: waggy_wishlist
+  label: 'Waggy Wishlist'
+  label_display: '0'
+  provider: waggy_wishlist
+visibility: {  }

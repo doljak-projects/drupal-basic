@@ -1,0 +1,23 @@
+uuid: e1ce51e9-8ca0-4006-9c0a-79b568750118
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.waggy_product
+id: node.waggy_product.field_price
+field_name: field_price
+entity_type: node
+bundle: waggy_product
+label: price
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

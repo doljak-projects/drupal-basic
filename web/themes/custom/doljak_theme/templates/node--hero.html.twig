@@ -1,0 +1,34 @@
+<section class="hero">
+  <div class="hero__inner">
+
+    <div class="hero__content">
+      <span class="hero__eyebrow">{{ label }}</span>
+      <h1 class="hero__title">{{ content.field_hero_descricao }}</h1>
+      <p class="hero__description">
+        {{ content.field_hero_subtitulo }}
+      </p>
+      <div class="hero__actions">
+        <span href="{{ node.field_hero_cta_url.uri }}" class="hero__cta-primary">
+          {{ content.field_hero_cta_url }}
+        </span>
+        <a href="#" class="hero__cta-secondary">
+          <span class="hero__cta-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+          Explore more
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__image-circle">
+        {{ content.field_hero_imagem }}
+      </div>
+      <div class="hero__image-shadow"></div>
+    </div>
+
+  </div>
+</section>

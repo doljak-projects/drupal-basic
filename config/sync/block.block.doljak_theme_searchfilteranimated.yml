@@ -1,0 +1,20 @@
+uuid: d9b4b6f6-6334-4fe5-a779-1c0768ac15bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_filter_animated
+  theme:
+    - doljak_theme
+id: doljak_theme_searchfilteranimated
+theme: doljak_theme
+region: header
+weight: 0
+provider: null
+plugin: search_filter_animated
+settings:
+  id: search_filter_animated
+  label: 'Search Filter Animated'
+  label_display: '0'
+  provider: search_filter_animated
+visibility: {  }

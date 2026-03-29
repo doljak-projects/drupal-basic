@@ -1,0 +1,6 @@
+name: 'Block to show Hero'
+type: module
+description: 'Custom module for show hero'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies: []

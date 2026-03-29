@@ -1,0 +1,41 @@
+{
+  "categories": [
+    { "id": 1, "slug": "dogs",       "label": "Dogs",       "image": "/images/cat-dogs.jpg" },
+    { "id": 2, "slug": "cats",       "label": "Cats",       "image": "/images/cat-cats.jpg" },
+    { "id": 3, "slug": "birds",      "label": "Birds",      "image": "/images/cat-birds.jpg" },
+    { "id": 4, "slug": "fish",       "label": "Fish",       "image": "/images/cat-fish.jpg" },
+    { "id": 5, "slug": "small-pets", "label": "Small Pets", "image": "/images/cat-small.jpg" }
+  ],
+  "products": [
+    { "id": 1,  "categorySlug": "dogs",       "name": "Premium Dry Food Mix",     "price": 24.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-1.jpg" },
+    { "id": 2,  "categorySlug": "dogs",       "name": "Comfort Pet Harness",      "price": 34.99, "oldPrice": null,  "badge": "BEST", "image": "/images/prod-2.jpg" },
+    { "id": 3,  "categorySlug": "dogs",       "name": "Dog Chew Toy Bone",        "price": 9.99,  "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-3.jpg" },
+    { "id": 4,  "categorySlug": "dogs",       "name": "Waterproof Dog Bed",       "price": 49.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-4.jpg" },
+    { "id": 5,  "categorySlug": "dogs",       "name": "Retractable Leash Pro",    "price": 19.99, "oldPrice": null,  "badge": null,   "image": "/images/prod-5.jpg" },
+    { "id": 6,  "categorySlug": "dogs",       "name": "Flea & Tick Collar",       "price": 14.99, "oldPrice": null,  "badge": "BEST", "image": "/images/prod-6.jpg" },
+    { "id": 7,  "categorySlug": "cats",       "name": "Interactive Play Set",     "price": 18.99, "oldPrice": 22.99, "badge": "-15%", "image": "/images/prod-7.jpg" },
+    { "id": 8,  "categorySlug": "cats",       "name": "Soft Grooming Brush",      "price": 14.99, "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-8.jpg" },
+    { "id": 9,  "categorySlug": "cats",       "name": "Cat Scratching Post",      "price": 29.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-9.jpg" },
+    { "id": 10, "categorySlug": "cats",       "name": "Automatic Cat Feeder",     "price": 39.99, "oldPrice": null,  "badge": "BEST", "image": "/images/prod-10.jpg" },
+    { "id": 11, "categorySlug": "cats",       "name": "Catnip Toy Bundle",        "price": 7.99,  "oldPrice": null,  "badge": null,   "image": "/images/prod-11.jpg" },
+    { "id": 12, "categorySlug": "cats",       "name": "Window Perch Bed",         "price": 24.99, "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-12.jpg" },
+    { "id": 13, "categorySlug": "birds",      "name": "Colorful Swing Toy",       "price": 8.99,  "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-13.jpg" },
+    { "id": 14, "categorySlug": "birds",      "name": "Seed & Pellet Mix",        "price": 12.99, "oldPrice": null,  "badge": "BEST", "image": "/images/prod-14.jpg" },
+    { "id": 15, "categorySlug": "birds",      "name": "Wooden Bird Perch",        "price": 16.99, "oldPrice": null,  "badge": null,   "image": "/images/prod-15.jpg" },
+    { "id": 16, "categorySlug": "birds",      "name": "Mineral Block Set",        "price": 6.99,  "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-16.jpg" },
+    { "id": 17, "categorySlug": "birds",      "name": "Travel Bird Cage",         "price": 44.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-17.jpg" },
+    { "id": 18, "categorySlug": "birds",      "name": "Feather Rope Toy",         "price": 9.99,  "oldPrice": null,  "badge": null,   "image": "/images/prod-18.jpg" },
+    { "id": 19, "categorySlug": "fish",       "name": "Tropical Fish Food",       "price": 11.99, "oldPrice": null,  "badge": "BEST", "image": "/images/prod-19.jpg" },
+    { "id": 20, "categorySlug": "fish",       "name": "Aquarium Filter Pro",      "price": 27.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-20.jpg" },
+    { "id": 21, "categorySlug": "fish",       "name": "LED Tank Light",           "price": 34.99, "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-21.jpg" },
+    { "id": 22, "categorySlug": "fish",       "name": "Water Conditioner",        "price": 8.99,  "oldPrice": null,  "badge": null,   "image": "/images/prod-22.jpg" },
+    { "id": 23, "categorySlug": "fish",       "name": "Decorative Coral Set",     "price": 15.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-23.jpg" },
+    { "id": 24, "categorySlug": "fish",       "name": "Breeding Net",             "price": 6.99,  "oldPrice": null,  "badge": "BEST", "image": "/images/prod-24.jpg" },
+    { "id": 25, "categorySlug": "small-pets", "name": "Hamster Wheel Silent",     "price": 13.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-25.jpg" },
+    { "id": 26, "categorySlug": "small-pets", "name": "Cozy Nesting Pad",         "price": 9.99,  "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-26.jpg" },
+    { "id": 27, "categorySlug": "small-pets", "name": "Vitamin Drops",            "price": 7.99,  "oldPrice": null,  "badge": "BEST", "image": "/images/prod-27.jpg" },
+    { "id": 28, "categorySlug": "small-pets", "name": "Wooden Hideout House",     "price": 18.99, "oldPrice": null,  "badge": "NEW",  "image": "/images/prod-28.jpg" },
+    { "id": 29, "categorySlug": "small-pets", "name": "Hay & Bedding Mix",        "price": 11.99, "oldPrice": null,  "badge": null,   "image": "/images/prod-29.jpg" },
+    { "id": 30, "categorySlug": "small-pets", "name": "Exercise Ball Large",      "price": 8.99,  "oldPrice": null,  "badge": "HOT",  "image": "/images/prod-30.jpg" }
+  ]
+}

@@ -1,0 +1,8 @@
+uuid: 60fc53ff-8806-4af9-ae69-ae296caf43b3
+langcode: en
+status: true
+dependencies: {  }
+id: block_hero
+label: 'Block Hero'
+revision: false
+description: 'Destaque da pagina principal'

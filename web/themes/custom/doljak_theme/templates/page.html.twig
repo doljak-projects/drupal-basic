@@ -45,12 +45,21 @@
  * @ingroup themeable
  */
 #}
-<div class="layout-container">
+
+
 
   <header role="banner">
     {{ page.header }}
-    {{ page.nav}}
   </header>
+    {{ page.hero }}
+  {# <section class="wrapper-hero">
+  {{ page.hero }}
+  <sectiomn> #}
+
+<div class="layout-container">
+  {{ page.nav}}
+
+
 
   
 
@@ -63,14 +72,13 @@
 
   {# {{ page.help }} #}
 
-  {{ page.hero }}
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
+    {# <div class="layout-content"> #}
       {{ page.content }}
-    </div>{# /.layout-content #}
+    {# </div>/.layout-content #}
 
     {% if page.sidebar %}
       <aside class="layout-sidebar-first" role="complementary">

@@ -1,0 +1,69 @@
+uuid: c2e9b646-0417-4fed-a0a2-e7bd2de8ccd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hero.field_hero_cta_label
+    - field.field.node.hero.field_hero_cta_url
+    - field.field.node.hero.field_hero_descricao
+    - field.field.node.hero.field_hero_imagem
+    - field.field.node.hero.field_hero_subtitulo
+    - node.type.hero
+  module:
+    - link
+    - user
+id: node.hero.default
+targetEntityType: node
+bundle: hero
+mode: default
+content:
+  field_hero_cta_label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_hero_cta_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_hero_descricao:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_hero_imagem:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_hero_subtitulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

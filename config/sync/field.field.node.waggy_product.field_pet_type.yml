@@ -1,0 +1,24 @@
+uuid: d5a182e8-c872-4539-a5c4-f8fd135d1670
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pet_type
+    - node.type.waggy_product
+    - taxonomy.vocabulary.pet_type
+id: node.waggy_product.field_pet_type
+field_name: field_pet_type
+entity_type: node
+bundle: waggy_product
+label: 'Pet Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      pet_type: pet_type
+field_type: entity_reference
