@@ -31,3 +31,6 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Assets locais (imagens exportadas do Paper/Figma)
+imagens exportadas/
