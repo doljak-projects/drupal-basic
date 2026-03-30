@@ -6,15 +6,16 @@
 
   <ul class="shop-by-pet__grid">
     {% for category in categories %}
-      <li class="shop-by-pet__card">
-        <a href="/shop/{{ category.label|lower|replace({' ': '-'}) }}">
+      {% set category_slug = category.label|lower|replace({' ': '-'}) %}
+      <li class="shop-by-pet__card shop-by-pet__card--{{ category_slug }}">
+        <a href="/shop/{{ category_slug }}">
           {% if category.image %}
-            <div class="shop-by-pet__image"
+            <div class="shop-by-pet__image shop-by-pet__image--{{ category_slug }}"
                  style="background-image: url('{{ category.image }}')"></div>
           {% else %}
-            <div class="shop-by-pet__image shop-by-pet__image--empty"></div>
+            <div class="shop-by-pet__image shop-by-pet__image--{{ category_slug }} shop-by-pet__image--empty"></div>
           {% endif %}
-          <span class="shop-by-pet__label">{{ category.label }}</span>
+          <span class="shop-by-pet__label">{{ category.label|title }}</span>
         </a>
       </li>
     {% endfor %}

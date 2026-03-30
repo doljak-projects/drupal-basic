@@ -1,11 +1,12 @@
 {% set pet_type = fields.field_pet_type.content|striptags|trim|lower|replace({' ': '-'}) %}
 {% set product_url = path('entity.node.canonical', {'node': row._entity.id}) %}
+{% set badge_text = fields.field_product_badge.content|striptags|trim %}
 
 <article class="shop-card shop-card--{{ pet_type }}">
 
   <div class="shop-card__image-wrap">
-    {% if fields.field_product_badge.content|striptags|trim is not empty %}
-      <span class="shop-card__badge">{{ fields.field_product_badge.content|striptags|trim }}</span>
+    {% if badge_text is not empty %}
+      <span class="shop-card__badge shop-card__badge--{{ badge_text|lower }}">{{ badge_text }}</span>
     {% endif %}
     {{ fields.field_product_image.content }}
   </div>
@@ -18,7 +19,9 @@
       </h3>
     </div>
     <div class="shop-card__footer">
-      <span class="shop-card__price">{{ fields.field_price.content|striptags|trim }}</span>
+      <div class="shop-card__price-wrap">
+        <span class="shop-card__price">${{ fields.field_price.content|striptags|trim }}</span>
+      </div>
       <a href="{{ product_url }}" class="shop-card__add" aria-label="Ver produto">+</a>
     </div>
   </div>

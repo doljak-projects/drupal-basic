@@ -1,6 +1,40 @@
+{% set filter_chips = ['All Products', 'Best Sellers', 'Starter Friendly', 'Under $20'] %}
+{% set exposed_markup = exposed ? exposed|render : '' %}
+
 <section class="shop">
   <div class="shop__inner">
-    {{ exposed }}
+    <div class="shop__toolbar">
+      <div class="shop__chips" aria-hidden="true">
+        {% for chip in filter_chips %}
+          <span class="shop__chip{{ loop.first ? ' is-active' : '' }}">{{ chip }}</span>
+        {% endfor %}
+      </div>
+
+      {% if exposed_markup|trim %}
+        <div class="shop__sort-form">
+          {{ exposed_markup }}
+        </div>
+      {% else %}
+        <div class="shop__sort-display" aria-hidden="true">
+          <div class="shop__sort-copy">
+            <span class="shop__sort-label">Sort</span>
+            <span class="shop__sort-value">Featured first</span>
+          </div>
+          <span class="shop__sort-button">↓</span>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="shop__intro">
+      <div class="shop__intro-copy">
+        <span class="shop__eyebrow">Catalog</span>
+        <h1 class="shop__headline">Build the basket with the right rhythm for each pet.</h1>
+      </div>
+      <p class="shop__description">
+        A clean selling grid with prices, badges and category cues already aligned to the current product assets.
+      </p>
+    </div>
+
     {{ rows }}
     {{ pager }}
   </div>
