@@ -4,6 +4,7 @@ global-styling:
     base:
       https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@400;500;600&family=Spinnaker&family=Syne:wght@400;700&display=swap: { type: external, minified: true }
       css/base/hero-styling.css: {}
+      css/base/shop-styling.css: {}
     layout:
       css/layout/global.css: {}
 

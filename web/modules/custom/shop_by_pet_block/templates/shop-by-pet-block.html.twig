@@ -7,7 +7,7 @@
   <ul class="shop-by-pet__grid">
     {% for category in categories %}
       <li class="shop-by-pet__card">
-        <a href="/shop?pet={{ category.label|lower|replace({' ': '-'}) }}">
+        <a href="/shop/{{ category.label|lower|replace({' ': '-'}) }}">
           {% if category.image %}
             <div class="shop-by-pet__image"
                  style="background-image: url('{{ category.image }}')"></div>

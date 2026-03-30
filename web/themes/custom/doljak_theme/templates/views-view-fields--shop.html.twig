@@ -1,0 +1,26 @@
+{% set pet_type = fields.field_pet_type.content|striptags|trim|lower|replace({' ': '-'}) %}
+{% set product_url = path('entity.node.canonical', {'node': row._entity.id}) %}
+
+<article class="shop-card shop-card--{{ pet_type }}">
+
+  <div class="shop-card__image-wrap">
+    {% if fields.field_product_badge.content|striptags|trim is not empty %}
+      <span class="shop-card__badge">{{ fields.field_product_badge.content|striptags|trim }}</span>
+    {% endif %}
+    {{ fields.field_product_image.content }}
+  </div>
+
+  <div class="shop-card__content">
+    <div class="shop-card__meta">
+      <span class="shop-card__pet-type">{{ fields.field_pet_type.content|striptags|trim }}</span>
+      <h3 class="shop-card__title">
+        <a href="{{ product_url }}">{{ fields.title.content|striptags|trim }}</a>
+      </h3>
+    </div>
+    <div class="shop-card__footer">
+      <span class="shop-card__price">{{ fields.field_price.content|striptags|trim }}</span>
+      <a href="{{ product_url }}" class="shop-card__add" aria-label="Ver produto">+</a>
+    </div>
+  </div>
+
+</article>

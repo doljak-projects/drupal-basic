@@ -1,44 +1,46 @@
-uuid: d16653d2-f83a-4583-a134-b72d1491b2fa
+uuid: ccf68e1f-30fd-4877-81b6-cccb545e548a
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.field.node.waggy_product.field_pet_type
     - field.field.node.waggy_product.field_price
     - field.field.node.waggy_product.field_product_badge
     - field.field.node.waggy_product.field_product_image
     - node.type.waggy_product
   module:
-    - media
     - options
     - user
-id: node.waggy_product.default
+id: node.waggy_product.teaser
 targetEntityType: node
 bundle: waggy_product
-mode: default
+mode: teaser
 content:
   field_price:
-    type: number_unformatted
+    type: number_decimal
     label: above
-    settings: {  }
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
     weight: 101
     region: content
   field_product_badge:
-    type: list_key
+    type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 104
     region: content
   field_product_image:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 103
     region: content

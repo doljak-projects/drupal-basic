@@ -129,11 +129,10 @@ width: 100vw;
 }
 
 .hero__image-circle img {
-  width: 152%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  margin:0 0 0 -273px;
 }
 
 .hero__image-shadow{
@@ -142,6 +141,6 @@ width: 100vw;
   border-radius: var(--radius-full);
   background-color: var(--color-bg-hero-2);
   margin-right: 10px;
-  opacity: 0.2;
+
   
 }

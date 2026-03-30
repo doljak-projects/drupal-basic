@@ -1,8 +1,0 @@
-uuid: 11bd93d9-d949-4293-956a-4318582c8592
-langcode: en
-status: true
-dependencies: {  }
-id: hero
-label: Hero
-target_entity_type_id: block_content
-description: hero

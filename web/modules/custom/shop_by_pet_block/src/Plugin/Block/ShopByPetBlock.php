@@ -39,6 +39,7 @@ class ShopByPetBlock extends BlockBase {
     foreach ($body['data'] ?? [] as $term) {
       $categories[] = [
         'label' => $term['attributes']['name'],
+        'tid'   => $term['attributes']['drupal_internal__tid'],
         'image' => $this->resolveTermImage($term, $included, $base_url),
       ];
     }
