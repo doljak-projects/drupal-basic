@@ -1,15 +1,18 @@
 {% set pet_type = fields.field_pet_type.content|striptags|trim|lower|replace({' ': '-'}) %}
 {% set product_url = path('entity.node.canonical', {'node': row._entity.id}) %}
 {% set badge_text = fields.field_product_badge.content|striptags|trim %}
+{% set image_wrap_modifier = badge_text is empty ? ' shop-card__image-wrap--no-badge' : '' %}
 
 <article class="shop-card shop-card--{{ pet_type }}">
 
-  <div class="shop-card__image-wrap">
-    {% if badge_text is not empty %}
-      <span class="shop-card__badge shop-card__badge--{{ badge_text|lower }}">{{ badge_text }}</span>
-    {% endif %}
-    {{ fields.field_product_image.content }}
-  </div>
+  <a href="{{ product_url }}">
+    <div class="shop-card__image-wrap{{ image_wrap_modifier }}">
+      {% if badge_text is not empty %}
+        <span class="shop-card__badge shop-card__badge--{{ badge_text|lower }}">{{ badge_text }}</span>
+      {% endif %}
+      {{ fields.field_product_image.content }}
+    </div>
+  </a>
 
   <div class="shop-card__content">
     <div class="shop-card__meta">
