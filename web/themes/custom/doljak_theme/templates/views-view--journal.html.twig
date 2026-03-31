@@ -1,0 +1,257 @@
+{#
+/**
+ * @file
+ * Static visual scaffold for the Journal listing page.
+ *
+ * This template intentionally renders static editorial content while the
+ * visual layer is being built. Dynamic Views wiring can replace these arrays
+ * later without changing the CSS contract.
+ */
+#}
+
+{% set asset_base = base_path ~ 'themes/custom/doljak_theme/assets/journal/' %}
+{% set filters = [
+  { label: 'Latest', active: true },
+  { label: 'Most Read', active: false },
+  { label: 'Featured', active: false },
+] %}
+{% set articles = [
+  {
+    category: 'Routine',
+    date: 'Apr 02, 2026',
+    title: 'How to build a calmer daily routine for your dog',
+    excerpt: 'Meal timing, play windows and gentle rest cues can change the mood of the whole house. This piece turns routine into something realistic and repeatable.',
+    tags: ['Behavior', 'Home rhythm'],
+    image: asset_base ~ 'article-routine-dog.jpg',
+    alt: 'Golden retriever resting beside a pet bed',
+  },
+  {
+    category: 'Nutrition',
+    date: 'Apr 05, 2026',
+    title: 'What to watch before changing your pet''s food',
+    excerpt: 'A simple checklist for transitions that feel gentler on digestion and still keep the feeding routine premium and well organized.',
+    tags: ['Food change', 'Digestive care'],
+    image: asset_base ~ 'article-food-transition.jpg',
+    alt: 'Bowls of dog food on a wooden tray',
+  },
+  {
+    category: 'Play',
+    date: 'Apr 09, 2026',
+    title: 'Bird toys that encourage curiosity, not chaos',
+    excerpt: 'How to choose stimulation that keeps birds engaged without overwhelming the habitat or the caretaker.',
+    tags: ['Birds', 'Enrichment'],
+    image: asset_base ~ 'article-bird-toys.jpg',
+    alt: 'Colorful bird with enrichment toys',
+  },
+  {
+    category: 'Comfort',
+    date: 'Apr 12, 2026',
+    title: 'Better sleep corners for small pets',
+    excerpt: 'Nest placement, bedding, shelter density and quiet cues that make tiny resting spaces feel protected instead of crowded.',
+    tags: ['Small pets', 'Habitat'],
+    image: asset_base ~ 'article-small-pet-sleep.jpg',
+    alt: 'Small dog curled up in a wooden hideout',
+  },
+  {
+    category: 'Nutrition',
+    date: 'Apr 15, 2026',
+    title: 'How to read ingredient labels without overthinking',
+    excerpt: 'A quick shelf-side guide for scanning protein quality, filler load and portion clues without turning feeding decisions into guesswork.',
+    tags: ['Labels', 'Food picks'],
+    image: asset_base ~ 'article-food-labels.jpg',
+    alt: 'Pet food bag beside a bowl of kibble',
+  },
+  {
+    category: 'Routine',
+    date: 'Apr 18, 2026',
+    title: 'Evening reset habits for dogs that stay alert too long',
+    excerpt: 'Small wind-down cues, softer lighting and calmer transitions that help sensitive dogs stop carrying the whole day into bedtime.',
+    tags: ['Dogs', 'Wind-down'],
+    image: asset_base ~ 'article-evening-reset.jpg',
+    alt: 'Dog resting under a blanket',
+  },
+] %}
+{% set products = [
+  {
+    badge: 'New',
+    category: 'Dog food',
+    title: 'Premium Dry Food Mix',
+    price: '$24.99',
+    note: 'Daily nutrition',
+    image: asset_base ~ 'product-premium-dry-food-mix.jpg',
+    alt: 'Premium dry food mix bag',
+    tone: 'warm',
+  },
+  {
+    badge: 'Best',
+    category: 'Accessories',
+    title: 'Comfort Pet Harness',
+    price: '$34.99',
+    note: 'Comfort first',
+    image: asset_base ~ 'product-comfort-pet-harness.jpg',
+    alt: 'Comfort pet harness',
+    tone: 'green',
+  },
+  {
+    badge: '-15%',
+    category: 'Cat toys',
+    title: 'Interactive Play Set',
+    price: '$18.99',
+    compare_price: '$22.99',
+    note: 'Indoor energy',
+    image: asset_base ~ 'product-interactive-play-set.jpg',
+    alt: 'Interactive play set for cats',
+    tone: 'blue',
+  },
+  {
+    badge: 'Hot',
+    category: 'Grooming',
+    title: 'Soft Grooming Brush',
+    price: '$14.99',
+    note: 'Bath time',
+    image: asset_base ~ 'product-soft-grooming-brush.jpg',
+    alt: 'Soft grooming brush',
+    tone: 'pink',
+  },
+] %}
+
+<section class="journal">
+  <div class="journal__inner">
+    <header class="journal__header">
+      <div class="journal__filter-bar" aria-label="Journal tools">
+        <div class="journal__filters" aria-hidden="true">
+          {% for filter in filters %}
+            <button type="button" class="journal__chip{{ filter.active ? ' is-active' : '' }}" aria-pressed="{{ filter.active ? 'true' : 'false' }}">
+              {{ filter.label }}
+            </button>
+          {% endfor %}
+        </div>
+
+        <div class="journal__sort" aria-hidden="true">
+          <div class="journal__sort-copy">
+            <span class="journal__sort-label">Sort</span>
+            <span class="journal__sort-value">Newest first</span>
+          </div>
+          <span class="journal__sort-button">↓</span>
+        </div>
+      </div>
+
+      <div class="journal__intro">
+        <div class="journal__intro-copy">
+          <span class="journal__eyebrow">Archive</span>
+          <h1 class="journal__headline">Browse practical reads for calmer feeding, play and care habits.</h1>
+        </div>
+
+        <p class="journal__description">
+          Curated reads on nutrition, sleep, enrichment and everyday routines that keep the shop rhythm clear.
+        </p>
+      </div>
+    </header>
+
+    <section class="journal__articles" aria-label="Journal articles">
+      <div class="journal__grid">
+        {% for article in articles %}
+          <article class="journal-article-card">
+            <a href="#" class="journal-article-card__image-link" aria-label="{{ article.title }}">
+              <div class="journal-article-card__image-wrap">
+                <img src="{{ article.image }}" alt="{{ article.alt }}" class="journal-article-card__image">
+              </div>
+            </a>
+
+            <div class="journal-article-card__content">
+              <div class="journal-article-card__meta">
+                <span class="journal-article-card__category">{{ article.category }}</span>
+                <span class="journal-article-card__date">{{ article.date }}</span>
+              </div>
+
+              <h2 class="journal-article-card__title">
+                <a href="#">{{ article.title }}</a>
+              </h2>
+
+              <p class="journal-article-card__excerpt">{{ article.excerpt }}</p>
+
+              <div class="journal-article-card__footer">
+                <div class="journal-article-card__tags" aria-label="Article tags">
+                  {% for tag in article.tags %}
+                    <span class="journal-article-card__tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+
+                <a href="#" class="journal-article-card__cta">Read article</a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="journal__stories" aria-labelledby="journal-stories-title">
+      <div class="journal__section-heading">
+        <div class="journal__section-copy">
+          <span class="journal__section-eyebrow">Shop the stories</span>
+          <h2 class="journal__section-title" id="journal-stories-title">Products inspired by the stories above</h2>
+        </div>
+
+        <div class="journal__stories-actions" aria-hidden="true">
+          <button type="button" class="journal__stories-action journal__stories-action--muted">←</button>
+          <button type="button" class="journal__stories-action">→</button>
+        </div>
+      </div>
+
+      <div class="journal__product-grid">
+        {% for product in products %}
+          <article class="journal-product-card journal-product-card--{{ product.tone }}">
+            <div class="journal-product-card__visual">
+              <span class="journal-product-card__badge">{{ product.badge }}</span>
+              <img src="{{ product.image }}" alt="{{ product.alt }}" class="journal-product-card__image">
+            </div>
+
+            <div class="journal-product-card__content">
+              <span class="journal-product-card__category">{{ product.category }}</span>
+              <h3 class="journal-product-card__title">{{ product.title }}</h3>
+
+              <div class="journal-product-card__footer">
+                <div class="journal-product-card__price-wrap">
+                  <div class="journal-product-card__price-row">
+                    <span class="journal-product-card__price">{{ product.price }}</span>
+                    {% if product.compare_price is defined %}
+                      <span class="journal-product-card__compare-price">{{ product.compare_price }}</span>
+                    {% endif %}
+                  </div>
+                  <span class="journal-product-card__caption">{{ product.note }}</span>
+                </div>
+
+                <button type="button" class="journal-product-card__add" aria-label="Add {{ product.title }}">+</button>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="journal__cta" aria-label="Newsletter signup">
+      <article class="journal-newsletter">
+        <span class="journal__cta-eyebrow">Newsletter</span>
+        <h2 class="journal__cta-title">Keep the journal close to the shop rhythm.</h2>
+        <p class="journal__cta-copy">
+          This archive page can later lead into article details, author pages or editorial category hubs.
+        </p>
+      </article>
+
+      <article class="journal-reader">
+        <div class="journal-reader__header">
+          <div>
+            <span class="journal__cta-eyebrow">Reader list</span>
+            <h2 class="journal__cta-title journal__cta-title--light">Get new stories and product edits in one gentle digest.</h2>
+          </div>
+          <button type="button" class="journal-reader__action" aria-label="Reader list">→</button>
+        </div>
+
+        <div class="journal-reader__form">
+          <input type="email" class="journal-reader__input" placeholder="Enter your email for the next editorial drop" aria-label="Email address">
+          <button type="button" class="journal-reader__submit" aria-label="Submit email">→</button>
+        </div>
+      </article>
+    </section>
+  </div>
+</section>
