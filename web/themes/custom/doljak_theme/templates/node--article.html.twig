@@ -1,0 +1,140 @@
+{#
+  node--article.html.twig
+  Template para a página de detalhe de artigo (Waggy — Article).
+  Variáveis expostas via hook_preprocess_node() em doljak_theme.theme:
+    - article_image_url   : URL absoluta da imagem hero
+    - article_date        : Data formatada (ex: "April 02, 2026")
+    - article_reading_time: Tempo de leitura (ex: "8 min read")
+    - article_category    : Label da categoria (ex: "DAILY RHYTHM")
+#}
+
+<article{{ attributes.addClass('article-page') }}>
+
+  {# ------------------------------------------------------------------ #}
+  {# HERO                                                                 #}
+  {# ------------------------------------------------------------------ #}
+  <section class="article-hero"
+    {% if article_image_url %}
+      style="--article-hero-bg: url('{{ article_image_url }}')"
+    {% endif %}
+  >
+    <div class="article-hero__overlay">
+      <div class="article-hero__content">
+
+        <div class="article-hero__text">
+          <span class="article-hero__label">From the Journal</span>
+          <h1 class="article-hero__title">{{ label }}</h1>
+          {% if node.body.summary %}
+            <p class="article-hero__summary">{{ node.body.summary }}</p>
+          {% endif %}
+        </div>
+
+        <div class="article-hero__meta">
+          {% if article_date %}
+            <span class="article-hero__pill article-hero__pill--date">{{ article_date }}</span>
+          {% endif %}
+          {% if article_reading_time %}
+            <span class="article-hero__pill article-hero__pill--reading">{{ article_reading_time }}</span>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------------ #}
+  {# BODY + ASIDE                                                         #}
+  {# ------------------------------------------------------------------ #}
+  <div class="article-layout">
+
+    <main class="article-body">
+
+      {# Intro section #}
+      <div class="article-section">
+        {% if article_category %}
+          <span class="article-label">{{ article_category }}</span>
+        {% endif %}
+        <h2 class="article-section__title">Small rituals that make the whole day feel easier</h2>
+        <div class="article-section__text">
+          {{ content.body }}
+        </div>
+      </div>
+
+      {# Tip cards #}
+      <div class="article-tips">
+        <div class="article-tip">
+          <h3 class="article-tip__title">Feed with predictability</h3>
+          <p class="article-tip__text">Anchor breakfast and dinner to a repeatable window. Even a thirty-minute range is enough to make digestion and energy feel more stable through the week.</p>
+        </div>
+        <div class="article-tip">
+          <h3 class="article-tip__title">Match play to recovery</h3>
+          <p class="article-tip__text">High-energy toys are more effective when followed by a clear cool-down cue: fresh water, a familiar bed, softer lighting, and a room that stops asking for more stimulation.</p>
+        </div>
+      </div>
+
+      {# Editor note #}
+      {% if article_editor_note is defined and article_editor_note %}
+        <div class="article-editor-note">
+          <span class="article-label article-label--light">Editor note</span>
+          <blockquote class="article-editor-note__quote">{{ article_editor_note }}</blockquote>
+        </div>
+      {% else %}
+        <div class="article-editor-note">
+          <span class="article-label article-label--light">Editor note</span>
+          <blockquote class="article-editor-note__quote">When the evening routine becomes quieter, even sensitive dogs stop treating the house like a place that might surprise them.</blockquote>
+        </div>
+      {% endif %}
+
+      {# Numbered list #}
+      <div class="article-steps">
+        <h2 class="article-steps__title">A routine that still works on busy days</h2>
+        <ol class="article-steps__list">
+          <li class="article-step">
+            <span class="article-step__number">1</span>
+            <div class="article-step__content">
+              <strong class="article-step__name">Morning cue</strong>
+              <p class="article-step__text">Keep the first five minutes of the day almost identical: open the curtain, refresh water, take a short walk, then feed.</p>
+            </div>
+          </li>
+          <li class="article-step">
+            <span class="article-step__number">2</span>
+            <div class="article-step__content">
+              <strong class="article-step__name">Midday reset</strong>
+              <p class="article-step__text">If the day is crowded, use one reliable enrichment moment instead of several random interruptions. Consistency beats volume.</p>
+            </div>
+          </li>
+          <li class="article-step">
+            <span class="article-step__number">3</span>
+            <div class="article-step__content">
+              <strong class="article-step__name">Evening wind-down</strong>
+              <p class="article-step__text">Dim the room, reduce noise, and move toward touch, grooming, or gentle chew time. The body learns what the house expects at night.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </main>
+
+    {# Aside — Latest posts (estático por ora, dinâmico na issue #7) #}
+    <aside class="article-aside">
+      <div class="article-aside__header">
+        <span class="article-label">Aside</span>
+        <h2 class="article-aside__title">Latest posts</h2>
+      </div>
+      <ol class="article-aside__list">
+        <li class="article-aside__item">01. How to build a calmer daily routine for your dog</li>
+        <li class="article-aside__item">02. What to watch before changing your pet's food</li>
+        <li class="article-aside__item">03. Small grooming habits that reduce bath-time stress</li>
+        <li class="article-aside__item">04. Indoor play ideas that keep smart dogs engaged</li>
+        <li class="article-aside__item">05. The signs your cat wants more vertical space</li>
+        <li class="article-aside__item">06. Choosing treats that fit training sessions</li>
+        <li class="article-aside__item">07. Better sleep corners for small pets</li>
+        <li class="article-aside__item">08. Aquarium maintenance habits that save time</li>
+        <li class="article-aside__item">09. Bird toys that encourage curiosity, not chaos</li>
+        <li class="article-aside__item">10. The essentials every first-time pet parent forgets</li>
+      </ol>
+    </aside>
+
+  </div>
+
+</article>

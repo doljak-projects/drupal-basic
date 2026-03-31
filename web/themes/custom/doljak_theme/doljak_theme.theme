@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Theme functions for doljak_theme.
+ */
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Dispatcher: delega para a função específica de cada bundle.
+ * Cache tags do node ([node:X]) são preservadas automaticamente pelo Drupal.
+ */
+function doljak_theme_preprocess_node(array &$variables): void {
+  match ($variables['node']->bundle()) {
+    'article' => _doljak_theme_preprocess_article($variables),
+    default   => NULL,
+  };
+}
+
+/**
+ * Preprocess exclusivo para o bundle 'article'.
+ *
+ * Expõe ao Twig:
+ *   - article_date         : data formatada (ex: "April 02, 2026")
+ *   - article_reading_time : tempo de leitura (ex: "8 min read")
+ *   - article_category     : label da categoria (ex: "DAILY RHYTHM")
+ *   - article_image_url    : URL absoluta da imagem hero
+ */
+function _doljak_theme_preprocess_article(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  // Data formatada.
+  $variables['article_date'] = \Drupal::service('date.formatter')
+    ->format($node->getCreatedTime(), 'custom', 'F d, Y');
+
+  // Tempo de leitura.
+  $variables['article_reading_time'] = $node->hasField('field_reading_time') && !$node->get('field_reading_time')->isEmpty()
+    ? $node->get('field_reading_time')->value
+    : NULL;
+
+  // Categoria.
+  $variables['article_category'] = $node->hasField('field_category') && !$node->get('field_category')->isEmpty()
+    ? $node->get('field_category')->value
+    : NULL;
+
+  // URL da imagem hero.
+  $variables['article_image_url'] = NULL;
+  if ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
+    /** @var \Drupal\file\FileInterface $file */
+    $file = $node->get('field_image')->entity;
+    if ($file) {
+      $variables['article_image_url'] = \Drupal::service('file_url_generator')
+        ->generateAbsoluteString($file->getFileUri());
+    }
+  }
+}
