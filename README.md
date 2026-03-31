@@ -76,6 +76,28 @@ The scope expands as new topics are covered in the exercises.
 - [ ] Advanced Migrate API: migrations with complex transformations
 - [ ] Automated testing with PHPUnit and Nightwatch
 
+### Login & Security
+
+- [ ] Core auth forms — override via `hook_form_alter()` (login, register, password reset)
+- [ ] OAuth 2.0 — `simple_oauth` module; authorization code flow for third-party clients
+- [ ] JWT — JSON Web Tokens for headless/decoupled authentication
+- [ ] SSO — Single Sign-On via SAML 2.0 (`simplesamlphp_auth`) or OpenID Connect
+- [ ] Two-factor authentication — TOTP via `tfa` module
+- [ ] Rate limiting and brute force protection — `flood` API, `captcha` module
+- [ ] HTTPS, CSRF protection, Content Security Policy headers
+- [ ] Password policies — `password_policy` module; complexity rules per role
+
+### Deploy & CI/CD
+
+- [ ] Environment config split — `config_split` module for dev/staging/prod differences
+- [ ] `settings.php` per environment — database, trusted hosts, reverse proxy config
+- [ ] Drush deploy script — `updatedb`, `cim`, `cr`, `deploy` hook
+- [ ] GitHub Actions pipeline — PHP lint, PHPStan static analysis, Drupal tests, deploy on merge
+- [ ] Staging deployment — DDEV → Pantheon / Platform.sh / Acquia / VPS with SSH
+- [ ] Production hardening — file permissions, `settings.php` write-protect, error reporting off
+- [ ] Composer in production — `--no-dev`, lockfile pinned, patches applied
+- [ ] Rollback strategy — config revert, database snapshot before deploy
+
 ## How to run
 
 ```bash
