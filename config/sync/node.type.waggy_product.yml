@@ -8,7 +8,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Product
+name: 'Waggy product'
 type: waggy_product
 description: 'products of the store'
 help: null

@@ -12,7 +12,7 @@
   /* Colors — Background */
   --color-bg-base:        #FAF3ED;
   --color-bg-hero:        #F5EDE0;
-  --color-bg-hero-2:      #ecc483;
+  --color-bg-hero-2:      #eedbc0;
   --color-bg-dark:        #414040;
   --color-bg-card-warm:   #F0E4D4;
   --color-bg-card-blue:   #E8EDF5;
@@ -141,6 +141,86 @@ a {
 ul,
 ol {
   list-style: none;
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+nav[aria-labelledby="pagination-heading"] {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.js-pager__items {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.js-pager__items li {
+  align-items: center;
+  color: #8B7B6E;
+  display: flex;
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1.2;
+  min-height: 58px;
+  white-space: nowrap;
+}
+
+.js-pager__items li a {
+  align-items: center;
+  background-color: #FFF8F1;
+  border: 1px solid rgba(206, 180, 153, 0.42);
+  border-radius: 999px;
+  box-shadow: 0 12px 32px rgba(120, 86, 53, 0.08);
+  color: #5E5044;
+  display: inline-flex;
+  height: 58px;
+  justify-content: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 58px;
+}
+
+.js-pager__items li a:hover,
+.js-pager__items li a:focus-visible {
+  border-color: rgba(197, 137, 87, 0.65);
+  box-shadow: 0 14px 34px rgba(120, 86, 53, 0.12);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.js-pager__items li a > span[aria-hidden="true"] {
+  font-size: 28px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  nav[aria-labelledby="pagination-heading"] {
+    margin-top: 16px;
+  }
+
+  .js-pager__items {
+    gap: 14px;
+  }
+
+  .js-pager__items li {
+    font-size: 18px;
+    min-height: 48px;
+  }
+
+  .js-pager__items li a {
+    height: 48px;
+    width: 48px;
+  }
+
+  .js-pager__items li a > span[aria-hidden="true"] {
+    font-size: 22px;
+  }
 }
 
 /* ==========================================================================

@@ -41,16 +41,53 @@
   gap: 30px;
 }
 
+.shop-by-pet__card {
+  --shop-by-pet-shadow: rgba(233, 164, 106, 0.22);
+  --shop-by-pet-ring: rgba(233, 164, 106, 0.2);
+  --shop-by-pet-label: #D59C6A;
+}
+
+.shop-by-pet__card--dogs {
+  --shop-by-pet-shadow: rgba(233, 164, 106, 0.24);
+  --shop-by-pet-ring: rgba(233, 164, 106, 0.24);
+  --shop-by-pet-label: #D59C6A;
+}
+
+.shop-by-pet__card--cats {
+  --shop-by-pet-shadow: rgba(136, 176, 109, 0.22);
+  --shop-by-pet-ring: rgba(136, 176, 109, 0.22);
+  --shop-by-pet-label: #94A984;
+}
+
+.shop-by-pet__card--birds {
+  --shop-by-pet-shadow: rgba(124, 156, 199, 0.24);
+  --shop-by-pet-ring: rgba(124, 156, 199, 0.24);
+  --shop-by-pet-label: #7C9CC7;
+}
+
+.shop-by-pet__card--fish {
+  --shop-by-pet-shadow: rgba(117, 183, 197, 0.24);
+  --shop-by-pet-ring: rgba(117, 183, 197, 0.24);
+  --shop-by-pet-label: #6FA8B5;
+}
+
+.shop-by-pet__card--small-pets {
+  --shop-by-pet-shadow: rgba(196, 124, 174, 0.22);
+  --shop-by-pet-ring: rgba(196, 124, 174, 0.22);
+  --shop-by-pet-label: #C497B4;
+}
+
 .shop-by-pet__card a {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  transition: transform var(--transition-fast);
 }
 
 .shop-by-pet__card a:hover {
-  opacity: 0.9;
+  transform: translateY(-3px);
 }
 
 .shop-by-pet__image {
@@ -59,12 +96,19 @@
   border-radius: 24px;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 18px 34px var(--shop-by-pet-shadow), 0 0 0 1px var(--shop-by-pet-ring);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.shop-by-pet__card a:hover .shop-by-pet__image {
+  box-shadow: 0 24px 42px var(--shop-by-pet-shadow), 0 0 0 1px var(--shop-by-pet-ring);
+  transform: translateY(-2px);
 }
 
 .shop-by-pet__label {
   font-family: 'Chilanka', cursive;
   font-size: 22px;
-  color: #343434;
+  color: var(--shop-by-pet-label);
   text-align: center;
 }
 

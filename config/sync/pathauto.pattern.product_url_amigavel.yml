@@ -1,0 +1,22 @@
+uuid: b13d038b-bfd2-410a-9a37-61dc84036f44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: product_url_amigavel
+label: 'product url amigavel'
+type: 'canonical_entities:node'
+pattern: 'shop/[node:field_pet_type:entity:name]/[node:title]'
+selection_criteria:
+  13fba2c6-36e4-4e84-ae71-c5cb328d0699:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 13fba2c6-36e4-4e84-ae71-c5cb328d0699
+    context_mapping:
+      node: node
+    bundles:
+      waggy_product: waggy_product
+selection_logic: and
+weight: -5
+relationships: {  }

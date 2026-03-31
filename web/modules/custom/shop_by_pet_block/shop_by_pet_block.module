@@ -1,6 +1,18 @@
 <?php
 
 /**
+ * Implements hook_views_data_alter().
+ *
+ * Substitui o plugin de argumento de field_pet_type_target_id pelo nosso
+ * plugin customizado que aceita slugs (ex: "dogs", "small-pets").
+ */
+function shop_by_pet_block_views_data_alter(array &$data) {
+  if (isset($data['node__field_pet_type']['field_pet_type_target_id']['argument'])) {
+    $data['node__field_pet_type']['field_pet_type_target_id']['argument']['id'] = 'taxonomy_slug';
+  }
+}
+
+/**
  * Implements hook_theme().
  */
 function shop_by_pet_block_theme() {

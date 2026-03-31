@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - block_hero
+    - system
   theme:
     - doljak_theme
 id: doljak_theme_blockhero
@@ -17,4 +18,8 @@ settings:
   label: 'Block hero'
   label_display: '0'
   provider: block_hero
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

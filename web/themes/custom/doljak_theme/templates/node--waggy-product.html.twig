@@ -1,0 +1,358 @@
+{% set pet_type_entity = node.field_pet_type.entity ?? null %}
+{% set pet_type_name = pet_type_entity and pet_type_entity.name.value ? pet_type_entity.name.value : 'Dogs' %}
+{% set pet_type_slug = pet_type_name|lower|replace({' ': '-'}) %}
+{% set pet_type_label = pet_type_name|replace({'-': ' '})|title %}
+{% set price_raw = node.field_price.value ?: '49' %}
+{% set badge_text = node.field_product_badge.value ?: 'New' %}
+{% set product_title = label|render|striptags|trim %}
+{% set media_entity = node.field_product_image.entity ?? null %}
+{% set image_file = media_entity and media_entity.field_media_image.entity ? media_entity.field_media_image.entity : null %}
+{% set image_uri = image_file and image_file.uri.value ? image_file.uri.value : '' %}
+{% set image_url = image_uri ? file_url(image_uri) : '' %}
+{% set hero_catalog = {
+  'dogs': {
+    eyebrow: 'Daily Nutrition',
+    summary: 'Built for fuller bowls, calmer routines, and a premium daily ritual that still feels playful.',
+    bullets: ['Soft on sensitive stomachs and easy to portion.', 'Balanced textures made for everyday use.', 'Pairs naturally with bowls, treats, and at-home routines.'],
+    tags: ['Protein-rich', 'Daily staple', 'Vet-friendly'],
+    description_heading: 'Dog-first essentials with a softer premium finish.',
+    description_copy: 'This layout mirrors the Paper direction with a more editorial rhythm: stronger hierarchy, calmer spacing, and product storytelling that feels premium without looking heavy.',
+    descriptor: 'Fuel better walks, calmer mornings, and a more polished everyday feeding routine.'
+  },
+  'cats': {
+    eyebrow: 'Play & Scratch',
+    summary: 'Designed for tidy corners, daily play rituals, and that elevated at-home comfort cat parents actually keep visible.',
+    bullets: ['Keeps texture, comfort, and form in balance.', 'Easy to place in modern interiors without clutter.', 'Supports the small daily habits pets repeat most.'],
+    tags: ['Calming', 'Indoor ready', 'Play ritual'],
+    description_heading: 'Cat comfort, styled with a cleaner editorial flow.',
+    description_copy: 'The Paper composition leans into soft surfaces, airy negative space, and a premium retail tone. This rebuild keeps that direction while adapting to the current Drupal data shape.',
+    descriptor: 'Make scratching, resting, and everyday play feel intentional instead of purely functional.'
+  },
+  'birds': {
+    eyebrow: 'Habitat Essentials',
+    summary: 'A lighter, cleaner presentation for perches, habitat pieces, and all the little routines that keep the enclosure feeling active.',
+    bullets: ['Built around quick upkeep and daily refresh cycles.', 'Soft color balance keeps the page light and breathable.', 'Works for accessories, treats, and habitat add-ons alike.'],
+    tags: ['Perch ready', 'Habitat care', 'Lightweight'],
+    description_heading: 'Bird essentials with more air, pace, and clarity.',
+    description_copy: 'The visual rhythm follows the Paper artboard: lighter cards, rounder silhouettes, and denser information blocks balanced by generous spacing.',
+    descriptor: 'Support cleaner habitats, lighter upkeep, and a more curated accessory mix.'
+  },
+  'fish': {
+    eyebrow: 'Tank Wellness',
+    summary: 'Structured for filter care, feeding products, and tank upgrades that need to feel technical without becoming cold or clinical.',
+    bullets: ['Keeps technical details readable at a glance.', 'Soft pastels avoid the typical sterile aquarium UI feel.', 'Easy to extend later with real specs and comparison tables.'],
+    tags: ['Tank care', 'Water-safe', 'Routine upgrade'],
+    description_heading: 'Aquatic care with warmer styling and clearer product focus.',
+    description_copy: 'The Paper version mixes soft retail polish with a more system-like structure. This HTML rebuild keeps those signals while using mock content where the node is still thin.',
+    descriptor: 'Bring more warmth and clarity to the products that keep the tank stable every day.'
+  },
+  'small-pets': {
+    eyebrow: 'Cozy Living',
+    summary: 'Made for hideouts, bedding, toys, and daily habitat comforts with a softer palette and a more giftable presentation.',
+    bullets: ['Balances function and softness for compact habitats.', 'Makes supportive details easier to scan for pet parents.', 'Works well for accessories, bedding, and enrichment items.'],
+    tags: ['Habitat cozy', 'Soft comfort', 'Daily enrichment'],
+    description_heading: 'Small-pet pieces that feel warmer, calmer, and more considered.',
+    description_copy: 'The sectioning follows the Paper board closely: expressive hero, modular benefit cards, rounded data panels, and a warmer support block that anchors the bottom of the page.',
+    descriptor: 'Turn compact habitats into calmer, more comfortable daily spaces.'
+  }
+} %}
+{% set hero_content = hero_catalog[pet_type_slug]|default(hero_catalog['dogs']) %}
+{% set feature_cards = [
+  { tone: 'warm', title: 'Everyday Comfort', body: 'Rounded layouts, softer spacing, and a premium surface treatment keep the product story feeling calm.' },
+  { tone: 'blue', title: 'Clear Product Cues', body: 'Pricing, badges, benefits, and utility links are separated cleanly so the page reads faster.' },
+  { tone: 'green', title: 'Routine-Friendly', body: 'The structure supports daily-use products especially well, even before richer backend fields arrive.' },
+  { tone: 'pink', title: 'Paper-Led Styling', body: 'Large curves, editorial headings, and layered pastels keep the page close to the design direction.' }
+] %}
+{% set ingredient_rows = ['Premium material blend', 'Easy-care finish', 'Soft-touch construction', 'Daily routine friendly'] %}
+{% set feeding_rows = ['Use daily as part of a calm routine.', 'Pair with the matching essentials in shop.', 'Refresh or replace as needed for best comfort.', 'Store in a clean, dry, easy-access spot.'] %}
+{% set size_rows = [
+  { label: 'Starter pick', value: 'Best for first-time buyers' },
+  { label: 'Most loved', value: 'Balanced size for daily use' },
+  { label: 'Bundle ready', value: 'Pairs well with matching add-ons' }
+] %}
+{% set support_cards = [
+  { title: 'Free shipping on curated orders', body: 'Orders above $45 stay light, easy, and shipping-friendly.' },
+  { title: 'Care notes that feel human', body: 'Simple guidance blocks make upkeep easier to understand.' },
+  { title: 'Thoughtful add-on pairing', body: 'Cross-sell moments feel styled instead of forced.' },
+  { title: 'Ready for richer data later', body: 'Mock sections can be swapped for real fields without redoing the layout.' }
+] %}
+{% set related_catalog = {
+  'dogs': [
+    { pet: 'Dogs', type: 'dogs', badge: 'Best', title: 'Comfort Pet Harness', price: '49', image: '/sites/default/files/produtos/comfort-pet-harness.jpg' },
+    { pet: 'Dogs', type: 'dogs', badge: 'Hot', title: 'Retractable Leash Pro', price: '36', image: '/sites/default/files/produtos/retractable-leash-pro.jpg' },
+    { pet: 'Dogs', type: 'dogs', badge: 'New', title: 'Waterproof Dog Bed', price: '72', image: '/sites/default/files/produtos/waterproof-dog-bed.jpg' },
+    { pet: 'Dogs', type: 'dogs', badge: 'Best', title: 'Dog Chew Toy Bone', price: '18', image: '/sites/default/files/produtos/dog-chew-toy-bone.jpg' }
+  ],
+  'cats': [
+    { pet: 'Cats', type: 'cats', badge: 'New', title: 'Cat Scratching Post', price: '64', image: '/sites/default/files/produtos/cat-scratching-post.jpg' },
+    { pet: 'Cats', type: 'cats', badge: 'Best', title: 'Automatic Cat Feeder', price: '84', image: '/sites/default/files/produtos/automatic-cat-feeder.jpg' },
+    { pet: 'Cats', type: 'cats', badge: 'Hot', title: 'Window Perch Bed', price: '42', image: '/sites/default/files/produtos/window-perch-bed.jpg' },
+    { pet: 'Cats', type: 'cats', badge: 'Best', title: 'Catnip Toy Bundle', price: '19', image: '/sites/default/files/produtos/catnip-toy-bundle.jpg' }
+  ],
+  'birds': [
+    { pet: 'Birds', type: 'birds', badge: 'Best', title: 'Travel Bird Cage', price: '89', image: '/sites/default/files/produtos/travel-bird-cage.jpg' },
+    { pet: 'Birds', type: 'birds', badge: 'New', title: 'Wooden Bird Perch', price: '21', image: '/sites/default/files/produtos/wooden-bird-perch.jpg' },
+    { pet: 'Birds', type: 'birds', badge: 'Hot', title: 'Feather Rope Toy', price: '16', image: '/sites/default/files/produtos/feather-rope-toy.jpg' },
+    { pet: 'Birds', type: 'birds', badge: 'Best', title: 'Colorful Swing Toy', price: '18', image: '/sites/default/files/produtos/colorful-swing-toy.jpg' }
+  ],
+  'fish': [
+    { pet: 'Fish', type: 'fish', badge: 'Best', title: 'Tropical Fish Food', price: '17', image: '/sites/default/files/produtos/tropical-fish-food.jpg' },
+    { pet: 'Fish', type: 'fish', badge: 'Hot', title: 'Aquarium Filter Pro', price: '68', image: '/sites/default/files/produtos/aquarium-filter-pro.jpg' },
+    { pet: 'Fish', type: 'fish', badge: 'New', title: 'Decorative Coral Set', price: '29', image: '/sites/default/files/produtos/decorative-coral-set.jpg' },
+    { pet: 'Fish', type: 'fish', badge: 'Best', title: 'LED Tank Light', price: '52', image: '/sites/default/files/produtos/led-tank-light.jpg' }
+  ],
+  'small-pets': [
+    { pet: 'Small Pets', type: 'small-pets', badge: 'Best', title: 'Wooden Hideout House', price: '44', image: '/sites/default/files/produtos/wooden-hideout-house.jpg' },
+    { pet: 'Small Pets', type: 'small-pets', badge: 'Hot', title: 'Exercise Ball Large', price: '22', image: '/sites/default/files/produtos/exercise-ball-large.jpg' },
+    { pet: 'Small Pets', type: 'small-pets', badge: 'New', title: 'Hamster Wheel Silent', price: '31', image: '/sites/default/files/produtos/hamster-wheel-silent.jpg' },
+    { pet: 'Small Pets', type: 'small-pets', badge: 'Best', title: 'Hay Bedding Mix', price: '26', image: '/sites/default/files/produtos/hay-bedding-mix.jpg' }
+  ]
+} %}
+{% set related_cards = related_catalog[pet_type_slug]|default(related_catalog['dogs']) %}
+{% set section_tags = hero_content.tags|merge([pet_type_label ~ ' essentials', 'Paper-inspired layout']) %}
+
+<article{{ attributes.addClass('product-detail', 'product-detail--' ~ pet_type_slug) }}>
+  <section class="product-detail__hero">
+    <div class="product-detail__hero-inner">
+      <div class="product-detail__content">
+        <div class="product-detail__breadcrumbs">
+          <a href="{{ path('<front>') }}">Home</a>
+          <span>/</span>
+          <a href="/shop">Shop</a>
+          <span>/</span>
+          <a href="/shop/{{ pet_type_slug }}">{{ pet_type_label }}</a>
+        </div>
+
+        <span class="product-detail__eyebrow">{{ hero_content.eyebrow }}</span>
+        {{ title_prefix }}
+        <h1 class="product-detail__title">{{ product_title }}</h1>
+        {{ title_suffix }}
+
+        <div class="product-detail__price-row">
+          <span class="product-detail__price">${{ price_raw }}</span>
+          <span class="product-detail__price-compare">Premium pick for calmer daily routines</span>
+          <span class="product-detail__review">4.9 from 1.2k happy pet homes</span>
+        </div>
+
+        <p class="product-detail__summary">{{ hero_content.summary }}</p>
+
+        <div class="product-detail__chips">
+          {% for tag in hero_content.tags %}
+            <span class="product-detail__chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+
+        <ul class="product-detail__bullet-list">
+          {% for bullet in hero_content.bullets %}
+            <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+
+        <div class="product-detail__actions">
+          <a class="product-detail__button product-detail__button--primary" href="#purchase-support">Add To Cart</a>
+          <a class="product-detail__button product-detail__button--ghost" href="#product-specs">
+            <span class="product-detail__button-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            See Details
+          </a>
+        </div>
+
+        <div class="product-detail__stats">
+          <div class="product-detail__stat-card">
+            <strong>14d</strong>
+            <span>Easy-repeat routine</span>
+          </div>
+          <div class="product-detail__stat-card">
+            <strong>4.9</strong>
+            <span>Average customer rating</span>
+          </div>
+          <div class="product-detail__stat-card">
+            <strong>Free</strong>
+            <span>Shipping over $45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-detail__media-column">
+        <div class="product-detail__media-backdrop" aria-hidden="true"></div>
+        <div class="product-detail__media-card">
+          {% if badge_text is not empty %}
+            <span class="product-detail__hero-badge">{{ badge_text }}</span>
+          {% endif %}
+
+          <div class="product-detail__image-wrap">
+            {% if image_url %}
+              <img src="{{ image_url }}" alt="{{ product_title }}" class="product-detail__image">
+            {% else %}
+              <div class="product-detail__image-fallback">{{ product_title }}</div>
+            {% endif %}
+          </div>
+
+          <div class="product-detail__media-footer">
+            <div>
+              <span class="product-detail__media-label">{{ pet_type_label }}</span>
+              <p>{{ hero_content.descriptor }}</p>
+            </div>
+            <a href="#purchase-support" class="product-detail__media-cta" aria-label="Ir para compra">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail__benefits">
+    <div class="product-detail__section-inner">
+      <div class="product-detail__section-intro">
+        <div class="product-detail__section-heading">
+          <span class="product-detail__eyebrow">Why It Works</span>
+          <h2>Paper-style highlights that make the product page feel premium fast.</h2>
+        </div>
+        <p>This section is mocked intentionally to hold the composition while richer product fields are still absent from the Twig context.</p>
+      </div>
+
+      <div class="product-detail__benefit-grid">
+        {% for card in feature_cards %}
+          <article class="product-detail__benefit-card product-detail__benefit-card--{{ card.tone }}">
+            <span class="product-detail__icon-square" aria-hidden="true"></span>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.body }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail__specs" id="product-specs">
+    <div class="product-detail__section-inner product-detail__section-inner--specs">
+      <article class="product-detail__spec-card product-detail__spec-card--warm">
+        <span class="product-detail__eyebrow">Snapshot</span>
+        <h2>Product Makeup</h2>
+        <ul class="product-detail__line-list">
+          {% for row in ingredient_rows %}
+            <li><span>{{ row }}</span><strong>Included</strong></li>
+          {% endfor %}
+        </ul>
+      </article>
+
+      <article class="product-detail__spec-card product-detail__spec-card--blue">
+        <span class="product-detail__eyebrow">Care Guide</span>
+        <h2>How To Use</h2>
+        <ul class="product-detail__copy-list">
+          {% for row in feeding_rows %}
+            <li>{{ row }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+
+      <article class="product-detail__spec-card product-detail__spec-card--pink">
+        <span class="product-detail__eyebrow">Bundles & Sizes</span>
+        <h2>Pick Your Format</h2>
+        <ul class="product-detail__line-list">
+          {% for row in size_rows %}
+            <li><span>{{ row.label }}</span><strong>{{ row.value }}</strong></li>
+          {% endfor %}
+        </ul>
+        <a href="#purchase-support" class="product-detail__spec-link">Subscribe & Save 10%</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="product-detail__support" id="purchase-support">
+    <div class="product-detail__section-inner product-detail__section-inner--support">
+      <div class="product-detail__support-copy">
+        <span class="product-detail__support-eyebrow">Purchase Support</span>
+        <h2>Styled for conversion now, flexible enough for real product data later.</h2>
+        <p>The layout keeps the dark support band from the Paper artboard so the lower half of the product page has a stronger anchor and clearer call to action.</p>
+        <a href="/shop" class="product-detail__support-button">Continue Shopping</a>
+      </div>
+
+      <div class="product-detail__support-grid">
+        {% for card in support_cards %}
+          <article class="product-detail__support-card">
+            <span class="product-detail__support-icon" aria-hidden="true"></span>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.body }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail__story">
+    <div class="product-detail__section-inner product-detail__section-inner--story">
+      <div class="product-detail__story-copy">
+        <span class="product-detail__eyebrow">Product Description</span>
+        <h2>{{ hero_content.description_heading }}</h2>
+        <p>{{ hero_content.description_copy }}</p>
+      </div>
+
+      <div class="product-detail__tags-panel">
+        <span class="product-detail__eyebrow">Tags</span>
+        <div class="product-detail__tag-list">
+          {% for tag in section_tags %}
+            <span class="product-detail__tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-detail__related">
+    <div class="product-detail__section-inner">
+      <div class="product-detail__related-head">
+        <div>
+          <span class="product-detail__eyebrow">Related Products</span>
+          <h2>Keep the same tone across the rest of the catalog.</h2>
+        </div>
+        <div class="product-detail__related-nav" aria-hidden="true">
+          <span class="product-detail__nav-button product-detail__nav-button--ghost">&larr;</span>
+          <span class="product-detail__nav-button">&rarr;</span>
+        </div>
+      </div>
+
+      <div class="product-detail__related-grid">
+        {% for card in related_cards %}
+          {% set related_slug = card.title|lower|replace({' ': '-'}) %}
+          <article class="shop-card shop-card--{{ card.type }}">
+            <a href="/shop/{{ card.type }}/{{ related_slug }}">
+              <div class="shop-card__image-wrap">
+                <span class="shop-card__badge">{{ card.badge }}</span>
+                <img src="{{ card.image }}" alt="{{ card.title }}">
+              </div>
+            </a>
+
+            <div class="shop-card__content">
+              <div class="shop-card__meta">
+                <span class="shop-card__pet-type">{{ card.pet }}</span>
+                <h3 class="shop-card__title">
+                  <a href="/shop/{{ card.type }}/{{ related_slug }}">{{ card.title }}</a>
+                </h3>
+              </div>
+              <div class="shop-card__footer">
+                <div class="shop-card__price-wrap">
+                  <span class="shop-card__price">${{ card.price }}</span>
+                </div>
+                <a href="/shop/{{ card.type }}/{{ related_slug }}" class="shop-card__add" aria-label="Ver {{ card.title }}">+</a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="product-detail__pager" aria-hidden="true">
+        <span class="product-detail__pager-dot is-active"></span>
+        <span class="product-detail__pager-dot"></span>
+        <span class="product-detail__pager-dot"></span>
+      </div>
+    </div>
+  </section>
+</article>
