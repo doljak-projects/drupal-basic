@@ -1,0 +1,22 @@
+uuid: b62cb50d-0afb-4bf8-958e-f1b2e2986039
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: url_amigavel_para_blog
+label: 'url amigavel para blog'
+type: 'canonical_entities:node'
+pattern: '/blog/[node:title]'
+selection_criteria:
+  d41833dd-8a29-412f-8908-a76937fcf0e6:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: d41833dd-8a29-412f-8908-a76937fcf0e6
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+selection_logic: and
+weight: -5
+relationships: {  }

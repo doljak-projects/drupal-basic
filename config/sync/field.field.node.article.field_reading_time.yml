@@ -1,0 +1,19 @@
+uuid: 90860c53-9c3f-4de4-82a1-a4abb2875223
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reading_time
+    - node.type.article
+id: node.article.field_reading_time
+field_name: field_reading_time
+entity_type: node
+bundle: article
+label: 'Reading time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
