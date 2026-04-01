@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" fill="#F5F2E8"/>
+  <circle cx="90" cy="68" r="40" fill="#E8D8A0"/>
+  <circle cx="90" cy="74" r="11" fill="#C8A030"/>
+  <circle cx="84" cy="70" r="4" fill="#C8A030"/>
+  <circle cx="96" cy="70" r="4" fill="#C8A030"/>
+  <circle cx="86" cy="72" r="2" fill="#5C3A00"/>
+  <circle cx="94" cy="72" r="2" fill="#5C3A00"/>
+  <ellipse cx="90" cy="78" rx="5" ry="3" fill="#B08020"/>
+  <text x="90" y="135" text-anchor="middle" fill="#414040" font-family="Chilanka, cursive" font-size="18">Small Pets</text>
+</svg>

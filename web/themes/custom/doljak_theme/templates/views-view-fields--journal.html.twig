@@ -1,0 +1,41 @@
+{% set article_url = row._entity is defined ? path('entity.node.canonical', {'node': row._entity.id}) : '#' %}
+{% set category = fields.field_category is defined and fields.field_category.content|striptags|trim ? fields.field_category.content|striptags|trim : 'Journal' %}
+{% set published_date = fields.created is defined ? fields.created.content|striptags|trim : '' %}
+{% set title = fields.title is defined ? fields.title.content|striptags|trim : '' %}
+{% set excerpt = fields.body is defined ? fields.body.content|striptags|trim : '' %}
+{% set tags_markup = fields.field_tags is defined ? fields.field_tags.content|trim : '' %}
+
+<article class="journal-article-card">
+  <a href="{{ article_url }}" class="journal-article-card__image-link" aria-label="{{ title }}">
+    <div class="journal-article-card__image-wrap">
+      {{ fields.field_image is defined ? fields.field_image.content }}
+    </div>
+  </a>
+
+  <div class="journal-article-card__content">
+    <div class="journal-article-card__meta">
+      <span class="journal-article-card__category">{{ category }}</span>
+      {% if published_date %}
+        <span class="journal-article-card__date">{{ published_date }}</span>
+      {% endif %}
+    </div>
+
+    <h2 class="journal-article-card__title">
+      <a href="{{ article_url }}">{{ title }}</a>
+    </h2>
+
+    {% if excerpt %}
+      <p class="journal-article-card__excerpt">{{ excerpt }}</p>
+    {% endif %}
+
+    <div class="journal-article-card__footer">
+      {% if tags_markup %}
+        <div class="journal-article-card__tags">
+          {{ tags_markup }}
+        </div>
+      {% endif %}
+
+      <a href="{{ article_url }}" class="journal-article-card__cta">Read article</a>
+    </div>
+  </div>
+</article>
