@@ -1,0 +1,133 @@
+{#
+  node--footer.html.twig
+  Estrutura visual do footer para uso futuro dentro de um block type dedicado.
+  Nesta issue o escopo fica restrito a HTML/CSS, então a navegação e o bloco
+  de newsletter usam conteúdo estático de referência enquanto o bundle final
+  e os campos ainda não foram modelados.
+#}
+
+{% set footer_brand = label ?: 'Waggy Pet Shop' %}
+{% set footer_columns = [
+  {
+    title: 'Shop',
+    links: [
+      { label: 'Dog essentials', href: '#' },
+      { label: 'Cat comfort', href: '#' },
+      { label: 'Bird accessories', href: '#' },
+      { label: 'Small pet care', href: '#' }
+    ]
+  },
+  {
+    title: 'Journal',
+    links: [
+      { label: 'Daily routines', href: '#' },
+      { label: 'Nutrition notes', href: '#' },
+      { label: 'Grooming guides', href: '#' },
+      { label: 'Home setup tips', href: '#' }
+    ]
+  },
+  {
+    title: 'Support',
+    links: [
+      { label: 'Shipping & returns', href: '#' },
+      { label: 'Store pickup', href: '#' },
+      { label: 'Gift cards', href: '#' },
+      { label: 'Talk to the team', href: '#' }
+    ]
+  }
+] %}
+{% set footer_social_links = [
+  { label: 'Instagram', href: '#' },
+  { label: 'Pinterest', href: '#' },
+  { label: 'Facebook', href: '#' }
+] %}
+{% set footer_highlights = [
+  'Curated essentials for calmer routines',
+  'Editorial navigation inspired by the main footer',
+  'Responsive spacing tuned for block-based placement'
+] %}
+
+<section{{ attributes.addClass('footer-content') }}>
+  <div class="footer-content__inner">
+
+    <div class="footer-content__top">
+      <div class="footer-content__intro">
+        <span class="footer-content__eyebrow">Footer content</span>
+        <h2 class="footer-content__title">{{ footer_brand }}</h2>
+
+        <div class="footer-content__copy">
+          {% if content.body is not empty %}
+            {{ content.body }}
+          {% else %}
+            <p>
+              A warm footer block with clearer navigation, softer hierarchy,
+              and a friendlier invitation to keep browsing the pet shop.
+            </p>
+          {% endif %}
+        </div>
+
+        <ul class="footer-content__highlights" aria-label="Footer highlights">
+          {% for highlight in footer_highlights %}
+            <li class="footer-content__highlight">{{ highlight }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <aside class="footer-content__signup" aria-label="Newsletter signup preview">
+        <span class="footer-content__card-label">Stay close</span>
+        <h3 class="footer-content__card-title">Keep the footer useful, not noisy.</h3>
+        <p class="footer-content__card-copy">
+          Use this area for newsletter capture, product drops, or a short
+          service promise when the dedicated fields arrive.
+        </p>
+
+        <form class="footer-content__form" action="#" method="post">
+          <label class="visually-hidden" for="footer-content-email">Email address</label>
+          <input id="footer-content-email" class="footer-content__input" type="email" placeholder="Email address" />
+          <button class="footer-content__button" type="button">Join the list</button>
+        </form>
+      </aside>
+    </div>
+
+    <div class="footer-content__main">
+      <div class="footer-content__brand-panel">
+        <span class="footer-content__brand-mark">WG</span>
+        <div class="footer-content__brand-copy">
+          <strong class="footer-content__brand-name">{{ footer_brand }}</strong>
+          <p class="footer-content__brand-text">
+            Designed to translate the footer rhythm into a reusable content
+            block without losing the airy, editorial feel of the theme.
+          </p>
+        </div>
+      </div>
+
+      <nav class="footer-content__nav" aria-label="Footer navigation preview">
+        {% for column in footer_columns %}
+          <div class="footer-content__column">
+            <h3 class="footer-content__column-title">{{ column.title }}</h3>
+            <ul class="footer-content__links">
+              {% for link in column.links %}
+                <li class="footer-content__link-item">
+                  <a href="{{ link.href }}" class="footer-content__link">{{ link.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </nav>
+    </div>
+
+    <div class="footer-content__bottom">
+      <p class="footer-content__legal">Copyright 2026 {{ footer_brand }}. Crafted for pet-friendly browsing.</p>
+
+      <ul class="footer-content__social" aria-label="Social links preview">
+        {% for item in footer_social_links %}
+          <li>
+            <a href="{{ item.href }}" class="footer-content__social-link">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</section>
