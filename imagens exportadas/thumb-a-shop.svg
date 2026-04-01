@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
-  <rect width="180" height="180" fill="#F0E4D4"/>
-  <circle cx="90" cy="68" r="40" fill="#EDD9BC"/>
-  <path d="M75 83 Q79 71 90 69 Q101 67 105 79 Q103 87 90 89 Q77 91 75 83Z" fill="#DE9C6F"/>
-  <circle cx="83" cy="73" r="3.5" fill="#DE9C6F"/>
-  <text x="90" y="135" text-anchor="middle" fill="#414040" font-family="Chilanka, cursive" font-size="18">Dogs</text>
-</svg>

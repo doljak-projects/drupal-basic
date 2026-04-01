@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
-  <rect width="180" height="180" fill="#E8EDF5"/>
-  <circle cx="90" cy="68" r="40" fill="#C8D8F0"/>
-  <circle cx="90" cy="64" r="11" fill="#5B8ED6"/>
-  <path d="M95 60 Q105 56 103 64 Q97 62 95 66Z" fill="#5B8ED6"/>
-  <circle cx="93" cy="62" r="2" fill="#1A3A6E"/>
-  <path d="M87 68 Q90 72 93 68" stroke="#1A3A6E" stroke-width="1.5" fill="none"/>
-  <text x="90" y="135" text-anchor="middle" fill="#414040" font-family="Chilanka, cursive" font-size="18">Birds</text>
-</svg>
