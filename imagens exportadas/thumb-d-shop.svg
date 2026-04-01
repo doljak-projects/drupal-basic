@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" fill="none">
-  <rect width="180" height="180" fill="#E8F5F5"/>
-  <circle cx="90" cy="68" r="40" fill="#C0E0E0"/>
-  <path d="M79 69 Q87 60 99 69 Q87 78 79 69Z" fill="#4AADAD"/>
-  <path d="M75 64 Q79 69 75 74Z" fill="#4AADAD"/>
-  <circle cx="95" cy="67" r="2" fill="#1A5A5A"/>
-  <text x="90" y="135" text-anchor="middle" fill="#414040" font-family="Chilanka, cursive" font-size="18">Fish</text>
-</svg>
