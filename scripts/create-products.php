@@ -42,6 +42,18 @@ $source_dir = DRUPAL_ROOT . '/../imagens exportadas/produtos/';
 $file_system = \Drupal::service('file_system');
 $entity_type_manager = \Drupal::entityTypeManager();
 
+// Mapear slugs para TIDs do vocabulário pet_type.
+$pet_tids = [];
+foreach ($entity_type_manager->getStorage('taxonomy_term')->loadByProperties(['vid' => 'pet_type']) as $term) {
+  $pet_tids[strtolower(str_replace([' ', '_'], '-', $term->getName()))] = $term->id();
+}
+// Aliases diretos para garantir correspondência.
+$pet_tids['dogs']       = $pet_tids['dogs'] ?? NULL;
+$pet_tids['cats']       = $pet_tids['cats'] ?? NULL;
+$pet_tids['birds']      = $pet_tids['birds'] ?? NULL;
+$pet_tids['fish']       = $pet_tids['fish'] ?? NULL;
+$pet_tids['small-pets'] = $pet_tids['small-pets'] ?? $pet_tids['small pets'] ?? NULL;
+
 foreach ($products as $p) {
   $source = $source_dir . $p['file'];
 
@@ -81,7 +93,7 @@ foreach ($products as $p) {
     'type'                 => 'waggy_product',
     'title'                => $p['name'],
     'status'               => 1,
-    'field_pet_type'       => $p['pet'],
+    'field_pet_type'       => ['target_id' => $pet_tids[$p['pet']]],
     'field_price'          => $p['price'],
     'field_product_badge'  => $p['badge'],
     'field_product_image'  => $media_id ? ['target_id' => $media_id] : [],
