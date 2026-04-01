@@ -8,6 +8,7 @@ global-styling:
       css/base/product-styling.css: {}
       css/base/shop-styling.css: {}
       css/base/article-styling.css: {}
+      css/base/footer-styling.css: {}
     layout:
       css/layout/global.css: {}
 
