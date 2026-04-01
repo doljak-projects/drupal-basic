@@ -107,3 +107,7 @@ ddev drush cr                     # clear cache
 ```
 
 Access: http://drupal-treino-b.ddev.site
+
+## Scripts and helper hooks
+
+See [scripts/SCRIPTS.md](scripts/SCRIPTS.md) for the full reference of Drush automation scripts and git hooks — including preconditions, side effects, risk levels and AI agent guidance.
