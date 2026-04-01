@@ -6,7 +6,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_category
+    - field.field.node.article.field_created
+    - field.field.node.article.field_editor_note
     - field.field.node.article.field_image
+    - field.field.node.article.field_product_image
+    - field.field.node.article.field_reading_time
     - field.field.node.article.field_tags
     - image.style.medium
     - node.type.article
@@ -40,6 +45,15 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
+  field_product_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
   field_tags:
     type: entity_reference_label
     label: above
@@ -53,3 +67,7 @@ content:
     region: content
 hidden:
   comment: true
+  field_category: true
+  field_created: true
+  field_editor_note: true
+  field_reading_time: true

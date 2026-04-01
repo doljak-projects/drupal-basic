@@ -7,6 +7,7 @@ global-styling:
       css/base/journal-styling.css: {}
       css/base/product-styling.css: {}
       css/base/shop-styling.css: {}
+      css/base/article-styling.css: {}
     layout:
       css/layout/global.css: {}
 

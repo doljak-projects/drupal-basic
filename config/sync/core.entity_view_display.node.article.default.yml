@@ -6,13 +6,19 @@ dependencies:
     - core.entity_view_display.comment.comment.default
     - field.field.node.article.body
     - field.field.node.article.comment
+    - field.field.node.article.field_category
+    - field.field.node.article.field_created
+    - field.field.node.article.field_editor_note
     - field.field.node.article.field_image
+    - field.field.node.article.field_product_image
+    - field.field.node.article.field_reading_time
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
   module:
     - comment
     - image
+    - media
     - text
     - user
 _core:
@@ -38,6 +44,40 @@ content:
     third_party_settings: {  }
     weight: 110
     region: content
+  field_category:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_editor_note:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
   field_image:
     type: image
     label: hidden
@@ -48,6 +88,25 @@ content:
         attribute: eager
     third_party_settings: {  }
     weight: -1
+    region: content
+  field_product_image:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_reading_time:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 112
     region: content
   field_tags:
     type: entity_reference_label
