@@ -5,6 +5,8 @@
  * Theme functions for doljak_theme.
  */
 
+use Drupal\Core\Cache\Cache;
+
 /**
  * Implements hook_preprocess_node().
  *
@@ -46,6 +48,9 @@ function _doljak_theme_preprocess_article(array &$variables): void {
     : NULL;
 
   // URL da imagem hero.
+  // Ao acessar o File entity diretamente, adicionamos suas cache tags ao
+  // conjunto da renderização. Assim, se a imagem for trocada no admin,
+  // file:X é invalidado e a página é regerada com a URL correta.
   $variables['article_image_url'] = NULL;
   if ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
     /** @var \Drupal\file\FileInterface $file */
@@ -53,6 +58,10 @@ function _doljak_theme_preprocess_article(array &$variables): void {
     if ($file) {
       $variables['article_image_url'] = \Drupal::service('file_url_generator')
         ->generateAbsoluteString($file->getFileUri());
+      $variables['#cache']['tags'] = Cache::mergeTags(
+        $variables['#cache']['tags'] ?? [],
+        $file->getCacheTags()
+      );
     }
   }
 }
