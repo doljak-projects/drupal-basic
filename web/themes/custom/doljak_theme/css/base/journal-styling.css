@@ -590,10 +590,6 @@
     justify-content: space-between;
   }
 
-  .journal__grid,
-  .view-journal .view-content,
-  .view-id-journal .view-content,
-  .journal__product-grid,
   .journal__cta {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -609,7 +605,14 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
+  .journal__grid,
+  .view-journal .view-content,
+  .view-id-journal .view-content,
+  .journal__product-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .journal__filter-bar,
   .journal-newsletter,
   .journal-reader,
