@@ -9,6 +9,7 @@ global-styling:
       css/base/shop-styling.css: {}
       css/base/article-styling.css: {}
       css/base/footer-styling.css: {}
+      css/base/auth-styling.css: {}
     layout:
       css/layout/global.css: {}
 
