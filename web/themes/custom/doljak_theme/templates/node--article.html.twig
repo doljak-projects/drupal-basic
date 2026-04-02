@@ -137,4 +137,67 @@
 
   </div>
 
+  {# ------------------------------------------------------------------ #}
+  {# COMMENTS                                                            #}
+  {# ------------------------------------------------------------------ #}
+  <section class="article-comments">
+    <div class="article-comments__inner">
+
+      <div class="article-comments__heading">
+        <span class="article-label">Comments</span>
+        <h2 class="article-comments__title">What readers are adding to the conversation</h2>
+      </div>
+
+      <div class="article-comments__grid">
+
+        <article class="article-comment-card">
+          <h3 class="article-comment-card__author">Mia T.</h3>
+          <p class="article-comment-card__text">The evening cue made the biggest difference for us. Once we dimmed the room before offering the chew, our dog stopped pacing through the hallway.</p>
+        </article>
+
+        <article class="article-comment-card">
+          <h3 class="article-comment-card__author">Carlos P.</h3>
+          <p class="article-comment-card__text">The midday reset tip is practical. We replaced random toy bursts with one sniffing game after lunch and the whole afternoon feels calmer now.</p>
+        </article>
+
+        <article class="article-comment-card">
+          <h3 class="article-comment-card__author">Nadia R.</h3>
+          <p class="article-comment-card__text">I liked that the routine feels realistic for weekdays. It is not about perfection, just giving the dog a clearer rhythm to trust.</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------------ #}
+  {# COMMENT FORM                                                        #}
+  {# ------------------------------------------------------------------ #}
+  <section class="article-comment-form">
+    <div class="article-comment-form__inner">
+
+      <h2 class="article-comment-form__title">Leave a comment</h2>
+
+      <form class="article-comment-form__form" action="#" method="post" novalidate>
+
+        <div class="article-comment-form__row">
+          <div class="article-comment-form__field">
+            <input type="text" placeholder="Name" aria-label="Name" autocomplete="name">
+          </div>
+          <div class="article-comment-form__field">
+            <input type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="article-comment-form__field article-comment-form__field--full">
+          <textarea placeholder="Share your experience with your pet's routine." aria-label="Comment" rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="article-comment-form__submit">Post comment</button>
+
+      </form>
+
+    </div>
+  </section>
+
 </article>
