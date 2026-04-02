@@ -1,9 +1,8 @@
 {#
   node--footer.html.twig
-  Estrutura visual do footer para uso futuro dentro de um block type dedicado.
-  Nesta issue o escopo fica restrito a HTML/CSS, então a navegação e o bloco
-  de newsletter usam conteúdo estático de referência enquanto o bundle final
-  e os campos ainda não foram modelados.
+  Estrutura compartilhada do footer para fallback global no tema e para uso
+  futuro em um bloco ou node dedicado, caso a região de footer passe a ser
+  gerenciada pelo Drupal Admin.
 #}
 
 {% set footer_brand = label ?: 'Waggy Pet Shop' %}
@@ -11,40 +10,40 @@
   {
     title: 'Shop',
     links: [
-      { label: 'Dog essentials', href: '#' },
-      { label: 'Cat comfort', href: '#' },
-      { label: 'Bird accessories', href: '#' },
-      { label: 'Small pet care', href: '#' }
+      { label: 'Home', href: path('<front>') },
+      { label: 'Shop all essentials', href: '/shop' },
+      { label: 'New arrivals', href: '/shop' },
+      { label: 'Gift-ready picks', href: '/shop' }
     ]
   },
   {
     title: 'Journal',
     links: [
-      { label: 'Daily routines', href: '#' },
-      { label: 'Nutrition notes', href: '#' },
-      { label: 'Grooming guides', href: '#' },
-      { label: 'Home setup tips', href: '#' }
+      { label: 'From the journal', href: '/blog' },
+      { label: 'Daily routines', href: '/blog' },
+      { label: 'Nutrition notes', href: '/blog' },
+      { label: 'Home setup tips', href: '/blog' }
     ]
   },
   {
-    title: 'Support',
+    title: 'Account',
     links: [
-      { label: 'Shipping & returns', href: '#' },
-      { label: 'Store pickup', href: '#' },
-      { label: 'Gift cards', href: '#' },
-      { label: 'Talk to the team', href: '#' }
+      { label: 'Login', href: path('user.login') },
+      { label: 'Create account', href: path('user.register') },
+      { label: 'Reset password', href: path('user.pass') },
+      { label: 'Talk to the team', href: 'mailto:hello@waggy.local' }
     ]
   }
 ] %}
 {% set footer_social_links = [
-  { label: 'Instagram', href: '#' },
-  { label: 'Pinterest', href: '#' },
-  { label: 'Facebook', href: '#' }
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'Pinterest', href: 'https://pinterest.com' },
+  { label: 'Facebook', href: 'https://facebook.com' }
 ] %}
 {% set footer_highlights = [
-  'Curated essentials for calmer routines',
-  'Editorial navigation inspired by the main footer',
-  'Responsive spacing tuned for block-based placement'
+  'Everyday essentials for calmer pet routines',
+  'Editorial reading that supports real household rhythms',
+  'Friendly account and support paths in one place'
 ] %}
 
 <section{{ attributes.addClass('footer-content') }}>
@@ -52,33 +51,33 @@
 
     <div class="footer-content__top">
       <div class="footer-content__intro">
-        <span class="footer-content__eyebrow">Footer content</span>
-        <h2 class="footer-content__title">{{ footer_brand }}</h2>
+        <span class="footer-content__eyebrow">Waggy Pet Shop</span>
+        <h2 class="footer-content__title">Gentler routines, better pet days.</h2>
 
         <div class="footer-content__copy">
           {% if content.body is not empty %}
             {{ content.body }}
           {% else %}
             <p>
-              A warm footer block with clearer navigation, softer hierarchy,
-              and a friendlier invitation to keep browsing the pet shop.
+              Shop essentials, discover calmer care rituals, and keep the most
+              useful pet-shop paths close at hand.
             </p>
           {% endif %}
         </div>
 
-        <ul class="footer-content__highlights" aria-label="Footer highlights">
+        <ul class="footer-content__highlights" aria-label="Waggy highlights">
           {% for highlight in footer_highlights %}
             <li class="footer-content__highlight">{{ highlight }}</li>
           {% endfor %}
         </ul>
       </div>
 
-      <aside class="footer-content__signup" aria-label="Newsletter signup preview">
+      <aside class="footer-content__signup" aria-label="Newsletter signup">
         <span class="footer-content__card-label">Stay close</span>
-        <h3 class="footer-content__card-title">Keep the footer useful, not noisy.</h3>
+        <h3 class="footer-content__card-title">Weekly notes for pet people.</h3>
         <p class="footer-content__card-copy">
-          Use this area for newsletter capture, product drops, or a short
-          service promise when the dedicated fields arrive.
+          New arrivals, journal highlights and practical reminders, shared
+          with a lighter rhythm.
         </p>
 
         <form class="footer-content__form" action="#" method="post">
@@ -95,13 +94,13 @@
         <div class="footer-content__brand-copy">
           <strong class="footer-content__brand-name">{{ footer_brand }}</strong>
           <p class="footer-content__brand-text">
-            Designed to translate the footer rhythm into a reusable content
-            block without losing the airy, editorial feel of the theme.
+            A warm editorial storefront for pet essentials, practical reading
+            and easier everyday care decisions.
           </p>
         </div>
       </div>
 
-      <nav class="footer-content__nav" aria-label="Footer navigation preview">
+      <nav class="footer-content__nav" aria-label="Footer navigation">
         {% for column in footer_columns %}
           <div class="footer-content__column">
             <h3 class="footer-content__column-title">{{ column.title }}</h3>
@@ -118,9 +117,9 @@
     </div>
 
     <div class="footer-content__bottom">
-      <p class="footer-content__legal">Copyright 2026 {{ footer_brand }}. Crafted for pet-friendly browsing.</p>
+      <p class="footer-content__legal">Copyright {{ 'now'|date('Y') }} {{ footer_brand }}. Crafted for slower, friendlier browsing.</p>
 
-      <ul class="footer-content__social" aria-label="Social links preview">
+      <ul class="footer-content__social" aria-label="Social links">
         {% for item in footer_social_links %}
           <li>
             <a href="{{ item.href }}" class="footer-content__social-link">{{ item.label }}</a>
