@@ -5,128 +5,48 @@
   gerenciada pelo Drupal Admin.
 #}
 
-{% set footer_brand = label ?: 'Waggy Pet Shop' %}
 {% set footer_columns = [
   {
-    title: 'Shop',
+    title: 'Quick Links',
     links: [
       { label: 'Home', href: path('<front>') },
-      { label: 'Shop all essentials', href: '/shop' },
-      { label: 'New arrivals', href: '/shop' },
-      { label: 'Gift-ready picks', href: '/shop' }
+      { label: 'About Us', href: '/about' },
+      { label: 'Offers', href: '/shop' },
+      { label: 'Services', href: '/shop' },
+      { label: 'Contact Us', href: 'mailto:hello@waggy.local' }
     ]
   },
   {
-    title: 'Journal',
+    title: 'Help Centre',
     links: [
-      { label: 'From the journal', href: '/blog' },
-      { label: 'Daily routines', href: '/blog' },
-      { label: 'Nutrition notes', href: '/blog' },
-      { label: 'Home setup tips', href: '/blog' }
-    ]
-  },
-  {
-    title: 'Account',
-    links: [
-      { label: 'Login', href: path('user.login') },
-      { label: 'Create account', href: path('user.register') },
-      { label: 'Reset password', href: path('user.pass') },
-      { label: 'Talk to the team', href: 'mailto:hello@waggy.local' }
+      { label: 'Payments', href: '/shop' },
+      { label: 'Shipping', href: '/shop' },
+      { label: 'Product Returns', href: '/shop' },
+      { label: 'FAQs', href: '/blog' },
+      { label: 'Checkout', href: path('user.login') }
     ]
   }
 ] %}
 {% set footer_social_links = [
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'Pinterest', href: 'https://pinterest.com' },
-  { label: 'Facebook', href: 'https://facebook.com' }
-] %}
-{% set footer_highlights = [
-  'Everyday essentials for calmer pet routines',
-  'Editorial reading that supports real household rhythms',
-  'Friendly account and support paths in one place'
+  { label: 'X', href: 'https://x.com', icon: 'x' },
+  { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
+  { label: 'Dribbble', href: 'https://dribbble.com', icon: 'dribbble' },
+  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' }
 ] %}
 
 <section{{ attributes.addClass('footer-content') }}>
-  <div class="footer-content__inner">
-
-    <div class="footer-content__top">
-      <div class="footer-content__intro">
-        <span class="footer-content__eyebrow">Waggy Pet Shop</span>
-        <h2 class="footer-content__title">Gentler routines, better pet days.</h2>
-
-        <div class="footer-content__copy">
-          {% if content.body is not empty %}
-            {{ content.body }}
-          {% else %}
-            <p>
-              Shop essentials, discover calmer care rituals, and keep the most
-              useful pet-shop paths close at hand.
-            </p>
-          {% endif %}
-        </div>
-
-        <ul class="footer-content__highlights" aria-label="Waggy highlights">
-          {% for highlight in footer_highlights %}
-            <li class="footer-content__highlight">{{ highlight }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <aside class="footer-content__signup" aria-label="Newsletter signup">
-        <span class="footer-content__card-label">Stay close</span>
-        <h3 class="footer-content__card-title">Weekly notes for pet people.</h3>
-        <p class="footer-content__card-copy">
-          New arrivals, journal highlights and practical reminders, shared
-          with a lighter rhythm.
-        </p>
-
-        <form class="footer-content__form" action="#" method="post">
-          <label class="visually-hidden" for="footer-content-email">Email address</label>
-          <input id="footer-content-email" class="footer-content__input" type="email" placeholder="Email address" />
-          <button class="footer-content__button" type="button">Join the list</button>
-        </form>
-      </aside>
-    </div>
-
-    <div class="footer-content__main">
-      <div class="footer-content__brand-panel">
-        <span class="footer-content__brand-mark">WG</span>
-        <div class="footer-content__brand-copy">
-          <strong class="footer-content__brand-name">{{ footer_brand }}</strong>
-          <p class="footer-content__brand-text">
-            A warm editorial storefront for pet essentials, practical reading
-            and easier everyday care decisions.
-          </p>
-        </div>
-      </div>
-
-      <nav class="footer-content__nav" aria-label="Footer navigation">
-        {% for column in footer_columns %}
-          <div class="footer-content__column">
-            <h3 class="footer-content__column-title">{{ column.title }}</h3>
-            <ul class="footer-content__links">
-              {% for link in column.links %}
-                <li class="footer-content__link-item">
-                  <a href="{{ link.href }}" class="footer-content__link">{{ link.label }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endfor %}
-      </nav>
-    </div>
-
-    <div class="footer-content__bottom">
-      <p class="footer-content__legal">Copyright {{ 'now'|date('Y') }} {{ footer_brand }}. Crafted for slower, friendlier browsing.</p>
-
-      <ul class="footer-content__social" aria-label="Social links">
-        {% for item in footer_social_links %}
-          <li>
-            <a href="{{ item.href }}" class="footer-content__social-link">{{ item.label }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-  </div>
+  {% include '@doljak_theme/includes/footer-content.html.twig' with {
+    footer_front_page: path('<front>'),
+    footer_brand_primary: 'Waggy',
+    footer_brand_secondary: 'Pet shop.',
+    footer_body: content.body is not empty ? content.body : null,
+    footer_columns: footer_columns,
+    footer_social_links: footer_social_links,
+    footer_newsletter_title: 'Our Newsletter',
+    footer_newsletter_copy: 'Subscribe to our newsletter to get updates about our grand offers.',
+    footer_newsletter_placeholder: 'Enter your email-address',
+    footer_email_id: 'footer-content-email',
+    footer_legal: '©' ~ 'now'|date('Y') ~ ' Waggy. All rights reserved.',
+    footer_credit: 'Template design by: Templates Jungle'
+  } only %}
 </section>
