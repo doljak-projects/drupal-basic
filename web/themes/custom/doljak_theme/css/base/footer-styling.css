@@ -1,6 +1,7 @@
 /* ==========================================================================
    FOOTER CONTENT
-   Estrutura do footer para uso em node/bloco dedicado
+   Sistema visual compartilhado entre o footer global do tema e o node/bloco
+   dedicado de footer quando essa região passar a ser gerenciada via Drupal.
    ========================================================================== */
 
 .footer-content {

@@ -100,10 +100,131 @@
 
   </main>
 
-  {% if page.footer %}
-    <footer role="contentinfo">
+  <footer role="contentinfo">
+    {% if page.footer %}
       {{ page.footer }}
-    </footer>
-  {% endif %}
+    {% else %}
+      {% set footer_columns = [
+        {
+          title: 'Shop',
+          links: [
+            { label: 'Home', href: front_page },
+            { label: 'Shop all essentials', href: '/shop' },
+            { label: 'New arrivals', href: '/shop' },
+            { label: 'Gift-ready picks', href: '/shop' }
+          ]
+        },
+        {
+          title: 'Journal',
+          links: [
+            { label: 'From the journal', href: '/blog' },
+            { label: 'Daily routines', href: '/blog' },
+            { label: 'Nutrition notes', href: '/blog' },
+            { label: 'Home setup tips', href: '/blog' }
+          ]
+        },
+        {
+          title: 'Account',
+          links: [
+            { label: 'Login', href: path('user.login') },
+            { label: 'Create account', href: path('user.register') },
+            { label: 'Reset password', href: path('user.pass') },
+            { label: 'Talk to the team', href: 'mailto:hello@waggy.local' }
+          ]
+        }
+      ] %}
+      {% set footer_social_links = [
+        { label: 'Instagram', href: 'https://instagram.com' },
+        { label: 'Pinterest', href: 'https://pinterest.com' },
+        { label: 'Facebook', href: 'https://facebook.com' }
+      ] %}
+      {% set footer_highlights = [
+        'Everyday essentials for calmer pet routines',
+        'Editorial reading that supports real household rhythms',
+        'Friendly account and support paths in one place'
+      ] %}
+
+      <section class="footer-content footer-content--global">
+        <div class="footer-content__inner">
+
+          <div class="footer-content__top">
+            <div class="footer-content__intro">
+              <span class="footer-content__eyebrow">Waggy Pet Shop</span>
+              <h2 class="footer-content__title">Gentler routines, better pet days.</h2>
+
+              <div class="footer-content__copy">
+                <p>
+                  Shop essentials, discover calmer care rituals, and keep the
+                  most useful pet-shop paths close at hand.
+                </p>
+              </div>
+
+              <ul class="footer-content__highlights" aria-label="Waggy highlights">
+                {% for highlight in footer_highlights %}
+                  <li class="footer-content__highlight">{{ highlight }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <aside class="footer-content__signup" aria-label="Newsletter signup">
+              <span class="footer-content__card-label">Stay close</span>
+              <h2 class="footer-content__card-title">Weekly notes for pet people.</h2>
+              <p class="footer-content__card-copy">
+                New arrivals, journal highlights and practical reminders,
+                shared with a lighter rhythm.
+              </p>
+
+              <form class="footer-content__form" action="#" method="post">
+                <label class="visually-hidden" for="footer-signup-email">Email address</label>
+                <input id="footer-signup-email" class="footer-content__input" type="email" placeholder="Email address" />
+                <button class="footer-content__button" type="button">Join the list</button>
+              </form>
+            </aside>
+          </div>
+
+          <div class="footer-content__main">
+            <div class="footer-content__brand-panel">
+              <span class="footer-content__brand-mark">WG</span>
+              <div class="footer-content__brand-copy">
+                <strong class="footer-content__brand-name">Waggy Pet Shop</strong>
+                <p class="footer-content__brand-text">
+                  A warm editorial storefront for pet essentials, practical
+                  reading and easier everyday care decisions.
+                </p>
+              </div>
+            </div>
+
+            <nav class="footer-content__nav" aria-label="Footer navigation">
+              {% for column in footer_columns %}
+                <div class="footer-content__column">
+                  <h2 class="footer-content__column-title">{{ column.title }}</h2>
+                  <ul class="footer-content__links">
+                    {% for link in column.links %}
+                      <li class="footer-content__link-item">
+                        <a href="{{ link.href }}" class="footer-content__link">{{ link.label }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </nav>
+          </div>
+
+          <div class="footer-content__bottom">
+            <p class="footer-content__legal">Copyright {{ 'now'|date('Y') }} Waggy Pet Shop. Crafted for slower, friendlier browsing.</p>
+
+            <ul class="footer-content__social" aria-label="Social links">
+              {% for item in footer_social_links %}
+                <li>
+                  <a href="{{ item.href }}" class="footer-content__social-link">{{ item.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    {% endif %}
+  </footer>
 
 </div>{# /.layout-container #}
