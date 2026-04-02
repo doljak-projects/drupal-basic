@@ -3,6 +3,14 @@
    Waggy Pet Shop — issue #11
    ========================================================================== */
 
+/* Break out of .layout-container to go edge-to-edge */
+.article-page {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* --------------------------------------------------------------------------
    HERO
    -------------------------------------------------------------------------- */
@@ -460,9 +468,9 @@
 }
 
 .article-comments__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .article-comment-card {
@@ -487,6 +495,51 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   line-height: 1.75;
+  color: #5A575F;
+}
+
+.article-comment-reply {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 16px 20px;
+  background-color: var(--color-bg-hero);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.article-comment-reply--nested {
+  margin-top: 12px;
+  border-left-color: var(--color-border);
+  background-color: var(--color-bg-base);
+}
+
+.article-comment-reply__author {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: #2C2A2F;
+}
+
+.article-comment-reply__badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-light);
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.article-comment-reply__text {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.7;
   color: #5A575F;
 }
 
@@ -586,9 +639,7 @@
     font-size: var(--text-2xl);
   }
 
-  .article-comments__grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  /* comments already flex column — no grid override needed */
 
   .article-comment-form {
     padding: 0 40px 60px;
@@ -610,10 +661,6 @@
 
   .article-comments__title {
     font-size: var(--text-xl);
-  }
-
-  .article-comments__grid {
-    grid-template-columns: 1fr;
   }
 
   .article-comment-form {
