@@ -22,4 +22,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: '<front>'
+    pages: "<front>\r\n/shop\r\n/shop/dogs\r\n/shop/cats\r\n/shop/birds\r\n/shop/fish\r\n/shop/small-pets\r\n"
