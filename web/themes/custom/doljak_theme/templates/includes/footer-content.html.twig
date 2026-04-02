@@ -1,0 +1,95 @@
+<div class="footer-content__inner">
+  <div class="footer-content__grid">
+    <div class="footer-content__brand-panel">
+      <a href="{{ footer_front_page }}" class="footer-content__brand-lockup" aria-label="Waggy Pet Shop home">
+        <span class="footer-content__brand-icon" aria-hidden="true">
+          <span class="footer-content__brand-icon-dot footer-content__brand-icon-dot--large"></span>
+          <span class="footer-content__brand-icon-dot footer-content__brand-icon-dot--small"></span>
+        </span>
+        <span class="footer-content__brand-wordmark">
+          <span class="footer-content__brand-primary">{{ footer_brand_primary }}</span>
+          <span class="footer-content__brand-secondary">{{ footer_brand_secondary }}</span>
+        </span>
+      </a>
+
+      <div class="footer-content__brand-text">
+        {% if footer_body is not empty %}
+          {{ footer_body }}
+        {% else %}
+          <p>Subscribe to our newsletter to get updates about our grand offers.</p>
+        {% endif %}
+      </div>
+
+      <ul class="footer-content__social" aria-label="Social links">
+        {% for item in footer_social_links %}
+          <li>
+            <a href="{{ item.href }}" class="footer-content__social-link" aria-label="{{ item.label }}">
+              {% if item.icon == 'x' %}
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M3.5 3h2.4l2.4 3.2L11 3h1.5L9 7l4 6h-2.4L8 9.3 5 13H3.5l3.7-4.4L3.5 3Z" fill="currentColor" />
+                </svg>
+              {% elseif item.icon == 'instagram' %}
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <rect x="3.1" y="3.1" width="9.8" height="9.8" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="1.3" />
+                  <circle cx="8" cy="8" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3" />
+                  <circle cx="11.3" cy="4.8" r="0.8" fill="currentColor" />
+                </svg>
+              {% elseif item.icon == 'dribbble' %}
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.2" />
+                  <path d="M4.2 5.3c2.5.4 4.7 1.5 6.6 3.2M8.2 2.7c1.1 1.5 2 3.2 2.5 5.1M3.1 9.2c2.7-.6 5.5-.5 8.1.3M6.3 13.1c.4-2 1.2-3.9 2.4-5.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" />
+                </svg>
+              {% else %}
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <circle cx="4.1" cy="5.1" r="1.2" fill="currentColor" />
+                  <rect x="3.1" y="6.7" width="2" height="6.2" rx="1" fill="currentColor" />
+                  <path d="M7 6.7h1.9v.9c.5-.7 1.4-1.1 2.4-1.1 1.8 0 2.9 1.1 2.9 3.4V13H12v-2.8c0-1.1-.4-1.8-1.4-1.8-.8 0-1.3.5-1.5 1.1-.1.2-.1.5-.1.7V13H7V6.7Z" fill="currentColor" />
+                </svg>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% for column in footer_columns %}
+      <nav class="footer-content__column" aria-label="{{ column.title }}">
+        <h2 class="footer-content__column-title">{{ column.title }}</h2>
+        <ul class="footer-content__links">
+          {% for link in column.links %}
+            <li class="footer-content__link-item">
+              <a href="{{ link.href }}" class="footer-content__link">{{ link.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endfor %}
+
+    <section class="footer-content__newsletter" aria-label="Newsletter signup">
+      <h2 class="footer-content__column-title">{{ footer_newsletter_title }}</h2>
+      <p class="footer-content__newsletter-copy">{{ footer_newsletter_copy }}</p>
+
+      <form class="footer-content__form" action="#" method="post">
+        <label class="visually-hidden" for="{{ footer_email_id }}">Email address</label>
+        <div class="footer-content__input-wrap">
+          <input
+            id="{{ footer_email_id }}"
+            class="footer-content__input"
+            type="email"
+            placeholder="{{ footer_newsletter_placeholder }}"
+          />
+          <button class="footer-content__button" type="button" aria-label="Submit newsletter signup">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path d="M7.5 5.5 12.5 10l-5 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <div class="footer-content__bottom">
+    <p class="footer-content__legal">{{ footer_legal }}</p>
+    <p class="footer-content__credit">{{ footer_credit }}</p>
+  </div>
+</div>
