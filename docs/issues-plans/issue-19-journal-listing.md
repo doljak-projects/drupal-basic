@@ -1,3 +1,11 @@
+---
+issue: 19
+title: "[Blog] Static layout for article listing page"
+branch: feat/blog-article-listing-19
+status: closed
+last_updated: 04-02-2026
+---
+
 # Issue #19 — Journal: Static layout for article listing page
 
 **Branch:** `feat/blog-article-listing-19`

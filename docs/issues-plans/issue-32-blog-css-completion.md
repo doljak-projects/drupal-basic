@@ -1,3 +1,11 @@
+---
+issue: 32
+title: "[Theme] Blog journey completion — CSS, responsiveness and integrations"
+branch: feat/blog-css-32-blog-journey-completion-css-responsiveness
+status: closed
+last_updated: 04-02-2026
+---
+
 # Issue #32 — Blog Journey CSS Completion
 
 **Branch:** `feat/blog-css-32-blog-journey-completion-css-responsiveness`

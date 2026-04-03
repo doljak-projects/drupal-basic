@@ -1,3 +1,11 @@
+---
+issue: 29
+title: "[Theme] Implementar HTML e CSS estático da jornada de login"
+branch: feat/auth-templates-29-html-css-login-journey
+status: closed
+last_updated: 04-02-2026
+---
+
 # Issue #29 — Theme: Implementar HTML e CSS estático da jornada de login
 
 **Branch:** `feat/auth-templates-29-html-css-login-journey`
