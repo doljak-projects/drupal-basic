@@ -1,3 +1,11 @@
+---
+issue: 11
+title: "feat: article detail page — preprocessors, cache tags and responsive layout"
+branch: feat/article-detail-page-11
+status: closed
+last_updated: 04-02-2026
+---
+
 # Issue #11 — Article Detail Page
 
 **Branch:** `feat/article-detail-page-11`

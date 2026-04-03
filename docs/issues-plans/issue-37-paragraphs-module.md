@@ -2,7 +2,7 @@
 issue: 37
 title: "[Infra] Install and configure Paragraphs module"
 branch: chore/paragraphs-module-37-install-and-configure
-status: in-progress
+status: closed
 last_updated: 04-02-2026
 ---
 
