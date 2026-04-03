@@ -1,6 +1,6 @@
 {% set article_url = row._entity is defined ? path('entity.node.canonical', {'node': row._entity.id}) : '#' %}
 {% set category = fields.field_category is defined and fields.field_category.content|striptags|trim ? fields.field_category.content|striptags|trim : 'Journal' %}
-{% set published_date = fields.created is defined ? fields.created.content|striptags|trim : '' %}
+{% set published_date = fields.field_created is defined ? fields.field_created.content|striptags|trim : '' %}
 {% set title = fields.title is defined ? fields.title.content|striptags|trim : '' %}
 {% set excerpt = fields.body is defined ? fields.body.content|striptags|trim : '' %}
 {% set tags_markup = fields.field_tags is defined ? fields.field_tags.content|trim : '' %}

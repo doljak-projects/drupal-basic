@@ -1,75 +1,8 @@
-{#
-/**
- * @file
- * Static visual scaffold for the Journal listing page.
- *
- * This template intentionally renders static editorial content while the
- * visual layer is being built. Dynamic Views wiring can replace these arrays
- * later without changing the CSS contract.
- */
-#}
-
 {% set asset_base = base_path ~ 'themes/custom/doljak_theme/assets/journal/' %}
 {% set filters = [
   { label: 'Latest', active: true },
   { label: 'Most Read', active: false },
   { label: 'Featured', active: false },
-] %}
-{% set articles = [
-  {
-    category: 'Routine',
-    date: 'Apr 02, 2026',
-    title: 'How to build a calmer daily routine for your dog',
-    excerpt: 'Meal timing, play windows and gentle rest cues can change the mood of the whole house. This piece turns routine into something realistic and repeatable.',
-    tags: ['Behavior', 'Home rhythm'],
-    image: asset_base ~ 'article-routine-dog.jpg',
-    alt: 'Golden retriever resting beside a pet bed',
-  },
-  {
-    category: 'Nutrition',
-    date: 'Apr 05, 2026',
-    title: "What to watch before changing your pet's food",
-    excerpt: 'A simple checklist for transitions that feel gentler on digestion and still keep the feeding routine premium and well organized.',
-    tags: ['Food change', 'Digestive care'],
-    image: asset_base ~ 'article-food-transition.jpg',
-    alt: 'Bowls of dog food on a wooden tray',
-  },
-  {
-    category: 'Play',
-    date: 'Apr 09, 2026',
-    title: 'Bird toys that encourage curiosity, not chaos',
-    excerpt: 'How to choose stimulation that keeps birds engaged without overwhelming the habitat or the caretaker.',
-    tags: ['Birds', 'Enrichment'],
-    image: asset_base ~ 'article-bird-toys.jpg',
-    alt: 'Colorful bird with enrichment toys',
-  },
-  {
-    category: 'Comfort',
-    date: 'Apr 12, 2026',
-    title: 'Better sleep corners for small pets',
-    excerpt: 'Nest placement, bedding, shelter density and quiet cues that make tiny resting spaces feel protected instead of crowded.',
-    tags: ['Small pets', 'Habitat'],
-    image: asset_base ~ 'article-small-pet-sleep.jpg',
-    alt: 'Small dog curled up in a wooden hideout',
-  },
-  {
-    category: 'Nutrition',
-    date: 'Apr 15, 2026',
-    title: 'How to read ingredient labels without overthinking',
-    excerpt: 'A quick shelf-side guide for scanning protein quality, filler load and portion clues without turning feeding decisions into guesswork.',
-    tags: ['Labels', 'Food picks'],
-    image: asset_base ~ 'article-food-labels.jpg',
-    alt: 'Pet food bag beside a bowl of kibble',
-  },
-  {
-    category: 'Routine',
-    date: 'Apr 18, 2026',
-    title: 'Evening reset habits for dogs that stay alert too long',
-    excerpt: 'Small wind-down cues, softer lighting and calmer transitions that help sensitive dogs stop carrying the whole day into bedtime.',
-    tags: ['Dogs', 'Wind-down'],
-    image: asset_base ~ 'article-evening-reset.jpg',
-    alt: 'Dog resting under a blanket',
-  },
 ] %}
 {% set products = [
   {
@@ -149,40 +82,7 @@
     </header>
 
     <section class="journal__articles" aria-label="Journal articles">
-      <div class="journal__grid">
-        {% for article in articles %}
-          <article class="journal-article-card">
-            <a href="#" class="journal-article-card__image-link" aria-label="{{ article.title }}">
-              <div class="journal-article-card__image-wrap">
-                <img src="{{ article.image }}" alt="{{ article.alt }}" class="journal-article-card__image">
-              </div>
-            </a>
-
-            <div class="journal-article-card__content">
-              <div class="journal-article-card__meta">
-                <span class="journal-article-card__category">{{ article.category }}</span>
-                <span class="journal-article-card__date">{{ article.date }}</span>
-              </div>
-
-              <h2 class="journal-article-card__title">
-                <a href="#">{{ article.title }}</a>
-              </h2>
-
-              <p class="journal-article-card__excerpt">{{ article.excerpt }}</p>
-
-              <div class="journal-article-card__footer">
-                <div class="journal-article-card__tags" aria-label="Article tags">
-                  {% for tag in article.tags %}
-                    <span class="journal-article-card__tag">{{ tag }}</span>
-                  {% endfor %}
-                </div>
-
-                <a href="#" class="journal-article-card__cta">Read article</a>
-              </div>
-            </div>
-          </article>
-        {% endfor %}
-      </div>
+      {{ rows }}
     </section>
 
     <section class="journal__stories" aria-labelledby="journal-stories-title">
