@@ -16,10 +16,14 @@ The goal is not to build a final product, but to explore and document each layer
 
 The project simulates a **fictional pet shop** website, used as a practical context for the exercises. The public-facing scope includes:
 
-- **Home**: hero section, Shop by Pet category buttons, New Arrivals, blog listing
-- **Shop**: product listing page filtered by pet type
+- **Home**: hero section, Shop by Pet category buttons, frontpage listing
+- **Shop**: product listing page filtered by pet type and badge
 - **Product page**: detailed product description
-- **Blog**: article listing and detail pages
+- **Blog**: article listing (`/blog`) and article detail pages
+- **Login journey**: login, register and password reset pages
+- **Footer**: global layout component across all breakpoints
+- **Wishlist**: product wishlist page (in progress)
+- **404**: custom error page (in progress)
 
 The scope expands as new topics are covered in the exercises.
 
@@ -43,7 +47,10 @@ The scope expands as new topics are covered in the exercises.
 
 ### Intermediate
 
-- [ ] Views: listing pages, filters and displays — applied in the Blog section (article listing)
+- [X] Views: listing pages, filters and displays
+  - [X] Journal listing — page display at `/blog`, fields-based rows, sorted by date desc
+  - [X] Shop listing — page display at `/shop`, exposed filters by pet type and badge
+  - [X] Frontpage — promoted content view with bundle filter excluding articles
 - [X] Config API: export and import configuration with `cex` / `cim`
 - [X] Custom module creation (hook_theme, routing, controller)
   - [X] `hook_theme` — custom template registration with `template` and `path` keys
@@ -52,9 +59,11 @@ The scope expands as new topics are covered in the exercises.
 - [ ] Form API
 - [X] Custom theme with Starterkit
 - [X] Twig: templates, variables, filters and functions
-- [ ] Preprocessors (`hook_preprocess_*`)
+- [X] Preprocessors (`hook_preprocess_*`)
+  - [X] `hook_preprocess_node()` — exposes formatted date, reading time, author name and category label to article templates
 - [X] Asset libraries (`libraries.yml`, `#attached`)
-- [ ] Responsiveness: media queries in custom theme CSS, mobile/tablet/desktop breakpoints
+- [X] Responsiveness: media queries in custom theme CSS, mobile/tablet/desktop breakpoints
+  - [X] All public pages covered across desktop (1440), tablet (768) and mobile (390)
 - [ ] Basic migrations with Migrate API
 
 ### Advanced
@@ -66,13 +75,18 @@ The scope expands as new topics are covered in the exercises.
   - [ ] Custom formatter — FieldFormatter plugin
 - [ ] Event Subscribers and hooks via classes
 - [ ] Queue API and background processing
-- [ ] Cache API: cache tags, contexts and invalidation
+- [X] Cache API: cache tags, contexts and invalidation
+  - [X] Node cache tags (`[node:X]`) applied in article detail preprocessor — page invalidates on node save
+  - [ ] Custom cache contexts
+  - [ ] Manual cache invalidation via `cache_tags.invalidator`
 - [X] REST API and JSON:API
   - [X] Native JSON:API — products stored in Drupal, consumed via `/jsonapi/node/waggy_product` in the Shop by Pet block; includes taxonomy term images resolved through `media → file → uri` relationship chain
   - [X] Guzzle HTTP client (server-side) — used internally to query Drupal's own JSON:API from a Block plugin via `\Drupal::httpClient()`
   - [ ] Guzzle consuming external API — fetch from an external backend; API key protected server-side, URL never exposed to the browser
   - [ ] JavaScript fetch (client-side) — filter products without page reload; URL exposed to the browser
-- [ ] Paragraphs and layouts with Layout Builder
+- [X] Paragraphs and layouts with Layout Builder
+  - [X] `drupal/paragraphs` installed and configured — `text_block` paragraph type validated
+  - [ ] Paragraph types wired to footer and content regions via Layout Builder
 - [ ] Advanced Migrate API: migrations with complex transformations
 - [ ] Automated testing with PHPUnit and Nightwatch
 
