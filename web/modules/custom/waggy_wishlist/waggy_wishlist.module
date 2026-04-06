@@ -4,9 +4,20 @@
  * Implements hook_theme().
  */
 function waggy_wishlist_theme() {
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('doljak_theme');
+
   return [
     'waggy_wishlist' => [
-      'variables' => [],
+      'variables' => [
+        'wishlist_url' => NULL,
+      ],
+    ],
+    'waggy_wishlist_page' => [
+      'variables' => [
+        'asset_base' => NULL,
+      ],
+      'template' => 'views-view--wishlist',
+      'path' => $theme_path . '/templates',
     ],
   ];
 }

@@ -1,4 +1,4 @@
-{% set asset_base = base_path ~ 'themes/custom/doljak_theme/assets/journal/' %}
+{% set asset_base = asset_base|default(base_path ~ 'themes/custom/doljak_theme/assets/journal/') %}
 {% set hero_story = {
   image: asset_base ~ 'article-routine-dog.jpg',
   alt: 'Dog resting on a soft bed after a calm routine',
