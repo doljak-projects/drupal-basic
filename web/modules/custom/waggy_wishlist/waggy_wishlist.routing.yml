@@ -1,0 +1,7 @@
+waggy_wishlist.page:
+  path: '/wishlist'
+  defaults:
+    _title: 'Wishlist'
+    _controller: '\Drupal\waggy_wishlist\Controller\WishlistPageController::build'
+  requirements:
+    _permission: 'access content'
