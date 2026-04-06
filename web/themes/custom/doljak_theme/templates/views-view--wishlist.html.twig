@@ -1,0 +1,262 @@
+{% set asset_base = base_path ~ 'themes/custom/doljak_theme/assets/journal/' %}
+{% set hero_story = {
+  image: asset_base ~ 'article-routine-dog.jpg',
+  alt: 'Dog resting on a soft bed after a calm routine',
+} %}
+{% set products = [
+  {
+    color: 'warm',
+    badge: 'NEW',
+    badge_mod: 'new',
+    category: 'Dog food',
+    title: 'Premium Dry Food Mix',
+    price: '$24.99',
+    compare: '',
+    usage: 'Daily nutrition',
+    image: asset_base ~ 'product-premium-dry-food-mix.jpg',
+    alt: 'Premium dry food mix bag',
+  },
+  {
+    color: 'green',
+    badge: 'BEST',
+    badge_mod: 'best',
+    category: 'Accessories',
+    title: 'Comfort Pet Harness',
+    price: '$34.99',
+    compare: '',
+    usage: 'Comfort first',
+    image: asset_base ~ 'product-comfort-pet-harness.jpg',
+    alt: 'Comfort pet harness',
+  },
+  {
+    color: 'blue',
+    badge: '-15%',
+    badge_mod: 'sale',
+    category: 'Cat toys',
+    title: 'Interactive Play Set',
+    price: '$18.99',
+    compare: '$22.99',
+    usage: 'Indoor energy',
+    image: asset_base ~ 'product-interactive-play-set.jpg',
+    alt: 'Interactive play set for cats',
+  },
+  {
+    color: 'pink',
+    badge: 'HOT',
+    badge_mod: 'hot',
+    category: 'Grooming',
+    title: 'Soft Grooming Brush',
+    price: '$14.99',
+    compare: '',
+    usage: 'Bath time',
+    image: asset_base ~ 'product-soft-grooming-brush.jpg',
+    alt: 'Soft grooming brush',
+  },
+] %}
+{% set article_filters = [
+  'Shared with cart',
+  'Linked to Journal',
+  'Sorted by most recent save',
+] %}
+{% set articles = [
+  {
+    category: 'ROUTINE',
+    date: 'Apr 02, 2026',
+    title: 'How to build a calmer daily routine for your dog',
+    excerpt: 'Meal timing, play windows and gentle rest cues can change the mood of the whole house. This piece turns routine into something realistic and repeatable.',
+    tags: ['Behavior', 'Home rhythm'],
+    image: asset_base ~ 'article-routine-dog.jpg',
+    alt: 'Dog relaxing on a bed after play time',
+  },
+  {
+    category: 'NUTRITION',
+    date: 'Apr 05, 2026',
+    title: "What to watch before changing your pet's food",
+    excerpt: 'A simple checklist for transitions that feel gentler on digestion and still keep the feeding routine premium and well organized.',
+    tags: ['Food change', 'Digestive care'],
+    image: asset_base ~ 'article-food-transition.jpg',
+    alt: 'Pet food ingredients arranged on a light surface',
+  },
+] %}
+
+<section class="wishlist-hero">
+  <div class="wishlist-hero__inner">
+    <div class="wishlist-hero__copy">
+      <span class="wishlist-hero__eyebrow">Saved for later</span>
+      <h1 class="wishlist-hero__headline">Wishlist that keeps the shop and the journal in sync.</h1>
+      <p class="wishlist-hero__description">
+        A single place to hold favorite products, compare routines, and keep the most useful reads close before the next checkout decision.
+      </p>
+
+      <ul class="wishlist-hero__chips" aria-label="Wishlist summary">
+        <li class="wishlist-hero__chip">06 products</li>
+        <li class="wishlist-hero__chip">03 articles</li>
+        <li class="wishlist-hero__chip">02 routines</li>
+      </ul>
+
+      <div class="wishlist-hero__actions">
+        <a href="#" class="wishlist-hero__action wishlist-hero__action--primary">Move all to cart</a>
+        <a href="#" class="wishlist-hero__action wishlist-hero__action--outline">Open journal picks</a>
+      </div>
+    </div>
+
+    <aside class="wishlist-hero__panel" aria-label="Collection pulse">
+      <div class="wishlist-hero__pulse-card">
+        <div class="wishlist-hero__pulse-header">
+          <div class="wishlist-hero__pulse-copy">
+            <span class="wishlist-hero__pulse-eyebrow">Collection Pulse</span>
+            <h2 class="wishlist-hero__pulse-title">Everything worth revisiting this week.</h2>
+          </div>
+          <div class="wishlist-hero__pulse-heart" aria-hidden="true">♥</div>
+        </div>
+
+        <div class="wishlist-hero__counters">
+          <div class="wishlist-hero__counter">
+            <span class="wishlist-hero__counter-label">Ready next</span>
+            <span class="wishlist-hero__counter-value">2</span>
+            <span class="wishlist-hero__counter-note">Closest to checkout</span>
+          </div>
+          <div class="wishlist-hero__counter">
+            <span class="wishlist-hero__counter-label">Need reading</span>
+            <span class="wishlist-hero__counter-value">3</span>
+            <span class="wishlist-hero__counter-note">Have matching journal notes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wishlist-hero__journal-card">
+        <div class="wishlist-hero__journal-image-wrap">
+          <img src="{{ hero_story.image }}" alt="{{ hero_story.alt }}" class="wishlist-hero__journal-image">
+        </div>
+        <div class="wishlist-hero__journal-body">
+          <span class="wishlist-hero__journal-eyebrow">From the Journal</span>
+          <p class="wishlist-hero__journal-text">Two saved products already have calm care guidance.</p>
+          <p class="wishlist-hero__journal-sub">Use the reading stack below to compare routines before buying.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="wishlist-products">
+  <div class="wishlist-products__inner">
+    <div class="wishlist-products__header">
+      <div class="wishlist-products__header-copy">
+        <span class="wishlist-section-eyebrow">Your products</span>
+        <h2 class="wishlist-section-title">Items you want to come back to.</h2>
+      </div>
+      <p class="wishlist-products__description">
+        The list keeps the same visual rhythm as the shop grid, but pairs each save with the reading layer that supports the decision.
+      </p>
+    </div>
+
+    <div class="wishlist-products__grid">
+      {% for product in products %}
+        <article class="wishlist-card wishlist-card--{{ product.color }}">
+          <div class="wishlist-card__image-wrap">
+            <img src="{{ product.image }}" alt="{{ product.alt }}" class="wishlist-card__image">
+            <span class="wishlist-card__badge wishlist-card__badge--{{ product.badge_mod }}">{{ product.badge }}</span>
+          </div>
+
+          <div class="wishlist-card__content">
+            <span class="wishlist-card__category">{{ product.category }}</span>
+            <h3 class="wishlist-card__title">{{ product.title }}</h3>
+
+            <div class="wishlist-card__footer">
+              <div class="wishlist-card__price-block">
+                <div class="wishlist-card__price-row">
+                  <span class="wishlist-card__price">{{ product.price }}</span>
+                  {% if product.compare %}
+                    <span class="wishlist-card__compare-price">{{ product.compare }}</span>
+                  {% endif %}
+                </div>
+                <span class="wishlist-card__usage">{{ product.usage }}</span>
+              </div>
+
+              <a href="#" class="wishlist-card__add" aria-label="Add {{ product.title }} to cart">+</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="wishlist-products__filter-bar">
+      <div class="wishlist-products__filter-chips">
+        {% for filter in article_filters %}
+          <span class="wishlist-products__filter-chip{{ loop.index == 2 ? ' wishlist-products__filter-chip--active' : '' }}">{{ filter }}</span>
+        {% endfor %}
+      </div>
+      <a href="#" class="wishlist-products__share">Share list →</a>
+    </div>
+  </div>
+</section>
+
+<section class="wishlist-journal">
+  <div class="wishlist-journal__inner">
+    <div class="wishlist-journal__header">
+      <div class="wishlist-journal__header-copy">
+        <span class="wishlist-section-eyebrow">Read before you buy</span>
+        <h2 class="wishlist-section-title">Journal stories connected to what you saved.</h2>
+      </div>
+      <p class="wishlist-journal__description">
+        These reads answer the exact categories already sitting in the wishlist, so the page moves naturally between product intent and practical care guidance.
+      </p>
+    </div>
+
+    <div class="wishlist-journal__grid">
+      {% for article in articles %}
+        <article class="wishlist-article-card">
+          <div class="wishlist-article-card__image-wrap">
+            <img src="{{ article.image }}" alt="{{ article.alt }}" class="wishlist-article-card__image">
+          </div>
+
+          <div class="wishlist-article-card__content">
+            <div class="wishlist-article-card__meta">
+              <span class="wishlist-article-card__category">{{ article.category }}</span>
+              <span class="wishlist-article-card__date">{{ article.date }}</span>
+            </div>
+
+            <h3 class="wishlist-article-card__title">{{ article.title }}</h3>
+            <p class="wishlist-article-card__excerpt">{{ article.excerpt }}</p>
+
+            <div class="wishlist-article-card__footer">
+              <div class="wishlist-article-card__tags">
+                {% for tag in article.tags %}
+                  <span class="wishlist-article-card__tag">{{ tag }}</span>
+                {% endfor %}
+              </div>
+              <a href="#" class="wishlist-article-card__cta">Read article</a>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="wishlist-cta">
+  <div class="wishlist-cta__inner">
+    <div class="wishlist-cta__dark-card">
+      <span class="wishlist-cta__card-eyebrow">Wishlist flow</span>
+      <h2 class="wishlist-cta__dark-title">Save, read, then decide with more clarity.</h2>
+      <p class="wishlist-cta__dark-copy">
+        The page is designed to feel useful before it feels urgent, so shoppers can move from inspiration to purchase with less friction.
+      </p>
+    </div>
+
+    <div class="wishlist-cta__light-card">
+      <div class="wishlist-cta__light-top">
+        <span class="wishlist-cta__card-eyebrow">Next moves</span>
+        <a href="#" class="wishlist-cta__arrow" aria-label="Take action">→</a>
+      </div>
+
+      <h2 class="wishlist-cta__light-title">Turn the saved list into action whenever the timing is right.</h2>
+
+      <div class="wishlist-cta__action-chips">
+        <a href="#" class="wishlist-cta__action-chip">Move favorites to cart</a>
+        <a href="#" class="wishlist-cta__action-chip">Share list with someone</a>
+        <a href="#" class="wishlist-cta__action-chip">Keep reading related care tips</a>
+      </div>
+    </div>
+  </div>
+</section>
