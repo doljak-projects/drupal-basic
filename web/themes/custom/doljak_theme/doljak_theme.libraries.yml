@@ -10,6 +10,7 @@ global-styling:
       css/base/article-styling.css: {}
       css/base/footer-styling.css: {}
       css/base/auth-styling.css: {}
+      css/base/wishlist-styling.css: {}
     layout:
       css/layout/global.css: {}
 
