@@ -1,0 +1,7 @@
+name: 'Block to site footer'
+type: module
+description: 'Custom block plugin that renders the footer node via Paragraphs'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies: 
+ - drupal:paragraphs

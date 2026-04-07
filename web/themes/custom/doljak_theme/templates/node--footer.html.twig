@@ -5,45 +5,16 @@
   gerenciada pelo Drupal Admin.
 #}
 
-{% set footer_columns = [
-  {
-    title: 'Quick Links',
-    links: [
-      { label: 'Home', href: path('<front>') },
-      { label: 'About Us', href: '/about' },
-      { label: 'Offers', href: '/shop' },
-      { label: 'Services', href: '/shop' },
-      { label: 'Contact Us', href: 'mailto:hello@waggy.local' }
-    ]
-  },
-  {
-    title: 'Help Centre',
-    links: [
-      { label: 'Payments', href: '/shop' },
-      { label: 'Shipping', href: '/shop' },
-      { label: 'Product Returns', href: '/shop' },
-      { label: 'FAQs', href: '/blog' },
-      { label: 'Checkout', href: path('user.login') }
-    ]
-  }
-] %}
-{% set footer_social_links = [
-  { label: 'X', href: 'https://x.com', icon: 'x' },
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
-  { label: 'Dribbble', href: 'https://dribbble.com', icon: 'dribbble' },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' }
-] %}
-
 <section{{ attributes.addClass('footer-content') }}>
   {% include '@doljak_theme/includes/footer-content.html.twig' with {
     footer_front_page: path('<front>'),
     footer_brand_primary: 'Waggy',
     footer_brand_secondary: 'Pet shop.',
     footer_body: content.body is not empty ? content.body : null,
-    footer_columns: footer_columns,
-    footer_social_links: footer_social_links,
-    footer_newsletter_title: 'Our Newsletter',
-    footer_newsletter_copy: 'Subscribe to our newsletter to get updates about our grand offers.',
+    footer_columns: footer_columns ?? [],
+    footer_social_links: footer_social_links ?? [],
+    footer_newsletter_title: footer_newsletter_title ?? 'Our Newsletter',
+    footer_newsletter_copy: footer_newsletter_copy ?? 'Subscribe to our newsletter to get updates about our grand offers.',
     footer_newsletter_placeholder: 'Enter your email-address',
     footer_email_id: 'footer-content-email',
     footer_legal: '©' ~ 'now'|date('Y') ~ ' Waggy. All rights reserved.',
