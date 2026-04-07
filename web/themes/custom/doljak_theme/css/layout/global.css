@@ -269,7 +269,7 @@ header[role="banner"] > div {
   justify-content: center;
 }
 
-#block-doljak-theme-mainnavigation .visually-hidden {
+#block-doljak-theme-mainnavigation > nav > .visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -278,13 +278,13 @@ header[role="banner"] > div {
   white-space: nowrap;
 }
 
-#block-doljak-theme-mainnavigation ul {
+#block-doljak-theme-mainnavigation > nav > ul.menu {
   display: flex;
   align-items: center;
   gap: var(--space-10);
 }
 
-#block-doljak-theme-mainnavigation ul li a {
+#block-doljak-theme-mainnavigation > nav > ul.menu > li > a {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
@@ -292,8 +292,8 @@ header[role="banner"] > div {
   transition: color var(--transition-fast);
 }
 
-#block-doljak-theme-mainnavigation ul li a:hover,
-#block-doljak-theme-mainnavigation ul li a.is-active {
+#block-doljak-theme-mainnavigation > nav > ul.menu > li > a:hover,
+#block-doljak-theme-mainnavigation > nav > ul.menu > li > a.is-active {
   color: var(--color-text-primary);
 }
 
@@ -376,9 +376,26 @@ header[role="banner"] > div {
 #block-contact-link-header a {
   display: flex;
   align-items: center;
+  font-size: 0;
   padding: var(--space-2);
   color: var(--color-text-primary);
   transition: opacity var(--transition-fast);
+}
+
+#block-contact-link-header a svg,
+#block-contact-link-header a img {
+  display: none;
+}
+
+#block-contact-link-header a::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23414040' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 8h12l-1 11H7L6 8Z'/%3E%3Cpath d='M9 8a3 3 0 0 1 6 0'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  content: "";
+  display: block;
+  height: 22px;
+  width: 22px;
 }
 
 #block-contact-link-header a:hover {
@@ -490,7 +507,7 @@ header[role="banner"] > div {
     z-index: 3;
   }
 
-  #block-doljak-theme-mainnavigation::before {
+  #block-doljak-theme-mainnavigation > nav::before {
     color: var(--color-accent-dark);
     content: "Menu";
     display: block;
@@ -502,7 +519,7 @@ header[role="banner"] > div {
     text-transform: uppercase;
   }
 
-  #block-doljak-theme-mainnavigation ul {
+  #block-doljak-theme-mainnavigation > nav > ul.menu {
     background: rgba(255, 248, 241, 0.98);
     border: 1px solid rgba(206, 180, 153, 0.38);
     border-radius: 30px;
@@ -513,7 +530,7 @@ header[role="banner"] > div {
     padding: 24px;
   }
 
-  #block-doljak-theme-mainnavigation ul li a {
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.72);
     border: 1px solid rgba(206, 180, 153, 0.3);
@@ -527,22 +544,22 @@ header[role="banner"] > div {
     padding: 0 18px;
   }
 
-  #block-doljak-theme-mainnavigation ul li a::after {
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a::after {
     color: var(--color-accent-dark);
     content: "→";
     font-size: 16px;
     line-height: 1;
   }
 
-  #block-doljak-theme-mainnavigation ul li a:hover,
-  #block-doljak-theme-mainnavigation ul li a.is-active {
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a:hover,
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a.is-active {
     background-color: #414040;
     border-color: #414040;
     color: #FFF8F1;
   }
 
-  #block-doljak-theme-mainnavigation ul li a:hover::after,
-  #block-doljak-theme-mainnavigation ul li a.is-active::after {
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a:hover::after,
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a.is-active::after {
     color: #FFF8F1;
   }
 
@@ -577,12 +594,12 @@ header[role="banner"] > div {
     top: calc(100% + 10px);
   }
 
-  #block-doljak-theme-mainnavigation ul {
+  #block-doljak-theme-mainnavigation > nav > ul.menu {
     grid-template-columns: 1fr;
     padding: 20px;
   }
 
-  #block-doljak-theme-mainnavigation ul li a {
+  #block-doljak-theme-mainnavigation > nav > ul.menu > li > a {
     font-size: var(--text-sm);
     min-height: 50px;
   }
