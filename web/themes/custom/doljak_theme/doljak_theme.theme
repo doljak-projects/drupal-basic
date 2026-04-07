@@ -127,3 +127,4 @@ function _doljak_theme_preprocess_article(array &$variables): void {
       $variables['footer_newsletter_title'] = $newsletter->get('field_cta_text')->value ?? '';
       $variables['footer_newsletter_copy']  = $newsletter->get('field_cta_subtext')->value ?? '';
     }
+  }

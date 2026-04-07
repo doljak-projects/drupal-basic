@@ -1,0 +1,30 @@
+uuid: eaf4c35d-4ea3-4fa2-8dd9-da403de8cc31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footer_newsletter.field_cta_subtext
+    - field.field.paragraph.footer_newsletter.field_cta_text
+    - paragraphs.paragraphs_type.footer_newsletter
+id: paragraph.footer_newsletter.default
+targetEntityType: paragraph
+bundle: footer_newsletter
+mode: default
+content:
+  field_cta_subtext:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_cta_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }
