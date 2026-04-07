@@ -45,10 +45,14 @@
  * @ingroup themeable
  */
 #}
-
-
-
-  <header role="banner">
+  <header role="banner" class="site-header">
+    <input type="checkbox" id="header-menu-toggle" class="site-header__menu-toggle">
+    <label for="header-menu-toggle" class="site-header__menu-button" aria-label="Toggle navigation menu">
+      <span class="site-header__menu-button-line"></span>
+      <span class="site-header__menu-button-line"></span>
+      <span class="site-header__menu-button-line"></span>
+      <span class="visually-hidden">Toggle navigation menu</span>
+    </label>
     {{ page.header }}
   </header>
     {{ page.hero }}
