@@ -16,6 +16,7 @@ use Drupal\Core\Cache\Cache;
 function doljak_theme_preprocess_node(array &$variables): void {
   match ($variables['node']->bundle()) {
     'article' => _doljak_theme_preprocess_article($variables),
+    'footer'  => _doljak_theme_preprocess_footer($variables),
     default   => NULL,
   };
 }
@@ -65,3 +66,64 @@ function _doljak_theme_preprocess_article(array &$variables): void {
     }
   }
 }
+
+/**
+   * Preprocess exclusivo para o bundle 'footer'.
+   *
+   * Extrai dados dos Paragraph types e expõe ao Twig:
+   *   - footer_social_links  : array com label, href, icon
+   *   - footer_columns       : array com title e links para Quick Links e Help Centre
+   *   - footer_newsletter_title : texto do CTA
+   *   - footer_newsletter_copy  : subtexto do CTA
+   */
+  function _doljak_theme_preprocess_footer(array &$variables): void {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['node'];
+
+    // Brand — social links
+    $brand = $node->get('field_footer_brand')->entity;
+    if ($brand) {
+      $social_links = [];
+      foreach ($brand->get('field_social_links') as $item) {
+        $title = $item->title ?? '';
+        $social_links[] = [
+          'label' => $title,
+          'href'  => $item->uri,
+          'icon'  => strtolower($title),
+        ];
+      }
+      $variables['footer_social_links'] = $social_links;
+    }
+
+    // Quick Links
+    $quick = $node->get('field_footer_quick_links')->entity;
+    if ($quick) {
+      $links = [];
+      foreach ($quick->get('field_links') as $item) {
+        $links[] = ['label' => $item->title, 'href' => $item->uri];
+      }
+      $variables['footer_columns'][0] = [
+        'title' => $quick->get('field_column_title')->value ?? 'Quick Links',
+        'links' => $links,
+      ];
+    }
+
+    // Help Centre
+    $help = $node->get('field_footer_help_centre')->entity;
+    if ($help) {
+      $links = [];
+      foreach ($help->get('field_links') as $item) {
+        $links[] = ['label' => $item->title, 'href' => $item->uri];
+      }
+      $variables['footer_columns'][1] = [
+        'title' => $help->get('field_column_title')->value ?? 'Help Centre',
+        'links' => $links,
+      ];
+    }
+
+    // Newsletter
+    $newsletter = $node->get('field_footer_newsletter')->entity;
+    if ($newsletter) {
+      $variables['footer_newsletter_title'] = $newsletter->get('field_cta_text')->value ?? '';
+      $variables['footer_newsletter_copy']  = $newsletter->get('field_cta_subtext')->value ?? '';
+    }
