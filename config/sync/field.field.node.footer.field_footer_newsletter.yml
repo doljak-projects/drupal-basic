@@ -1,0 +1,40 @@
+uuid: e9b16b57-2f72-476f-8f01-9d37c14ae2cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_footer_newsletter
+    - node.type.footer
+    - paragraphs.paragraphs_type.footer_newsletter
+  module:
+    - entity_reference_revisions
+id: node.footer.field_footer_newsletter
+field_name: field_footer_newsletter
+entity_type: node
+bundle: footer
+label: Newsletter
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      footer_newsletter: footer_newsletter
+    negate: 0
+    target_bundles_drag_drop:
+      footer_brand:
+        weight: 5
+        enabled: false
+      footer_links:
+        weight: 6
+        enabled: false
+      footer_newsletter:
+        weight: 7
+        enabled: true
+      text_block:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

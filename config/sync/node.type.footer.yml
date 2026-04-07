@@ -1,0 +1,18 @@
+uuid: 313e1b15-654a-4d46-bfff-e317488c7c74
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Footer
+type: footer
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

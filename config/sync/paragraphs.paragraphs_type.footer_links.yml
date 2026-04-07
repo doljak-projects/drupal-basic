@@ -1,0 +1,10 @@
+uuid: 406304c2-b334-40e0-b27d-296a39b93d37
+langcode: en
+status: true
+dependencies: {  }
+id: footer_links
+label: 'Footer Links'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

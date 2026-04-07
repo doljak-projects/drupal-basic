@@ -1,0 +1,10 @@
+uuid: 1a9eb6e7-df8b-4412-a4d2-0f8a9d0797ac
+langcode: en
+status: true
+dependencies: {  }
+id: footer_newsletter
+label: 'Footer Newsletter'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

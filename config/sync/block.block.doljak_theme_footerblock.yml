@@ -1,0 +1,20 @@
+uuid: e08882a4-387c-4026-a535-e25e11d38998
+langcode: en
+status: true
+dependencies:
+  module:
+    - footer_block
+  theme:
+    - doljak_theme
+id: doljak_theme_footerblock
+theme: doljak_theme
+region: footer
+weight: 0
+provider: null
+plugin: footer_block
+settings:
+  id: footer_block
+  label: 'Footer block'
+  label_display: visible
+  provider: footer_block
+visibility: {  }
