@@ -1,0 +1,32 @@
+uuid: fe36b37f-e830-41fa-8525-0b8a4b78830c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footer_newsletter.field_cta_subtext
+    - field.field.paragraph.footer_newsletter.field_cta_text
+    - paragraphs.paragraphs_type.footer_newsletter
+id: paragraph.footer_newsletter.default
+targetEntityType: paragraph
+bundle: footer_newsletter
+mode: default
+content:
+  field_cta_subtext:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cta_text:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

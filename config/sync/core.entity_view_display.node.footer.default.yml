@@ -1,0 +1,60 @@
+uuid: 15ebf83e-43bc-441b-b843-ae530bc981d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.footer.field_footer_brand
+    - field.field.node.footer.field_footer_help_center
+    - field.field.node.footer.field_footer_newsletter
+    - field.field.node.footer.field_footer_quick_links
+    - node.type.footer
+  module:
+    - entity_reference_revisions
+    - user
+id: node.footer.default
+targetEntityType: node
+bundle: footer
+mode: default
+content:
+  field_footer_brand:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_footer_help_center:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_footer_newsletter:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_footer_quick_links:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

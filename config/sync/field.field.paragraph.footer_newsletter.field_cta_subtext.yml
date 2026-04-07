@@ -1,0 +1,19 @@
+uuid: f74daf79-74ba-4c00-a14f-fd73f63d9837
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_subtext
+    - paragraphs.paragraphs_type.footer_newsletter
+id: paragraph.footer_newsletter.field_cta_subtext
+field_name: field_cta_subtext
+entity_type: paragraph
+bundle: footer_newsletter
+label: 'cta subtext'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
