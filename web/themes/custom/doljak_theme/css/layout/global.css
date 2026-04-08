@@ -95,6 +95,7 @@
   --container-max:    1440px;
   --container-inner:  1280px;
   --gutter:           80px;
+  --site-header-offset: 0px;
 
   /* Transitions */
   --transition-fast:    150ms ease;
@@ -126,6 +127,15 @@ body {
   background-color: var(--color-bg-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Keep the sticky site header below Drupal's fixed admin toolbar. */
+body.toolbar-fixed {
+  --site-header-offset: 39px;
+}
+
+body.toolbar-fixed.toolbar-horizontal.toolbar-tray-open {
+  --site-header-offset: 79px;
 }
 
 img,
@@ -233,7 +243,7 @@ header[role="banner"] {
   background-color: var(--color-bg-base);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
-  top: 0;
+  top: var(--site-header-offset);
   z-index: 100;
 }
 
