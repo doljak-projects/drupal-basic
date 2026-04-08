@@ -1,5 +1,36 @@
 (function (Drupal, once) {
 
+  Drupal.behaviors.headerMenu = {
+    attach: function (context) {
+      once('headerMenu', '#header-menu-toggle', context).forEach(function (toggle) {
+        const syncMenuState = function () {
+          const isOpen = toggle.checked;
+
+          document.body.classList.toggle('site-header--menu-open', isOpen);
+          document.documentElement.classList.toggle('site-header--menu-open', isOpen);
+        };
+
+        toggle.addEventListener('change', syncMenuState);
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && toggle.checked) {
+            toggle.checked = false;
+            syncMenuState();
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 1100 && toggle.checked) {
+            toggle.checked = false;
+            syncMenuState();
+          }
+        });
+
+        syncMenuState();
+      });
+    }
+  };
+
   Drupal.behaviors.headerSearch = {
     attach: function (context, settings) {
       once('headerSearch', '.search-toggle', context).forEach(function (button) {
