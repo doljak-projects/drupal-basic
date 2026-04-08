@@ -1,5 +1,56 @@
 (function (Drupal, once) {
 
+  Drupal.behaviors.headerMenu = {
+    attach: function (context) {
+      once('headerMenu', '#header-menu-toggle', context).forEach(function (toggle) {
+        const menu = document.getElementById('block-doljak-theme-mainnavigation');
+        const menuButton = document.querySelector('.site-header__menu-button');
+
+        const closeMenu = function () {
+          toggle.checked = false;
+          syncMenuState();
+        };
+
+        const syncMenuState = function () {
+          const isOpen = toggle.checked;
+
+          document.body.classList.toggle('site-header--menu-open', isOpen);
+          document.documentElement.classList.toggle('site-header--menu-open', isOpen);
+        };
+
+        toggle.addEventListener('change', syncMenuState);
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && toggle.checked) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('click', function (event) {
+          const target = event.target;
+
+          if (!toggle.checked || !(target instanceof Element)) {
+            return;
+          }
+
+          if ((menu && menu.contains(target)) || (menuButton && menuButton.contains(target))) {
+            return;
+          }
+
+          closeMenu();
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 1100 && toggle.checked) {
+            closeMenu();
+          }
+        });
+
+        syncMenuState();
+      });
+    }
+  };
+
   Drupal.behaviors.headerSearch = {
     attach: function (context, settings) {
       once('headerSearch', '.search-toggle', context).forEach(function (button) {
