@@ -96,6 +96,7 @@
   --container-inner:  1280px;
   --gutter:           80px;
   --site-header-offset: 0px;
+  --site-header-bottom: 80px;
 
   /* Transitions */
   --transition-fast:    150ms ease;
@@ -471,7 +472,7 @@ header[role="banner"] > div {
   .site-header__menu-backdrop {
     background: rgba(0, 0, 0, 0.3);
     display: block;
-    inset: calc(var(--site-header-offset) + 80px) 0 0 0;
+    inset: var(--site-header-bottom) 0 0 0;
     opacity: 0;
     pointer-events: none;
     position: fixed;
@@ -527,6 +528,7 @@ header[role="banner"] > div {
     display: block;
     flex: none;
     grid-column: 1 / -1;
+    max-width: calc(100vw - 32px);
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -549,7 +551,13 @@ header[role="banner"] > div {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-height: calc(100dvh - var(--site-header-bottom) - 24px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 22px;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
   }
 
@@ -681,7 +689,7 @@ header[role="banner"] > div {
 
   #block-doljak-theme-mainnavigation {
     top: calc(100% + 10px);
-    width: 220px;
+    width: min(220px, calc(100vw - 24px));
   }
 
   #block-doljak-theme-mainnavigation > .site-header__menu-panel {
