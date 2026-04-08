@@ -33,6 +33,10 @@
             return;
           }
 
+          if (target === toggle) {
+            return;
+          }
+
           if ((menu && menu.contains(target)) || (menuButton && menuButton.contains(target))) {
             return;
           }
