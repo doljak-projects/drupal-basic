@@ -20,14 +20,14 @@ Study and practice Drupal's Cache API as the foundation for performant, cache-aw
 - Understand when to use cache()->get/set vs #cache vs hook_node_presave invalidation
 
 ## Status
-> Atualizado em: 04-07-2026
+> Atualizado em: 04-08-2026
 
-- [ ] Understand cache tags, contexts and max-age and how they compose
-- [ ] Practice cache()->get() and cache()->set() for data caching
-- [ ] Use #cache in render arrays to control tag/context/max-age at the render layer
-- [ ] Invalidate cache by tag with Cache::invalidateTags()
-- [ ] Build practical exercise: cache an expensive entity load and invalidate it on node save
-- [ ] Understand when to use cache()->get/set vs #cache vs hook_node_presave invalidation
+- [x] Understand cache tags, contexts and max-age and how they compose
+- [x] Practice cache()->get() and cache()->set() for data caching
+- [x] Use #cache in render arrays to control tag/context/max-age at the render layer
+- [x] Invalidate cache by tag with Cache::invalidateTags()
+- [x] Build practical exercise: cache an expensive entity load and invalidate it on node save
+- [x] Understand when to use cache()->get/set vs #cache vs hook_node_presave invalidation
 
 ## Notes
 - Identified as a recurring gap in Acquia certification simulados 1 and 2 (Domain 4.4)
