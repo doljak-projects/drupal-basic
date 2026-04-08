@@ -26,7 +26,8 @@ class WaggyCacheService {
     $query = $storage->getQuery()
       ->condition('type', 'waggy_product')
       ->sort('created', 'DESC')
-      ->range(0, 5);
+      ->range(0, 5)
+      ->accessCheck(FALSE);
     $nids = $query->execute();
     $products = $storage->loadMultiple($nids);
 
