@@ -103,11 +103,16 @@ The scope expands as new topics are covered in the exercises.
 
 ### Deploy & CI/CD
 
+See [docs/deploy/cicd-architecture.md](docs/deploy/cicd-architecture.md) for the full pipeline design, architectural decisions and AI spec.
+
 - [ ] Environment config split — `config_split` module for dev/staging/prod differences
 - [ ] `settings.php` per environment — database, trusted hosts, reverse proxy config
 - [ ] Drush deploy script — `updatedb`, `cim`, `cr`, `deploy` hook
-- [ ] GitHub Actions pipeline — PHP lint, PHPStan static analysis, Drupal tests, deploy on merge
-- [ ] Staging deployment — DDEV → Pantheon / Platform.sh / Acquia / VPS with SSH
+- [ ] GitHub Actions — basic pipeline (lint + build) on `feat/*`, `refactor/*`, `chore/*` push → homolog (snapshot)
+- [ ] GitHub Actions — full pipeline (test + vuln + sonar + quality gates) as PR required status check → production (release)
+- [ ] Branch protection — `main` immutable, merge only via approved PR + passing pipeline
+- [ ] Staging deployment — Pantheon Dev/Test environments (provider-agnostic deploy layer)
+- [ ] Production deployment — Pantheon Live via release tag
 - [ ] Production hardening — file permissions, `settings.php` write-protect, error reporting off
 - [ ] Composer in production — `--no-dev`, lockfile pinned, patches applied
 - [ ] Rollback strategy — config revert, database snapshot before deploy
