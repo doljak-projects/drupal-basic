@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup SSH agent
-        uses: webfactory/ssh-agent@a6f90cab9afa23e9ada6c5c56b921f8ddad14018
+        uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
 
