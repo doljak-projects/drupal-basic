@@ -18,22 +18,21 @@ class WaggyCacheService {
 
   public function getRecentProducts() {
     $cid = 'waggy_cache:recent_products';
-    $cache_id = $this->cacheBackend->get($cid);
-    if ($cache_id) {
-      return $cache_id->data;
-    }
+    $cached = $this->cacheBackend->get($cid);
     $storage = $this->entityTypeManager->getStorage('node');
+    if ($cached) {
+      return $storage->loadMultiple($cached->data);
+    }
     $query = $storage->getQuery()
       ->condition('type', 'waggy_product')
       ->sort('created', 'DESC')
       ->range(0, 5)
       ->accessCheck(FALSE);
     $nids = $query->execute();
-    $products = $storage->loadMultiple($nids);
 
     $this->cacheBackend->set($cid, $nids, Cache::PERMANENT, ['waggy_cache:waggy_products']);
 
-    return $products;
+    return $storage->loadMultiple($nids);
   }
 
 }
