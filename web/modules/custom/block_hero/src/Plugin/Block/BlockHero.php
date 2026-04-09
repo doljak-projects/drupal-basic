@@ -11,24 +11,27 @@ use Drupal\node\NodeInterface;
  *   admin_label = @Translation("Block hero"),
  * )
  */
-class BlockHero extends BlockBase
-{
-    public function build()
-    {
-        $nodes = \Drupal::entityTypeManager()
-        ->getStorage('node')
-        ->loadByProperties([
+class BlockHero extends BlockBase {
+
+  /**
+   *
+   */
+  public function build() {
+    $nodes = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties([
         'type' => 'hero',
         'status' => NodeInterface::PUBLISHED,
-        ]);
+      ]);
 
-        if (empty($nodes)) {
-            return [];
-        }
-
-        $node = reset($nodes);
-        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
-
-        return $view_builder->view($node, 'full');
+    if (empty($nodes)) {
+      return [];
     }
+
+    $node = reset($nodes);
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+
+    return $view_builder->view($node, 'full');
+  }
+
 }

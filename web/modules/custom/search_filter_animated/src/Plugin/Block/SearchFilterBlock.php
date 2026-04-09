@@ -10,12 +10,15 @@ use Drupal\Core\Block\BlockBase;
  *   admin_label = @Translation("Search Filter Animated"),
  * )
  */
-class SearchFilterBlock extends BlockBase
-{
-    public function build()
-    {
-        return [
-        '#theme' => 'search_filter_animated',
-        ];
-    }
+class SearchFilterBlock extends BlockBase {
+
+  /**
+   *
+   */
+  public function build() {
+    return [
+      '#theme' => 'search_filter_animated',
+    ];
+  }
+
 }

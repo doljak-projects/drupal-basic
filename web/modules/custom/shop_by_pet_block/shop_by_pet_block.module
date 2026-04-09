@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_views_data_alter().
  *
  * Substitui o plugin de argumento de field_pet_type_target_id pelo nosso
