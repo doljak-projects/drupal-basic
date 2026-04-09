@@ -9,5 +9,9 @@ parameters:
     - web/themes/custom
   excludePaths:
     - web/modules/custom/*/tests
-  drupal:
-    drupal_root: web
+  ignoreErrors:
+    # new static() in create() is the standard Drupal DI factory pattern.
+    - '#Unsafe usage of new static\(\)#'
+    # Paragraph field entities are FieldableEntityInterface at runtime,
+    # but PHPStan only sees EntityInterface from the ->entity property.
+    - '#Call to an undefined method Drupal\\Core\\Entity\\EntityInterface::get\(\)#'
