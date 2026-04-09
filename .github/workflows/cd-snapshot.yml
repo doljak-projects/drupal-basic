@@ -46,4 +46,4 @@ jobs:
           git show pantheon/master:pantheon.upstream.yml > pantheon.upstream.yml
           git add pantheon.upstream.yml
           git diff --cached --quiet || git commit -m "chore: preserve pantheon.upstream.yml from Pantheon upstream"
-          git push pantheon HEAD:master --force
+          git push pantheon HEAD:master --force-with-lease
