@@ -1,0 +1,38 @@
+name: 'CD Snapshot — Deploy to Pantheon Dev'
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy (e.g. feat/my-feature)'
+        required: true
+        default: ''
+
+env:
+  PANTHEON_GIT: ssh://codeserver.dev.a8d8a8ab-5975-4b7c-8e19-7da6c8483384@codeserver.dev.a8d8a8ab-5975-4b7c-8e19-7da6c8483384.drush.in:2222/~/repository.git
+  PANTHEON_HOST: codeserver.dev.a8d8a8ab-5975-4b7c-8e19-7da6c8483384.drush.in
+
+jobs:
+  deploy:
+    name: Deploy to Pantheon Dev
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@a6f90cab9afa23e9ada6c5c56b921f8ddad14018
+        with:
+          ssh-private-key: ${{ secrets.PANTHEON_SSH_PRIVATE_KEY }}
+
+      - name: Add Pantheon to known_hosts
+        run: ssh-keyscan -p 2222 ${{ env.PANTHEON_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Push to Pantheon Dev
+        run: |
+          git remote add pantheon ${{ env.PANTHEON_GIT }}
+          git push pantheon HEAD:master --force
