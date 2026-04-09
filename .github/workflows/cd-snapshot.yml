@@ -7,6 +7,11 @@ on:
         description: 'Branch to deploy (e.g. feat/my-feature)'
         required: true
         default: ''
+  push:
+    branches:
+      - 'feat/*'
+      - 'refactor/*'
+      - 'chore/*'
 
 env:
   PANTHEON_GIT: ssh://codeserver.dev.a8d8a8ab-5975-4b7c-8e19-7da6c8483384@codeserver.dev.a8d8a8ab-5975-4b7c-8e19-7da6c8483384.drush.in:2222/~/repository.git
@@ -21,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
-          ref: ${{ github.event.inputs.branch }}
+          ref: ${{ github.event.inputs.branch || github.ref }}
           fetch-depth: 0
 
       - name: Setup SSH agent
