@@ -39,6 +39,8 @@ jobs:
 
       - name: Push to Pantheon Dev
         run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
           git remote add pantheon ${{ env.PANTHEON_GIT }}
           git fetch pantheon master
           git merge pantheon/master --allow-unrelated-histories -X ours --no-edit
