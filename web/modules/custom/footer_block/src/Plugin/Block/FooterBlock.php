@@ -9,6 +9,8 @@ use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
+ * Renders the site footer from a footer node using Paragraphs.
+ *
  * @Block(
  *   id = "footer_block",
  *   admin_label = @Translation("Footer block"),
@@ -16,18 +18,30 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class FooterBlock extends BlockBase implements ContainerFactoryPluginInterface
 {
-// Guarda o serviço injetado para usar no build()
+  /**
+   * Constructs a FooterBlock instance.
+   *
+   * @param array $configuration
+   *   Plugin configuration.
+   * @param string $plugin_id
+   *   Plugin ID.
+   * @param mixed $plugin_definition
+   *   Plugin definition.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   */
     public function __construct(
         array $configuration,
         $plugin_id,
         $plugin_definition,
         protected EntityTypeManagerInterface $entityTypeManager,
     ) {
-        // Obrigatório — inicializa o plugin base
         parent::__construct($configuration, $plugin_id, $plugin_definition);
     }
 
-    // Drupal chama este método para montar a instância com os serviços certos.
+  /**
+   * {@inheritdoc}
+   */
     public static function create(
         ContainerInterface $container,
         array $configuration,
@@ -38,17 +52,19 @@ class FooterBlock extends BlockBase implements ContainerFactoryPluginInterface
             $configuration,
             $plugin_id,
             $plugin_definition,
-            $container->get('entity_type.manager'), // injeta o serviço
+            $container->get('entity_type.manager'),
         );
     }
 
+  /**
+   * {@inheritdoc}
+   */
     public function build(): array
     {
-        // Busca o node do tipo footer publicado
         $nodes = $this->entityTypeManager
         ->getStorage('node')
         ->loadByProperties([
-        'type'   => 'footer',
+        'type' => 'footer',
         'status' => NodeInterface::PUBLISHED,
         ]);
 
@@ -56,9 +72,8 @@ class FooterBlock extends BlockBase implements ContainerFactoryPluginInterface
             return [];
         }
 
-        $node = reset($nodes); // pega o primeiro (só deve existir um)
+        $node = reset($nodes);
 
-        // Renderiza o node — isso dispara o node--footer.html.twig
         return $this->entityTypeManager
         ->getViewBuilder('node')
         ->view($node, 'full');
