@@ -40,4 +40,6 @@ jobs:
       - name: Push to Pantheon Dev
         run: |
           git remote add pantheon ${{ env.PANTHEON_GIT }}
-          git push pantheon HEAD:master --force
+          git fetch pantheon master
+          git merge pantheon/master --allow-unrelated-histories -X ours --no-edit
+          git push pantheon HEAD:master
