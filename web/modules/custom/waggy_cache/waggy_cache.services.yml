@@ -1,0 +1,4 @@
+services:
+  waggy_cache.waggy_cache_service:
+    class: Drupal\waggy_cache\WaggyCacheService
+    arguments: ['@cache.default', '@entity_type.manager']
