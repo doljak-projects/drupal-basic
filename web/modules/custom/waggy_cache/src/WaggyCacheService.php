@@ -12,11 +12,15 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 class WaggyCacheService {
 
   /**
+   * The cache backend service.
+   *
    * @var \Drupal\Core\Cache\CacheBackendInterface
    */
   protected $cacheBackend;
 
   /**
+   * The entity type manager service.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
