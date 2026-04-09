@@ -5,6 +5,8 @@ namespace Drupal\shop_by_pet_block\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
+ * Provides the Shop by Pet block.
+ *
  * @Block(
  *   id = "shop_by_pet_block",
  *   admin_label = @Translation("Shop by pet menu item"),
@@ -13,7 +15,7 @@ use Drupal\Core\Block\BlockBase;
 class ShopByPetBlock extends BlockBase {
 
   /**
-   *
+   * {@inheritdoc}
    */
   public function build() {
     $base_url = \Drupal::request()->getSchemeAndHttpHost();
@@ -56,7 +58,7 @@ class ShopByPetBlock extends BlockBase {
   }
 
   /**
-   *
+   * Resolves the image URL for a taxonomy term from JSON:API included data.
    */
   private function resolveTermImage(array $term, array $included, string $base_url): string {
     $media_rel = $term['relationships']['field_product_link_category_butt']['data'] ?? NULL;

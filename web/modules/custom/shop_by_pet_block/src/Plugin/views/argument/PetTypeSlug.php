@@ -8,11 +8,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\views\Plugin\views\argument\EntityReferenceArgument;
 
 /**
- * Views argument that accepts a taxonomy term slug (e.g. "dogs", "small-pets")
- * and converts it to a TID before the query runs.
+ * Views argument plugin that converts a taxonomy term slug to a TID.
  *
- * The vocabulary is configurable via the Views UI, making this plugin
- * reusable across any taxonomy-based entity reference filter.
+ * Accepts slugs like "dogs" or "small-pets" and converts them to a numeric
+ * TID before the query runs. The vocabulary is configurable via the Views UI,
+ * making this plugin reusable across any taxonomy-based entity reference filter.
  */
 #[ViewsArgument(
     id: 'taxonomy_slug',
@@ -81,7 +81,7 @@ class PetTypeSlug extends EntityReferenceArgument {
   }
 
   /**
-   * Looks up a TID by matching the term label slug against the configured vocabulary.
+   * Looks up a TID by matching the term label slug against the configured vocab.
    */
   protected function slugToTid(string $slug): ?int {
     $vid = $this->options['vid'] ?? '';

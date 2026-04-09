@@ -6,6 +6,8 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
 
 /**
+ * Provides the Waggy Wishlist block.
+ *
  * @Block(
  *   id = "waggy_wishlist",
  *   admin_label = @Translation("Waggy Wishlist"),
@@ -14,7 +16,7 @@ use Drupal\Core\Url;
 class WaggyWishlistBlock extends BlockBase {
 
   /**
-   *
+   * {@inheritdoc}
    */
   public function build() {
     return [

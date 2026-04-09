@@ -34,7 +34,7 @@ jobs:
         run: composer audit --locked --abandoned=report
 
       - name: Code standards (PHPCS)
-        run: vendor/bin/phpcs
+        run: vendor/bin/phpcs -n
 
       - name: Static analysis (PHPStan)
         run: vendor/bin/phpstan analyse
