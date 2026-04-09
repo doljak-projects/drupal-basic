@@ -1,0 +1,6 @@
+name: 'hello world'
+type: 'module'
+description: 'a simple module saying Hello world'
+package: 'doljak'
+core_version_requirement: ^10 | ^11
+
