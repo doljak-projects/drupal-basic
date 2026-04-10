@@ -108,14 +108,38 @@ See [docs/deploy/cicd-architecture.md](docs/deploy/cicd-architecture.md) for the
 - [ ] Environment config split — `config_split` module for dev/staging/prod differences
 - [ ] `settings.php` per environment — database, trusted hosts, reverse proxy config
 - [ ] Drush deploy script — `updatedb`, `cim`, `cr`, `deploy` hook
-- [X] GitHub Actions — basic pipeline (lint + build) on `feat/*`, `refactor/*`, `chore/*` push → homolog (snapshot)
-- [X] GitHub Actions — full pipeline (test + vuln + sonar + quality gates) as PR required status check → production (release)
-- [X] Branch protection — `main` immutable, merge only via approved PR + passing pipeline
-- [X] Staging deployment — Pantheon Dev/Test environments (SSH git push to Dev integrated)
-- [ ] Production deployment — Pantheon Live via release tag
+- [X] GitHub Actions — CI Basic: lint + build on every push to `feat/*`, `refactor/*`, `chore/*` — fast feedback, ~30s
+- [X] GitHub Actions — CI Full: complete quality gate (lint + audit + PHPCS + PHPStan + PHPUnit + SonarCloud) — runs on PR approval
+- [X] Branch protection — `main` immutable, merge only via approved PR
+- [X] Staging deployment — Pantheon Dev via SSH git push on every snapshot build
+- [ ] Production deployment — Pantheon Live via release tag (wired up, not yet deployed)
 - [ ] Production hardening — file permissions, `settings.php` write-protect, error reporting off
 - [ ] Composer in production — `--no-dev`, lockfile pinned, patches applied
 - [ ] Rollback strategy — config revert, database snapshot before deploy
+
+#### Versioning strategy
+
+Every build is tagged. The tag type signals the pipeline stage and what environments are allowed to receive it.
+
+| Stage | Trigger | Tag pattern | Example | Target |
+|-------|---------|-------------|---------|--------|
+| Push to feature branch | automatic | `{last-release}-SNAPSHOT.{sha}` | `0.1.0-SNAPSHOT.a1b2c3` | Pantheon Dev |
+| Merge to `main` | automatic (on push to main) | `{major}.{minor}.{patch}` | `0.2.0` | Homolog → Prod |
+
+**Bump type** is controlled by a label added to the PR before merging:
+
+| Label | Effect | Use when |
+|-------|--------|----------|
+| `release:patch` | `0.1.0` → `0.1.1` | Bug fixes, docs, chores |
+| `release:minor` | `0.1.0` → `0.2.0` | New features, backwards-compatible |
+| `release:major` | `0.1.0` → `1.0.0` | Breaking changes |
+
+If no label is set, the default is `patch`.
+
+**Rules:**
+- SNAPSHOT tags are **never** deployed to production — they identify unstable builds
+- Only clean semver tags (`x.y.z`) reach Homolog and Prod
+- The bump decision is recorded in the PR history as a label, making it auditable
 
 ## Weekly Bench Reports
 

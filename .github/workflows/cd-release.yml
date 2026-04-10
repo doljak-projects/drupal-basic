@@ -1,0 +1,60 @@
+name: 'CD Release — Tag & Deploy'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Tag Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+
+      - name: Resolve bump type from PR label
+        id: bump
+        run: |
+          LABELS=$(gh pr list \
+            --state merged \
+            --base main \
+            --limit 1 \
+            --json labels \
+            --jq '.[0].labels[].name' 2>/dev/null || echo "")
+          if echo "$LABELS" | grep -q "release:major"; then
+            echo "type=major" >> "$GITHUB_OUTPUT"
+          elif echo "$LABELS" | grep -q "release:minor"; then
+            echo "type=minor" >> "$GITHUB_OUTPUT"
+          else
+            echo "type=patch" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute next version
+        id: version
+        run: |
+          git fetch --tags
+          LATEST=$(git tag --sort=-v:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          LATEST=${LATEST:-0.0.0}
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$LATEST"
+          case "${{ steps.bump.outputs.type }}" in
+            major) NEXT="$((MAJOR+1)).0.0" ;;
+            minor) NEXT="${MAJOR}.$((MINOR+1)).0" ;;
+            *)     NEXT="${MAJOR}.${MINOR}.$((PATCH+1))" ;;
+          esac
+          echo "tag=${NEXT}" >> "$GITHUB_OUTPUT"
+          echo "Bumping ${LATEST} → ${NEXT} (${{ steps.bump.outputs.type }})"
+
+      - name: Create and push release tag
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git tag "${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      # TODO: Deploy to Pantheon Test (homolog) and Live (prod) — see issue for Pantheon multi-env setup
