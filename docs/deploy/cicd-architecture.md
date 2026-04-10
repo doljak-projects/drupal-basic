@@ -104,10 +104,13 @@ No Pantheon-specific CLI calls (`terminus`) in the pipeline logic — they live
 inside the deploy job script, which is the only part that changes if the
 provider changes.
 
-### 4. Full pipeline as a PR status check
-The full pipeline (tests, vulnerability scan, static analysis) runs as a
-required status check on the PR, not after the merge. This means broken code
-never reaches `main` — the PR is blocked until all checks pass.
+### 4. Full pipeline runs on PR approval, not on every PR event
+The full pipeline (tests, vulnerability scan, static analysis) is triggered
+by the `pull_request_review` event filtered to `state == approved`. It does
+not run on `opened`, `synchronize` or `reopened` — only when a human explicitly
+approves the PR. This avoids burning CI time on intermediate pushes during
+review cycles. The CI Basic pipeline (lint + build) provides fast feedback on
+every push to cover the gap.
 
 ### 5. Infrastructure services are decoupled
 Redis/Memcached and CDN are not part of the pipeline. They are external
@@ -138,7 +141,32 @@ applied directly on Pantheon Dev. `--force` would overwrite unconditionally,
 which is a footgun in shared environments even when the intent is for GitHub to
 be the source of truth.
 
-### 9. SSH key scope and the machine-user gap
+### 9. Versioning — SNAPSHOT vs Release tags
+Every build is tagged. The tag type encodes which pipeline stage produced it
+and which environments are allowed to receive it.
+
+- **SNAPSHOT tags** (`{last-release}-SNAPSHOT.{sha}`) are created on every
+  successful push to `feat/*`, `refactor/*` or `chore/*`. They identify a
+  specific deployable build but carry no stability guarantee. SNAPSHOT builds
+  may be promoted to Pantheon Dev for manual validation — they must **never**
+  reach Homolog or Prod.
+
+- **Release tags** (`{major}.{minor}.{patch}`) are created automatically when
+  code merges into `main`. The bump type is read from the PR label
+  (`release:patch`, `release:minor`, `release:major`). If no label is set, the
+  default is `patch`. The label is added by the developer before merging —
+  making the version bump an explicit, auditable decision recorded in the PR
+  history, not inferred from commit message conventions.
+
+**Why label-driven instead of conventional commits?**
+Conventional commit parsing (e.g. `feat:` → minor) is implicit — the decision
+lives in the commit message, which is easy to forget or mislabel under pressure.
+PR labels make the bump decision explicit: the developer consciously selects the
+impact level before hitting merge, and the label is visible in the PR UI to any
+reviewer. For a solo or small-team project this is simpler and more intentional
+than configuring a semantic-release pipeline.
+
+### 10. SSH key scope and the machine-user gap
 The SSH key stored in `PANTHEON_SSH_PRIVATE_KEY` grants write access to all
 Pantheon sites under the account, not just this one. This is acceptable for a
 sandbox project but would be a security gap in a production setup.
@@ -187,14 +215,22 @@ branches:
 
 pipelines:
   basic:
+    trigger: push to feat/*, refactor/*, chore/*
     steps: [lint, build]
-    target: homolog
-    tag: snapshot
+    purpose: fast feedback on every push (~30s)
+    tag: snapshot — pattern {last-release}-SNAPSHOT.{sha}
+    target: Pantheon Dev
   full:
-    steps: [lint, build, test, vulnerability-scan, static-analysis, quality-gates]
-    target: production
-    tag: release
+    trigger: pull_request_review — state == approved
+    steps: [lint, build, vulnerability-scan, phpcs, phpstan, phpunit, sonarcloud]
+    purpose: quality gate before merge
     gate: human approval required (PR review)
+  release:
+    trigger: push to main (after merge)
+    steps: [read-pr-label, compute-next-version, push-tag]
+    tag: semver — {major}.{minor}.{patch}
+    bump: label-driven — release:patch | release:minor | release:major (default: patch)
+    target: Homolog → Prod (wired, not yet deployed)
 
 deploy:
   layer: isolated job — provider-agnostic

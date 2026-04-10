@@ -21,6 +21,8 @@ jobs:
   deploy:
     name: Deploy to Pantheon Dev
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
@@ -47,3 +49,13 @@ jobs:
           git add pantheon.upstream.yml
           git diff --cached --quiet || git commit -m "chore: preserve pantheon.upstream.yml from Pantheon upstream"
           git push pantheon HEAD:master --force-with-lease
+
+      - name: Tag as SNAPSHOT
+        run: |
+          git fetch --tags
+          LATEST=$(git tag --sort=-v:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          VERSION=${LATEST:-0.0.0}
+          SHA=$(git rev-parse --short HEAD)
+          TAG="${VERSION}-SNAPSHOT.${SHA}"
+          git tag "$TAG" || true
+          git push origin "$TAG" || true
