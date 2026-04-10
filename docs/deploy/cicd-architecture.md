@@ -120,6 +120,50 @@ In this first phase, sensitive values are managed via `.env` files for local
 development and GitHub Secrets for the pipeline. A secrets manager (Vault,
 AWS Secrets Manager, etc.) is a natural next step but out of scope here.
 
+### 7. Pantheon integration via SSH git push (not Terminus in the pipeline)
+Deployment to Pantheon Dev uses a direct `git push` to Pantheon's git remote
+over SSH, rather than Terminus CLI calls in the pipeline logic. This keeps the
+deploy step provider-agnostic: if the project migrates to a different host, only
+the remote URL and SSH secret change — the pipeline structure stays the same.
+
+Terminus is reserved for post-deploy operations (cache clear, config import,
+database updates) that cannot be expressed as a git push. Those calls live
+exclusively inside the deploy job, not in the pipeline orchestration.
+
+### 8. `--force-with-lease` instead of `--force` on the Pantheon push
+The deploy step uses `git push --force-with-lease` rather than `--force`.
+`--force-with-lease` fails if the remote has commits that the runner has not
+seen — preventing silent overwrites of manual hotfixes or emergency patches
+applied directly on Pantheon Dev. `--force` would overwrite unconditionally,
+which is a footgun in shared environments even when the intent is for GitHub to
+be the source of truth.
+
+### 9. SSH key scope and the machine-user gap
+The SSH key stored in `PANTHEON_SSH_PRIVATE_KEY` grants write access to all
+Pantheon sites under the account, not just this one. This is acceptable for a
+sandbox project but would be a security gap in a production setup.
+
+The correct production pattern is a **machine user** (a dedicated Pantheon
+account with access scoped to a single site), whose SSH key is used in CI
+instead of the owner's personal key. This limits blast radius if the GitHub
+secret is ever exposed.
+
+This gap is intentional and documented here rather than silently accepted.
+Machine user setup requires a paid Pantheon plan and is out of scope for this
+training project.
+
+### 10. `pantheon.upstream.yml` handling
+Pantheon's git remote includes a `pantheon.upstream.yml` file managed
+exclusively by the upstream (Drupal Composer Managed). Pushing a history that
+modifies or omits this file is rejected by Pantheon's pre-receive hook.
+
+The deploy step resolves this by fetching the file directly from Pantheon's
+remote before pushing, and committing it to the deploy HEAD if not already
+present. This preserves the exact content Pantheon expects without coupling
+our repository to Pantheon's upstream history or requiring a full
+`--allow-unrelated-histories` merge (which introduced `settings.php` conflicts
+from divergent upstream histories).
+
 ---
 
 ## AI Spec
