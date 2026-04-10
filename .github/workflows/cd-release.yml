@@ -9,6 +9,8 @@ jobs:
   release:
     name: Tag Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout

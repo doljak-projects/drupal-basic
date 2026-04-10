@@ -21,6 +21,8 @@ jobs:
   deploy:
     name: Deploy to Pantheon Dev
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
