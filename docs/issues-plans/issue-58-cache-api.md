@@ -2,8 +2,8 @@
 issue: 58
 title: "[Back-End] Cache API — study and practical exercise"
 branch: feat/cache-api-58-cache-api-study-and-practical-exercise
-status: in-progress
-last_updated: 04-07-2026
+status: closed
+last_updated: 04-09-2026
 ---
 
 # Issue #58 — [Back-End] Cache API — study and practical exercise

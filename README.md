@@ -22,7 +22,7 @@ The project simulates a **fictional pet shop** website, used as a practical cont
 - **Blog**: article listing (`/blog`) and article detail pages
 - **Login journey**: login, register and password reset pages
 - **Footer**: global layout component across all breakpoints
-- **Wishlist**: product wishlist page (in progress)
+- **Wishlist**: product wishlist page
 - **404**: custom error page (in progress)
 
 The scope expands as new topics are covered in the exercises.
@@ -55,7 +55,7 @@ The scope expands as new topics are covered in the exercises.
 - [X] Custom module creation (hook_theme, routing, controller)
   - [X] `hook_theme` — custom template registration with `template` and `path` keys
   - [X] routing — via plugin system (Block)
-  - [ ] controller — page route with render array
+  - [X] controller — page route with render array
 - [ ] Form API
 - [X] Custom theme with Starterkit
 - [X] Twig: templates, variables, filters and functions
@@ -68,7 +68,7 @@ The scope expands as new topics are covered in the exercises.
 
 ### Advanced
 
-- [ ] Services and Dependency Injection (Service Container)
+- [X] Services and Dependency Injection (Service Container)
 - [X] Plugins: custom block, field and formatter types
   - [X] Block plugin — `@Block` annotation, `build()` returning render array
   - [ ] Custom field — FieldType plugin
@@ -78,7 +78,7 @@ The scope expands as new topics are covered in the exercises.
 - [X] Cache API: cache tags, contexts and invalidation
   - [X] Node cache tags (`[node:X]`) applied in article detail preprocessor — page invalidates on node save
   - [ ] Custom cache contexts
-  - [ ] Manual cache invalidation via `cache_tags.invalidator`
+  - [X] Manual cache invalidation via `cache_tags.invalidator`
 - [X] REST API and JSON:API
   - [X] Native JSON:API — products stored in Drupal, consumed via `/jsonapi/node/waggy_product` in the Shop by Pet block; includes taxonomy term images resolved through `media → file → uri` relationship chain
   - [X] Guzzle HTTP client (server-side) — used internally to query Drupal's own JSON:API from a Block plugin via `\Drupal::httpClient()`
@@ -86,7 +86,7 @@ The scope expands as new topics are covered in the exercises.
   - [ ] JavaScript fetch (client-side) — filter products without page reload; URL exposed to the browser
 - [X] Paragraphs and layouts with Layout Builder
   - [X] `drupal/paragraphs` installed and configured — `text_block` paragraph type validated
-  - [ ] Paragraph types wired to footer and content regions via Layout Builder
+  - [X] Paragraph types wired to footer columns via custom Block plugin (footer_brand, footer_links, footer_newsletter)
 - [ ] Advanced Migrate API: migrations with complex transformations
 - [ ] Automated testing with PHPUnit and Nightwatch
 
@@ -108,14 +108,20 @@ See [docs/deploy/cicd-architecture.md](docs/deploy/cicd-architecture.md) for the
 - [ ] Environment config split — `config_split` module for dev/staging/prod differences
 - [ ] `settings.php` per environment — database, trusted hosts, reverse proxy config
 - [ ] Drush deploy script — `updatedb`, `cim`, `cr`, `deploy` hook
-- [ ] GitHub Actions — basic pipeline (lint + build) on `feat/*`, `refactor/*`, `chore/*` push → homolog (snapshot)
-- [ ] GitHub Actions — full pipeline (test + vuln + sonar + quality gates) as PR required status check → production (release)
-- [ ] Branch protection — `main` immutable, merge only via approved PR + passing pipeline
-- [ ] Staging deployment — Pantheon Dev/Test environments (provider-agnostic deploy layer)
+- [X] GitHub Actions — basic pipeline (lint + build) on `feat/*`, `refactor/*`, `chore/*` push → homolog (snapshot)
+- [X] GitHub Actions — full pipeline (test + vuln + sonar + quality gates) as PR required status check → production (release)
+- [X] Branch protection — `main` immutable, merge only via approved PR + passing pipeline
+- [X] Staging deployment — Pantheon Dev/Test environments (SSH git push to Dev integrated)
 - [ ] Production deployment — Pantheon Live via release tag
 - [ ] Production hardening — file permissions, `settings.php` write-protect, error reporting off
 - [ ] Composer in production — `--no-dev`, lockfile pinned, patches applied
 - [ ] Rollback strategy — config revert, database snapshot before deploy
+
+## Weekly Bench Reports
+
+Progress logs summarizing what was built and learned each week, written for professional context.
+
+- [Week of Apr 06–09, 2026](docs/WEEKLY_BENCH_REPORT.md)
 
 ## How to run
 
