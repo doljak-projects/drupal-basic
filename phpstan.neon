@@ -1,0 +1,9 @@
+parameters:
+  level: 2
+  paths:
+    - web/modules/custom
+    - web/themes/custom
+  excludePaths:
+    - web/modules/custom/*/tests
+  drupal:
+    drupal_root: web
