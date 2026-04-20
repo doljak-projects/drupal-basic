@@ -1,0 +1,7 @@
+waggy_forms.newsletter:
+  path: '/newsletter'
+  defaults:
+    _form: '\Drupal\waggy_forms\Form\NewsletterSubscribeForm'
+    _title: 'Subscribe to Waggy Newsletter'
+  requirements:
+    _permission: 'access content'
