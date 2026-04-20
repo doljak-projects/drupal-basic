@@ -6,6 +6,20 @@
  */
 
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_theme().
+ */
+function doljak_theme_theme(): array {
+  return [
+    'contact_message_form' => [
+      'render element' => 'form',
+      'template' => 'contact-message-form',
+    ],
+  ];
+}
 
 /**
  * Implements hook_preprocess_node().
@@ -126,5 +140,39 @@ function _doljak_theme_preprocess_footer(array &$variables): void {
   if ($newsletter) {
     $variables['footer_newsletter_title'] = $newsletter->get('field_cta_text')->value ?? '';
     $variables['footer_newsletter_copy']  = $newsletter->get('field_cta_subtext')->value ?? '';
+  }
+}
+
+/**
+ * Preprocess do template customizado do form de contato.
+ */
+function doljak_theme_preprocess_contact_message_form(array &$variables): void {
+  $form = $variables['form'];
+  $variables['attributes'] = new Attribute($form['#attributes'] ?? []);
+  $variables['contact_form_title'] = $form['#title'] ?? t('Contact');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for the site-wide contact form.
+ */
+function doljak_theme_form_contact_message_waggy_contact_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  unset($form['#theme']);
+  $form['#theme_wrappers'] = ['contact_message_form'];
+
+  if (!empty($form['preview']['#attributes']['class'])) {
+    $form['preview']['#attributes']['class'][] = 'contact-page__preview';
+  }
+  elseif (isset($form['preview'])) {
+    $form['preview']['#attributes']['class'] = ['contact-page__preview'];
+  }
+
+  if (isset($form['actions']['submit'])) {
+    $form['actions']['submit']['#attributes']['class'][] = 'contact-page__button';
+    $form['actions']['submit']['#attributes']['class'][] = 'contact-page__button--primary';
+  }
+
+  if (isset($form['actions']['preview'])) {
+    $form['actions']['preview']['#attributes']['class'][] = 'contact-page__button';
+    $form['actions']['preview']['#attributes']['class'][] = 'contact-page__button--secondary';
   }
 }
