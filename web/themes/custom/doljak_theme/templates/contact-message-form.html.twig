@@ -1,0 +1,6 @@
+{{ attach_library('doljak_theme/contact') }}
+{% include '@doljak_theme/contact-site-page.html.twig' with {
+  form: form,
+  attributes: attributes,
+  contact_form_title: contact_form_title
+} only %}
