@@ -1,0 +1,12 @@
+uuid: d50aaf85-e423-4fd5-937b-1e08a2f2dcba
+langcode: en
+status: true
+dependencies: {  }
+id: waggy_contact
+label: 'Waggy Contact'
+recipients:
+  - jedoljak@gmail.com
+reply: ''
+weight: 0
+message: ''
+redirect: /
