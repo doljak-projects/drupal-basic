@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.article.field_product_image
     - field.field.node.article.field_reading_time
     - field.field.node.article.field_tags
+    - image.style.wide
     - node.type.article
   module:
     - comment
@@ -32,7 +33,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   comment:
     type: comment_default
@@ -41,7 +42,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 5
+    weight: 110
     region: content
   field_category:
     type: string
@@ -49,7 +50,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 8
+    weight: 113
     region: content
   field_created:
     type: timestamp
@@ -68,25 +69,25 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 6
+    weight: 111
     region: content
   field_editor_note:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 114
     region: content
   field_image:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
-      image_style: ''
+      image_style: wide
       image_loading:
-        attribute: lazy
+        attribute: eager
     third_party_settings: {  }
-    weight: 0
+    weight: -1
     region: content
   field_product_image:
     type: media_thumbnail
@@ -97,7 +98,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 4
+    weight: 103
     region: content
   field_reading_time:
     type: string
@@ -105,7 +106,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 112
     region: content
   field_tags:
     type: entity_reference_label
@@ -113,11 +114,11 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 10
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 100
     region: content
 hidden: {  }
