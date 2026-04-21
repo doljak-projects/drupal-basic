@@ -77,8 +77,9 @@
           {% endif %}
         </div>
 
-        {{ form|without('preview', 'name', 'mail', 'subject', 'message', 'copy', 'actions') }}
-
+        {{ form.form_token }}
+        {{ form.form_build_id }}
+        {{ form.form_id }}
       </form>
     </div>
   </div>
