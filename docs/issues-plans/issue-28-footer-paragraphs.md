@@ -2,8 +2,8 @@
 issue: 28
 title: "feat: footer — Paragraphs content modeling and block wiring"
 branch: feat/footer-paragraphs-28-content-modeling-and-block-wiring
-status: in-progress
-last_updated: 04-02-2026
+status: closed
+last_updated: 04-09-2026
 ---
 
 # Issue #28 — feat: footer — Paragraphs content modeling and block wiring

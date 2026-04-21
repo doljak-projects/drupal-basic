@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the Waggy Cache module.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_presave().
+ *
+ * Limpa o cache da tela "waggy products".
+ */
+function waggy_cache_node_presave(NodeInterface $node) {
+  if ($node->getType() === 'waggy_product') {
+    Cache::invalidateTags(['waggy_cache:waggy_products']);
+  }
+}

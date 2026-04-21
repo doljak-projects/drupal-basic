@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Hook implementations for the Block Hero module.
+ */
+
+/**
  * Implements hook_theme().
  */
 function block_hero_theme() {
