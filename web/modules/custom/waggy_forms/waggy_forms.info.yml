@@ -1,0 +1,5 @@
+name: Waggy Forms
+type: module
+description: Custom forms for Waggy Pet Shop — newsletter, contact and auth integrations.
+core_version_requirement: ^10 || ^11
+package: Waggy
