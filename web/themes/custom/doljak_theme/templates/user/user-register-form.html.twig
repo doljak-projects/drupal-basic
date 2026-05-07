@@ -1,3 +1,5 @@
+{{ dump(form|keys) }}
+{{ dump(form.account|keys) }}
 <section class="auth-page auth-page--register">
   <div class="auth-page__inner">
 
@@ -13,7 +15,7 @@
       <h2 class="auth-card__title">Create Account</h2>
       <p class="auth-card__subtitle">Basic information to get started.</p>
 
-      <form class="auth-form" action="#" method="post" novalidate>
+
         <div class="auth-field-row">
           <div class="auth-field">
             <label for="reg-firstname">First name</label>
@@ -45,8 +47,12 @@
         <p class="auth-form__footer-text">
           Already have an account? <a href="/user/login" class="auth-link">Sign in</a>
         </p>
-      </form>
+
     </div>
 
   </div>
 </section>
+
+{{ form.form_token }}
+{{ form.form_build_id }}
+{{ form.form_id }}

@@ -1,3 +1,4 @@
+{{ dump(form|keys) }} 
 <section class="auth-page auth-page--login">
   <div class="auth-page__inner">
 
@@ -21,12 +22,12 @@
 
     <div class="auth-card">
       <h2 class="auth-card__title">Login</h2>
-      <p class="auth-card__subtitle">Use your account email and password.</p>
+      <p class="auth-card__subtitle">Use your account name and password.</p>
 
-      <form class="auth-form" action="#" method="post" novalidate>
+
         <div class="auth-field">
-          <label for="login-email">Email</label>
-          <input id="login-email" type="email" placeholder="you@example.com" autocomplete="email">
+          <label for="login-name">name</label>
+          <input id="login-name" type="text" placeholder="Your name" autocomplete="name">
         </div>
 
         <div class="auth-field">
@@ -34,18 +35,22 @@
           <input id="login-password" type="password" placeholder="••••••••••" autocomplete="current-password">
         </div>
 
-        <div class="auth-form__row">
+        {# <div class="auth-form__row">
           <label class="auth-checkbox">
             <input type="checkbox">
             <span>Remember me</span>
           </label>
           <a href="/user/password" class="auth-link">Forgot password?</a>
-        </div>
+        </div> #}
 
-        <button type="submit" class="btn btn--primary btn--full">Sign In</button>
-        <a href="/user/register" class="btn btn--secondary btn--full">Create Account</a>
-      </form>
+        {# <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+        <a href="/user/register" class="btn btn--secondary btn--full">Create Account</a> #}
+
     </div>
 
   </div>
 </section>
+
+{{ form.form_token }}
+{{ form.form_build_id }}
+{{ form.form_id }}
