@@ -6,6 +6,8 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\node\NodeInterface;
 
 /**
+ * Provides the Block Hero block.
+ *
  * @Block(
  *   id = "block_hero",
  *   admin_label = @Translation("Block hero"),
@@ -13,6 +15,9 @@ use Drupal\node\NodeInterface;
  */
 class BlockHero extends BlockBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public function build() {
     $nodes = \Drupal::entityTypeManager()
       ->getStorage('node')

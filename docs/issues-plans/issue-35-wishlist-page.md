@@ -2,8 +2,8 @@
 issue: 35
 title: "[Theme] Wishlist page — static HTML and CSS layout"
 branch: feat/wishlist-static-layout-35
-status: in-progress
-last_updated: 04-02-2026
+status: closed
+last_updated: 04-09-2026
 ---
 
 # Issue #35 — Wishlist Page — Static HTML and CSS Layout

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Hook implementations for the Shop by Pet Block module.
+ */
+
+/**
  * Implements hook_views_data_alter().
  *
  * Substitui o plugin de argumento de field_pet_type_target_id pelo nosso

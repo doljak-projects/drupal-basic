@@ -2,8 +2,8 @@
 issue: 51
 title: [Theme] Responsive header dropdown menu for tablet and mobile
 branch: feat/header-menu-51-responsive-header-dropdown-menu-for-tablet-and-mobile
-status: in-progress
-last_updated: 04-07-2026
+status: closed
+last_updated: 04-09-2026
 ---
 
 # Issue #51 — [Theme] Responsive header dropdown menu for tablet and mobile

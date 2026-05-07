@@ -2,8 +2,8 @@
 issue: 53
 title: [Theme] Refine header CSS and add responsive home hero layout
 branch: feat/header-hero-53-refine-header-css-and-add-responsive-home-hero-layout
-status: in-progress
-last_updated: 04-07-2026
+status: closed
+last_updated: 04-09-2026
 ---
 
 # Issue #53 — [Theme] Refine header CSS and add responsive home hero layout

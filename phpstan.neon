@@ -1,0 +1,17 @@
+includes:
+  - vendor/mglaman/phpstan-drupal/extension.neon
+  - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+  level: 2
+  paths:
+    - web/modules/custom
+    - web/themes/custom
+  excludePaths:
+    - web/modules/custom/*/tests
+  ignoreErrors:
+    # new static() in create() is the standard Drupal DI factory pattern.
+    - '#Unsafe usage of new static\(\)#'
+    # Paragraph field entities are FieldableEntityInterface at runtime,
+    # but PHPStan only sees EntityInterface from the ->entity property.
+    - '#Call to an undefined method Drupal\\Core\\Entity\\EntityInterface::get\(\)#'

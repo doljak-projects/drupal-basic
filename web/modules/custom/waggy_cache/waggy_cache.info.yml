@@ -1,0 +1,6 @@
+name: 'Waggy cache'
+type: module
+description: 'waggy cache module'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies: []

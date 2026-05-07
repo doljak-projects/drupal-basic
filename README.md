@@ -22,7 +22,7 @@ The project simulates a **fictional pet shop** website, used as a practical cont
 - **Blog**: article listing (`/blog`) and article detail pages
 - **Login journey**: login, register and password reset pages
 - **Footer**: global layout component across all breakpoints
-- **Wishlist**: product wishlist page (in progress)
+- **Wishlist**: product wishlist page
 - **404**: custom error page (in progress)
 
 The scope expands as new topics are covered in the exercises.
@@ -55,7 +55,7 @@ The scope expands as new topics are covered in the exercises.
 - [X] Custom module creation (hook_theme, routing, controller)
   - [X] `hook_theme` — custom template registration with `template` and `path` keys
   - [X] routing — via plugin system (Block)
-  - [ ] controller — page route with render array
+  - [X] controller — page route with render array
 - [ ] Form API
 - [X] Custom theme with Starterkit
 - [X] Twig: templates, variables, filters and functions
@@ -68,7 +68,7 @@ The scope expands as new topics are covered in the exercises.
 
 ### Advanced
 
-- [ ] Services and Dependency Injection (Service Container)
+- [X] Services and Dependency Injection (Service Container)
 - [X] Plugins: custom block, field and formatter types
   - [X] Block plugin — `@Block` annotation, `build()` returning render array
   - [ ] Custom field — FieldType plugin
@@ -78,7 +78,7 @@ The scope expands as new topics are covered in the exercises.
 - [X] Cache API: cache tags, contexts and invalidation
   - [X] Node cache tags (`[node:X]`) applied in article detail preprocessor — page invalidates on node save
   - [ ] Custom cache contexts
-  - [ ] Manual cache invalidation via `cache_tags.invalidator`
+  - [X] Manual cache invalidation via `cache_tags.invalidator`
 - [X] REST API and JSON:API
   - [X] Native JSON:API — products stored in Drupal, consumed via `/jsonapi/node/waggy_product` in the Shop by Pet block; includes taxonomy term images resolved through `media → file → uri` relationship chain
   - [X] Guzzle HTTP client (server-side) — used internally to query Drupal's own JSON:API from a Block plugin via `\Drupal::httpClient()`
@@ -86,7 +86,7 @@ The scope expands as new topics are covered in the exercises.
   - [ ] JavaScript fetch (client-side) — filter products without page reload; URL exposed to the browser
 - [X] Paragraphs and layouts with Layout Builder
   - [X] `drupal/paragraphs` installed and configured — `text_block` paragraph type validated
-  - [ ] Paragraph types wired to footer and content regions via Layout Builder
+  - [X] Paragraph types wired to footer columns via custom Block plugin (footer_brand, footer_links, footer_newsletter)
 - [ ] Advanced Migrate API: migrations with complex transformations
 - [ ] Automated testing with PHPUnit and Nightwatch
 
@@ -103,14 +103,49 @@ The scope expands as new topics are covered in the exercises.
 
 ### Deploy & CI/CD
 
+See [docs/deploy/cicd-architecture.md](docs/deploy/cicd-architecture.md) for the full pipeline design, architectural decisions and AI spec.
+
 - [ ] Environment config split — `config_split` module for dev/staging/prod differences
 - [ ] `settings.php` per environment — database, trusted hosts, reverse proxy config
 - [ ] Drush deploy script — `updatedb`, `cim`, `cr`, `deploy` hook
-- [ ] GitHub Actions pipeline — PHP lint, PHPStan static analysis, Drupal tests, deploy on merge
-- [ ] Staging deployment — DDEV → Pantheon / Platform.sh / Acquia / VPS with SSH
+- [X] GitHub Actions — CI Basic: lint + build on every push to `feat/*`, `refactor/*`, `chore/*` — fast feedback, ~30s
+- [X] GitHub Actions — CI Full: complete quality gate (lint + audit + PHPCS + PHPStan + PHPUnit + SonarCloud) — runs on PR approval
+- [X] Branch protection — `main` immutable, merge only via approved PR
+- [X] Staging deployment — Pantheon Dev via SSH git push on every snapshot build
+- [ ] Production deployment — Pantheon Live via release tag (wired up, not yet deployed)
 - [ ] Production hardening — file permissions, `settings.php` write-protect, error reporting off
 - [ ] Composer in production — `--no-dev`, lockfile pinned, patches applied
 - [ ] Rollback strategy — config revert, database snapshot before deploy
+
+#### Versioning strategy
+
+Every build is tagged. The tag type signals the pipeline stage and what environments are allowed to receive it.
+
+| Stage | Trigger | Tag pattern | Example | Target |
+|-------|---------|-------------|---------|--------|
+| Push to feature branch | automatic | `{last-release}-SNAPSHOT.{sha}` | `0.1.0-SNAPSHOT.a1b2c3` | Pantheon Dev |
+| Merge to `main` | automatic (on push to main) | `{major}.{minor}.{patch}` | `0.2.0` | Homolog → Prod |
+
+**Bump type** is controlled by a label added to the PR before merging:
+
+| Label | Effect | Use when |
+|-------|--------|----------|
+| `release:patch` | `0.1.0` → `0.1.1` | Bug fixes, docs, chores |
+| `release:minor` | `0.1.0` → `0.2.0` | New features, backwards-compatible |
+| `release:major` | `0.1.0` → `1.0.0` | Breaking changes |
+
+If no label is set, the default is `patch`.
+
+**Rules:**
+- SNAPSHOT tags are **never** deployed to production — they identify unstable builds
+- Only clean semver tags (`x.y.z`) reach Homolog and Prod
+- The bump decision is recorded in the PR history as a label, making it auditable
+
+## Weekly Bench Reports
+
+Progress logs summarizing what was built and learned each week, written for professional context.
+
+- [Week of Apr 06–09, 2026](docs/WEEKLY_BENCH_REPORT.md)
 
 ## How to run
 

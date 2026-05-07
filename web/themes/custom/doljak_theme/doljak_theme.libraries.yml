@@ -20,3 +20,11 @@ global-styling:
   dependencies:
     - core/drupal
     - core/once
+
+contact:
+  version: VERSION
+  css:
+    base:
+      css/base/contact-styling.css: {}
+  dependencies:
+    - doljak_theme/global-styling

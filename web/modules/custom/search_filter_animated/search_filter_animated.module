@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Hook implementations for the Search Filter Animated module.
+ */
+
+/**
  * Implements hook_theme().
  */
 function search_filter_animated_theme() {

@@ -1,0 +1,56 @@
+name: 'CI Full'
+
+on:
+  pull_request_review:
+    types:
+      - submitted
+
+jobs:
+  full:
+    name: Full Pipeline
+    runs-on: ubuntu-latest
+    if: github.event.review.state == 'approved'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@690cb7c9d81dbfe51eba732cfca0a00ca42db777
+        with:
+          php-version: '8.4'
+          tools: composer:v2.9.5
+          extensions: mbstring, xml, curl
+          coverage: pcov
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Lint
+        run: find web/modules/custom web/themes/custom -name "*.php" | xargs php -l
+
+      - name: Vulnerability scan
+        run: composer audit --locked --abandoned=report
+
+      - name: Code standards (PHPCS)
+        run: vendor/bin/phpcs -n
+
+      - name: Static analysis (PHPStan)
+        run: vendor/bin/phpstan analyse
+
+      - name: Unit tests (PHPUnit)
+        run: |
+          if find web/modules/custom -name "*Test.php" -path "*/tests/src/Unit/*" | grep -q .; then
+            vendor/bin/phpunit -c web/core --testsuite unit web/modules/custom \
+              --testdox --coverage-clover coverage.xml
+          else
+            echo "No custom unit tests found — skipping PHPUnit."
+          fi
+
+      - name: SonarCloud scan
+        uses: SonarSource/sonarcloud-github-action@383f7e52eae3ab0510c3cb0e7d9d150bbaeab838
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
