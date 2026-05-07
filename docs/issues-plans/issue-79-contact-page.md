@@ -2,8 +2,8 @@
 issue: 79
 title: "[Theme + Form API] Contact page — Twig template, CSS layout and Drupal form integration"
 branch: feat/contact-page-79-twig-template-css-layout-and-drupal-form-integration
-status: in-progress
-last_updated: 04-20-2026
+status: closed
+last_updated: 05-07-2026
 ---
 
 # Issue #79 — [Theme + Form API] Contact page — Twig template, CSS layout and Drupal form integration
@@ -26,7 +26,7 @@ Implement the Waggy Contact page at /contact by creating a custom Twig template 
 - [x] contact-message-form.html.twig criado
 - [x] CSS do layout de contato aplicado (desktop, tablet, mobile)
 - [x] Biblioteca registrada em libraries.yml e anexada via template
-- [ ] Envio validado no Mailpit
+- [x] Envio validado no Mailpit
 
 ## Notes
 - Template suggestions: contact-site-page.html.twig > contact-message-form.html.twig

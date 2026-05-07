@@ -148,7 +148,12 @@ function _doljak_theme_preprocess_footer(array &$variables): void {
  */
 function doljak_theme_preprocess_contact_message_form(array &$variables): void {
   $form = $variables['form'];
-  $variables['attributes'] = new Attribute($form['#attributes'] ?? []);
+  $attributes = new Attribute($form['#attributes'] ?? []);
+  if (!empty($form['#action'])) {
+    $attributes->setAttribute('action', $form['#action']);
+  }
+  $attributes->setAttribute('method', $form['#method'] ?? 'post');
+  $variables['attributes'] = $attributes;
   $variables['contact_form_title'] = $form['#title'] ?? t('Contact');
 }
 
