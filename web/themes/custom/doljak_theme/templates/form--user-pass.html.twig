@@ -6,18 +6,21 @@
       Enter your email and we will send a reset link.
     </p>
 
+    <form {{ attributes }}>
     <div class="auth-card auth-card--centered">
 
         {{ element.name }}
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
 
         {{ element.actions }}
 
         <a href="/user/login" class="auth-link auth-link--center">Back to login</a>
 
     </div>
+    </form>
   </div>
 </section>
 
-{{ element.form_token }}
-{{ element.form_build_id }}
-{{ element.form_id }}
+
