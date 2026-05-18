@@ -21,31 +21,21 @@
 
     <div class="auth-card">
       <h2 class="auth-card__title">Login</h2>
-      <p class="auth-card__subtitle">Use your account email and password.</p>
+      <p class="auth-card__subtitle">Use your account name and password.</p>
 
-      <form class="auth-form" action="#" method="post" novalidate>
-        <div class="auth-field">
-          <label for="login-email">Email</label>
-          <input id="login-email" type="email" placeholder="you@example.com" autocomplete="email">
-        </div>
-
-        <div class="auth-field">
-          <label for="login-password">Password</label>
-          <input id="login-password" type="password" placeholder="••••••••••" autocomplete="current-password">
-        </div>
-
+        {{ element.name }}
         <div class="auth-form__row">
-          <label class="auth-checkbox">
-            <input type="checkbox">
-            <span>Remember me</span>
-          </label>
           <a href="/user/password" class="auth-link">Forgot password?</a>
         </div>
-
-        <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+        {{ element.pass }}
+        {{ element.actions }}
+        
         <a href="/user/register" class="btn btn--secondary btn--full">Create Account</a>
-      </form>
     </div>
 
   </div>
 </section>
+
+{{ element.form_token }}
+{{ element.form_build_id }}
+{{ element.form_id }}

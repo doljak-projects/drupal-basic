@@ -192,6 +192,7 @@
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: #ffffff;
+  margin-bottom: var(--space-2);
 }
 
 .btn--primary:hover,
@@ -203,7 +204,7 @@
 .btn--secondary {
   background-color: #ffffff;
   border-color: var(--color-border);
-  color: var(--color-text-primary);
+  margin-top: var(--space-4);
 }
 
 .btn--secondary:hover,

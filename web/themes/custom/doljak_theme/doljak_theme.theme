@@ -182,3 +182,52 @@ function doljak_theme_form_contact_message_waggy_contact_form_alter(array &$form
   }
 }
 
+ function doljak_theme_form_user_login_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+    $form['#attributes']['class'][] = 'auth-form';
+
+    $form['name']['#wrapper_attributes']['class'][] = 'auth-field';
+    $form['name']['#attributes']['class'][] = 'auth-field__input';
+
+    $form['pass']['#wrapper_attributes']['class'][] = 'auth-field';
+    $form['pass']['#attributes']['class'][] = 'auth-field__input';
+
+    $form['actions']['submit']['#attributes']['class'][] = 'btn';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn--primary';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn--full';
+  }
+
+function doljak_theme_form_user_pass_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $form['#attributes']['class'][] = 'auth-form';
+
+  $form['name']['#wrapper_attributes']['class'][] = 'auth-field';
+  $form['name']['#attributes']['class'][] = 'auth-field__input';
+
+  $form['actions']['submit']['#attributes']['class'][] = 'btn';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn--primary';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn--full';
+  $form['actions']['submit']['#value'] = 'Send Reset Link';
+}
+
+function doljak_theme_theme_suggestions_form_alter(array &$suggestions, array $variables): void {
+  $form_id = $variables['element']['#form_id'] ?? '';
+  $targets = ['user_login_form', 'user_register_form', 'user_pass'];
+  if (in_array($form_id, $targets)) {
+    $suggestions[] = 'form__' . $form_id;
+  }
+}
+
+function doljak_theme_form_user_register_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $form['#attributes']['class'][] = 'auth-form';
+
+  $form['account']['name']['#wrapper_attributes']['class'][] = 'auth-field';
+  $form['account']['name']['#attributes']['class'][] = 'auth-field__input';
+
+  $form['account']['mail']['#wrapper_attributes']['class'][] = 'auth-field';
+  $form['account']['mail']['#attributes']['class'][] = 'auth-field__input';
+
+  $form['account']['pass']['#wrapper_attributes']['class'][] = 'auth-field';
+
+  $form['actions']['submit']['#attributes']['class'][] = 'btn';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn--primary';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn--full';
+}
