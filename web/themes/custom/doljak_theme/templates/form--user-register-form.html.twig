@@ -1,0 +1,36 @@
+<section class="auth-page auth-page--register">
+  <div class="auth-page__inner">
+
+    <div class="auth-hero">
+      <p class="auth-hero__eyebrow">NEW ACCOUNT</p>
+      <h1 class="auth-hero__title">Create a simple profile for faster pet shopping</h1>
+      <p class="auth-hero__desc">
+        Save addresses, track subscriptions and keep your household essentials ready with fewer steps.
+      </p>
+    </div>
+
+    <div class="auth-card">
+      <h2 class="auth-card__title">Create Account</h2>
+      <p class="auth-card__subtitle">Basic information to get started.</p>
+
+
+        {{ element.account.name }}
+
+        {{ element.account.mail }}
+
+        {{ element.account.pass }}
+
+        {{ element.actions }}
+
+        <p class="auth-form__footer-text">
+          Already have an account? <a href="/user/login" class="auth-link">Sign in</a>
+        </p>
+
+    </div>
+
+  </div>
+</section>
+
+{{ element.form_token }}
+{{ element.form_build_id }}
+{{ element.form_id }}

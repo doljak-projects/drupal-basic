@@ -1,4 +1,3 @@
-{{ dump(form|keys) }}
 <section class="auth-page auth-page--reset">
   <div class="auth-reset__inner">
     <p class="auth-hero__eyebrow">PASSWORD HELP</p>
@@ -9,12 +8,9 @@
 
     <div class="auth-card auth-card--centered">
 
-        <div class="auth-field">
-          <label for="reset-email">Email address</label>
-          <input id="reset-email" type="email" placeholder="you@example.com" autocomplete="email">
-        </div>
+        {{ element.name }}
 
-        <button type="submit" class="btn btn--primary btn--full">Send Reset Link</button>
+        {{ element.actions }}
 
         <a href="/user/login" class="auth-link auth-link--center">Back to login</a>
 
@@ -22,6 +18,6 @@
   </div>
 </section>
 
-{{ form.form_token }}
-{{ form.form_build_id }}
-{{ form.form_id }}
+{{ element.form_token }}
+{{ element.form_build_id }}
+{{ element.form_id }}
