@@ -1,0 +1,23 @@
+<section class="auth-page auth-page--logout">
+  <div class="auth-reset__inner">
+    <p class="auth-hero__eyebrow">ACCOUNT SESSION</p>
+    <h1 class="auth-reset__title">Log out of Waggy?</h1>
+    <p class="auth-reset__subtitle">
+      Your cart and saved favorites will stay ready for the next time you sign in.
+    </p>
+
+    <div class="auth-card auth-card--centered auth-card--logout">
+      <div class="auth-logout__icon" aria-hidden="true">-&gt;</div>
+      <h2 class="auth-card__title auth-card__title--small">End current session</h2>
+      <p class="auth-card__subtitle">
+        Confirm to leave your account on this device.
+      </p>
+
+      {{ element.actions }}
+    </div>
+  </div>
+</section>
+
+{{ element.form_token }}
+{{ element.form_build_id }}
+{{ element.form_id }}
