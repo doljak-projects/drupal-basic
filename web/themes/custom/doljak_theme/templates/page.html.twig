@@ -54,7 +54,14 @@
       <span class="visually-hidden">Toggle navigation menu</span>
     </label>
     <label for="header-menu-toggle" class="site-header__menu-backdrop" aria-hidden="true"></label>
-    {{ page.header }}
+    <div class="site-header__inner">
+      {{ page.header }}
+      {% if logged_in %}
+        <a class="site-header__auth-action site-header__auth-action--logout" href="{{ path('user.logout') }}" aria-label="{{ 'Logout from your account'|t }}">{{ 'Logout'|t }}</a>
+      {% else %}
+        <a class="site-header__auth-action site-header__auth-action--login" href="{{ path('user.login') }}" aria-label="{{ 'Login to your account'|t }}">{{ 'Login'|t }}</a>
+      {% endif %}
+    </div>
   </header>
     {{ page.hero }}
   {# <section class="wrapper-hero">
