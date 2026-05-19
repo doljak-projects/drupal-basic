@@ -254,14 +254,17 @@ header[role="banner"] {
   z-index: 100;
 }
 
-/* Inner wrapper — flex row */
-header[role="banner"] > div {
+.site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
   max-width: var(--container-inner);
   margin: 0 auto;
+}
+
+.site-header__inner > .region-header {
+  display: contents;
 }
 
 .site-header__menu-toggle,
@@ -325,6 +328,40 @@ header[role="banner"] > div {
 #block-contact-link-header {
   display: flex;
   align-items: center;
+}
+
+.site-header__auth-action {
+  align-items: center;
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: var(--font-medium);
+  height: 32px;
+  justify-content: center;
+  line-height: 16px;
+  padding: 0 15px;
+  transition: background-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+  white-space: nowrap;
+}
+
+.site-header__auth-action--login {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+.site-header__auth-action--logout {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+  font-weight: var(--font-semibold);
+}
+
+.site-header__auth-action:hover,
+.site-header__auth-action:focus-visible {
+  opacity: 0.78;
+  outline: none;
 }
 
 /* Search */
@@ -430,11 +467,11 @@ header[role="banner"] > div {
     padding: 0 40px;
   }
 
-  header[role="banner"] > div {
+  .site-header__inner {
     align-items: center;
     column-gap: 12px;
     display: grid;
-    grid-template-columns: auto 1fr auto auto auto;
+    grid-template-columns: auto 1fr auto auto auto auto;
     min-height: 80px;
     padding-right: 72px;
     position: relative;
@@ -522,6 +559,11 @@ header[role="banner"] > div {
 
   #block-contact-link-header {
     grid-column: 5;
+  }
+
+  .site-header__auth-action {
+    grid-column: 6;
+    justify-self: end;
   }
 
   #block-doljak-theme-mainnavigation {
@@ -672,14 +714,20 @@ header[role="banner"] > div {
     padding: 0 20px;
   }
 
-  header[role="banner"] > div {
-    column-gap: 10px;
-    grid-template-columns: auto 1fr auto auto;
+  .site-header__inner {
+    column-gap: 8px;
+    grid-template-columns: auto 1fr auto auto auto;
     padding-right: 58px;
   }
 
   #block-contact-link-header {
     display: none;
+  }
+
+  .site-header__auth-action {
+    font-size: 12px;
+    height: 30px;
+    padding: 0 12px;
   }
 
   #block-doljak-theme-sitebranding img {
