@@ -8,7 +8,7 @@
         Save addresses, track subscriptions and keep your household essentials ready with fewer steps.
       </p>
     </div>
-
+    <form {{ attributes }}>
     <div class="auth-card">
       <h2 class="auth-card__title">Create Account</h2>
       <p class="auth-card__subtitle">Basic information to get started.</p>
@@ -26,12 +26,16 @@
         {{ element.form_build_id }}
         {{ element.form_id }}
 
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
+
         <p class="auth-form__footer-text">
           Already have an account? <a href="/user/login" class="auth-link">Sign in</a>
         </p>
 
       </form>
     </div>
-
+    </form>
   </div>
 </section>

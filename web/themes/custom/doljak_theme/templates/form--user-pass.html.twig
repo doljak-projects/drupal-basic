@@ -6,10 +6,14 @@
       Enter your email and we will send a reset link.
     </p>
 
+    <form {{ attributes }}>
     <div class="auth-card auth-card--centered">
 
       <form{{ attributes }}>
         {{ element.name }}
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
 
         {{ element.actions }}
         {{ element.form_token }}
@@ -20,5 +24,6 @@
       </form>
 
     </div>
+    </form>
   </div>
 </section>

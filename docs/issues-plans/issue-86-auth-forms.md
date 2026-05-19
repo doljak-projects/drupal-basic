@@ -2,8 +2,8 @@
 issue: 86
 title: "[Back-End] Auth Forms — connect static templates to Drupal User module"
 branch: feat/auth-forms-86-connect-static-templates-drupal-user-module
-status: in-progress
-last_updated: 05-06-2026
+status: closed
+last_updated: 05-18-2026
 ---
 
 # Issue #86 — Auth Forms — connect static templates to Drupal User module
