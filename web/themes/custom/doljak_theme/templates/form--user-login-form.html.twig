@@ -23,19 +23,20 @@
       <h2 class="auth-card__title">Login</h2>
       <p class="auth-card__subtitle">Use your account name and password.</p>
 
+      <form{{ attributes }}>
         {{ element.name }}
         <div class="auth-form__row">
           <a href="/user/password" class="auth-link">Forgot password?</a>
         </div>
         {{ element.pass }}
         {{ element.actions }}
-        
-        <a href="/user/register" class="btn btn--secondary btn--full">Create Account</a>
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
+      </form>
+
+      <a href="/user/register" class="btn btn--secondary btn--full">Create Account</a>
     </div>
 
   </div>
 </section>
-
-{{ element.form_token }}
-{{ element.form_build_id }}
-{{ element.form_id }}

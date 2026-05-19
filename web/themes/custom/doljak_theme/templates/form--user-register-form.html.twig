@@ -13,6 +13,7 @@
       <h2 class="auth-card__title">Create Account</h2>
       <p class="auth-card__subtitle">Basic information to get started.</p>
 
+      <form{{ attributes }}>
 
         {{ element.account.name }}
 
@@ -21,16 +22,16 @@
         {{ element.account.pass }}
 
         {{ element.actions }}
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
 
         <p class="auth-form__footer-text">
           Already have an account? <a href="/user/login" class="auth-link">Sign in</a>
         </p>
 
+      </form>
     </div>
 
   </div>
 </section>
-
-{{ element.form_token }}
-{{ element.form_build_id }}
-{{ element.form_id }}
