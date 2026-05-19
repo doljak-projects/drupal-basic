@@ -606,6 +606,75 @@
     font-size: 12px;
     margin-top: 12px;
   }
+
+  .auth-page--reset {
+    align-items: flex-start;
+  }
+
+  .auth-page--reset .auth-reset__inner {
+    max-width: 560px;
+    padding: 135px 0 120px;
+  }
+
+  .auth-page--reset .auth-hero__eyebrow {
+    color: var(--color-accent);
+    font-size: 12px;
+    letter-spacing: 6px;
+    line-height: 1.2;
+    margin-bottom: 21px;
+  }
+
+  .auth-page--reset .auth-reset__title {
+    font-size: 48px;
+    line-height: 1.16;
+    margin-bottom: 20px;
+  }
+
+  .auth-page--reset .auth-reset__subtitle {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 26px;
+  }
+
+  .auth-page--reset .auth-card {
+    border: 0;
+    border-radius: 28px;
+    box-shadow: 0 30px 64px rgba(65, 64, 64, 0.12);
+    max-width: 520px;
+    padding: 34px;
+  }
+
+  .auth-page--reset .auth-field {
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .auth-page--reset .auth-field label {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .auth-page--reset .auth-field input {
+    border: 0;
+    border-radius: 15px;
+    font-size: 14px;
+    min-height: 53px;
+    padding: 14px 16px;
+  }
+
+  .auth-page--reset .btn {
+    min-height: 55px;
+  }
+
+  .auth-page--reset .btn--primary {
+    margin-bottom: 0;
+  }
+
+  .auth-page--reset .auth-link--center {
+    color: var(--color-accent-dark);
+    font-size: 14px;
+    margin-top: 20px;
+  }
 }
 
 .auth-form__footer-text {
