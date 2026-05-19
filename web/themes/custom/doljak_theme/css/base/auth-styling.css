@@ -158,6 +158,13 @@
   width: 100%;
 }
 
+.auth-card > .auth-form,
+.auth-card form.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .auth-card__title {
   color: var(--color-text-primary);
   font-family: var(--font-display);
@@ -326,6 +333,13 @@
 
 .btn--full:last-child {
   margin-bottom: 0;
+}
+
+.auth-form .form-actions {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
 }
 
 .auth-form__row {

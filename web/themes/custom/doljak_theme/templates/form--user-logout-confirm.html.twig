@@ -13,11 +13,12 @@
         Confirm to leave your account on this device.
       </p>
 
-      {{ element.actions }}
+      <form{{ attributes }}>
+        {{ element.actions }}
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
+      </form>
     </div>
   </div>
 </section>
-
-{{ element.form_token }}
-{{ element.form_build_id }}
-{{ element.form_id }}

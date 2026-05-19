@@ -9,17 +9,21 @@
     <form {{ attributes }}>
     <div class="auth-card auth-card--centered">
 
+      <form{{ attributes }}>
         {{ element.name }}
         {{ element.form_token }}
         {{ element.form_build_id }}
         {{ element.form_id }}
 
         {{ element.actions }}
+        {{ element.form_token }}
+        {{ element.form_build_id }}
+        {{ element.form_id }}
 
         <a href="/user/login" class="auth-link auth-link--center">Back to login</a>
+      </form>
 
     </div>
     </form>
   </div>
 </section>
-
