@@ -1,0 +1,14 @@
+uuid: f4f9a276-7b81-4268-a1d7-659de4392c6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.api_consumer
+  module:
+    - user
+id: user_add_role_action.api_consumer
+label: 'Add the api_consumer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: api_consumer

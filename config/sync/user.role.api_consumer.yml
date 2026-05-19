@@ -1,0 +1,12 @@
+uuid: c0f50899-5b00-46ac-bae8-9071814edaf2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: api_consumer
+label: api_consumer
+weight: 6
+is_admin: false
+permissions:
+  - 'access content'
