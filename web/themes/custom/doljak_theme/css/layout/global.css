@@ -264,7 +264,10 @@ header[role="banner"] {
 }
 
 .site-header__inner > .region-header {
-  display: contents;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  height: 100%;
 }
 
 .site-header__menu-toggle,
@@ -465,6 +468,10 @@ header[role="banner"] {
   header[role="banner"] {
     overflow: visible;
     padding: 0 40px;
+  }
+
+  .site-header__inner > .region-header {
+    display: contents;
   }
 
   .site-header__inner {
