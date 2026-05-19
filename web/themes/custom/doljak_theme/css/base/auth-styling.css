@@ -383,6 +383,127 @@
   text-decoration-color: var(--color-accent-dark);
 }
 
+@media (min-width: 1200px) {
+  .auth-page--login .auth-page__inner {
+    align-items: start;
+    gap: 0;
+    grid-template-columns: 470px 467px;
+    justify-content: space-between;
+    max-width: 1280px;
+    padding: 101px 0 98px;
+  }
+
+  .auth-page--login .auth-hero {
+    max-width: 470px;
+  }
+
+  .auth-page--login .auth-hero__eyebrow {
+    color: var(--color-accent);
+    font-size: 12px;
+    letter-spacing: 6px;
+    line-height: 1.2;
+    margin-bottom: 21px;
+  }
+
+  .auth-page--login .auth-hero__title {
+    font-size: 48px;
+    line-height: 1.16;
+    margin-bottom: 20px;
+    max-width: 470px;
+  }
+
+  .auth-page--login .auth-hero__desc {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    max-width: 430px;
+  }
+
+  .auth-page--login .auth-hero__stats {
+    gap: 14px;
+  }
+
+  .auth-page--login .auth-stat {
+    background: var(--color-bg-hero);
+    border: 0;
+    border-radius: 20px;
+    min-height: 110px;
+    min-width: 140px;
+    padding: 24px 20px 18px;
+  }
+
+  .auth-page--login .auth-stat strong {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .auth-page--login .auth-stat span {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .auth-page--login .auth-card {
+    border: 0;
+    border-radius: 28px;
+    box-shadow: 0 30px 64px rgba(65, 64, 64, 0.12);
+    max-width: 467px;
+    min-height: 504px;
+    padding: 34px;
+  }
+
+  .auth-page--login .auth-card__title {
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 5px;
+  }
+
+  .auth-page--login .auth-card__subtitle {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 22px;
+  }
+
+  .auth-page--login .auth-field {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .auth-page--login .auth-field label {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .auth-page--login .auth-field input {
+    border: 0;
+    border-radius: 15px;
+    font-size: 14px;
+    min-height: 53px;
+    padding: 14px 16px;
+  }
+
+  .auth-page--login .auth-form__row {
+    margin-bottom: 15px;
+  }
+
+  .auth-page--login .auth-link {
+    font-size: 13px;
+  }
+
+  .auth-page--login .btn {
+    min-height: 55px;
+  }
+
+  .auth-page--login .btn--primary {
+    margin-bottom: 0;
+  }
+
+  .auth-page--login .btn--secondary {
+    margin-top: 20px;
+    min-height: 52px;
+  }
+}
+
 .auth-form__footer-text {
   color: var(--color-text-secondary);
   font-family: var(--font-body);
