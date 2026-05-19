@@ -2,8 +2,8 @@
 issue: 74
 title: "[Study] PHP Object-Oriented Programming — Coursera course"
 branch: n/a — external study track, no branch required
-status: in-progress
-last_updated: 04-10-2026
+status: closed
+last_updated: 05-18-2026
 ---
 
 # Issue #74 — PHP Object-Oriented Programming — Coursera course
