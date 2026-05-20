@@ -257,17 +257,34 @@ header[role="banner"] {
 .site-header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: var(--space-8);
   height: 100%;
+  width: 100%;
   max-width: var(--container-inner);
   margin: 0 auto;
+}
+
+.site-header__inner > div {
+  width: 100%;
+  display:flex;
 }
 
 .site-header__inner > .region-header {
   align-items: center;
   display: flex;
   flex: 1;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--space-5);
   height: 100%;
+  min-width: 0;
+}
+
+.site-header__inner > .region-header > * {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: auto;
 }
 
 .site-header__menu-toggle,
@@ -329,8 +346,10 @@ header[role="banner"] {
 #block-doljak-theme-searchfilteranimated,
 #block-waggy-wishlist-header,
 #block-contact-link-header {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
+  width: auto;
 }
 
 .site-header__auth-action {
@@ -346,6 +365,7 @@ header[role="banner"] {
   justify-content: center;
   line-height: 16px;
   padding: 0 15px;
+  margin-left: auto;
   transition: background-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
   white-space: nowrap;
 }
@@ -470,15 +490,10 @@ header[role="banner"] {
     padding: 0 40px;
   }
 
-  .site-header__inner > .region-header {
-    display: contents;
-  }
-
   .site-header__inner {
     align-items: center;
-    column-gap: 12px;
-    display: grid;
-    grid-template-columns: auto 1fr auto auto auto auto;
+    display: flex;
+    gap: 12px;
     min-height: 80px;
     padding-right: 72px;
     position: relative;
@@ -552,31 +567,24 @@ header[role="banner"] {
   }
 
   #block-doljak-theme-sitebranding {
-    grid-column: 1;
+    flex-shrink: 0;
   }
 
   #block-doljak-theme-searchfilteranimated {
-    grid-column: 3;
-    justify-self: end;
+    flex-shrink: 0;
   }
 
   #block-waggy-wishlist-header {
-    grid-column: 4;
+    flex-shrink: 0;
   }
 
   #block-contact-link-header {
-    grid-column: 5;
-  }
-
-  .site-header__auth-action {
-    grid-column: 6;
-    justify-self: end;
+    flex-shrink: 0;
   }
 
   #block-doljak-theme-mainnavigation {
     display: block;
     flex: none;
-    grid-column: 1 / -1;
     max-width: calc(100vw - 32px);
     opacity: 0;
     pointer-events: none;
@@ -723,7 +731,8 @@ header[role="banner"] {
 
   .site-header__inner {
     column-gap: 8px;
-    grid-template-columns: auto 1fr auto auto auto;
+    display: flex;
+    justify-content: space-between;
     padding-right: 58px;
   }
 
