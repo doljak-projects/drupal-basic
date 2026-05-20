@@ -490,6 +490,10 @@ header[role="banner"] {
     padding: 0 40px;
   }
 
+  .site-header__inner > .region-header {
+    display: contents;
+  }
+
   .site-header__inner {
     align-items: center;
     display: flex;
